@@ -1,0 +1,6 @@
+*.js.map
+*.js
+.atomignore
+node_modules
+typings
+*.json
