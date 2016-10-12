@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import NavigationBar from './components/NavigationBar';
 
-
 class App extends Component {
 
   render() {
@@ -10,7 +9,6 @@ class App extends Component {
       <div>
         <NavigationBar />
         {this.props.children}
-
       </div>
     );
   }
