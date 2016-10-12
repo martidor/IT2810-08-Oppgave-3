@@ -22,12 +22,12 @@ class NavigationBar extends Component {
 	      		<NavItem eventKey={1}><FontAwesome name="area-chart" /> Oversikt</NavItem>
 	      	</LinkContainer>
 	      	<LinkContainer to="/sok">
-	        	<NavItem eventKey={2} href="/search"><FontAwesome name="search" /> Søk</NavItem>
+	        	<NavItem eventKey={2}><FontAwesome name="search" /> Søk</NavItem>
 	        </LinkContainer>
 	        <LinkContainer to="/profil">
-	        	<NavItem eventKey={3} href="/user"><FontAwesome name="user" /> Profil</NavItem>
+	        	<NavItem eventKey={3}><FontAwesome name="user" /> Profil</NavItem>
         	</LinkContainer>
-	        <NavItem eventKey={4} href="#"><FontAwesome name="sign-out" /> Logg ut</NavItem>
+	        <NavItem eventKey={4}><FontAwesome name="sign-out" /> Logg ut</NavItem>
 	      </Nav>
 	    </Navbar.Collapse>
 	  </Navbar>
