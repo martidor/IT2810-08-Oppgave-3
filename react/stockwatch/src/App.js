@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import NavigationBar from './NavigationBar.js';
+import NavigationBar from './components/NavigationBar';
 
 class App extends Component {
 
@@ -9,15 +8,7 @@ class App extends Component {
     return (
       <div>
         <NavigationBar />
-        <div className="App">
-          <div className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h2>Welcome to React</h2>
-          </div>
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-          </p>
-        </div>
+        {this.props.children}
       </div>
     );
   }
