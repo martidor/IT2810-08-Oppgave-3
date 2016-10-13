@@ -14,6 +14,7 @@ var SokComponent = (function () {
     }
     SokComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-app',
             templateUrl: 'sok.component.html',
             styleUrls: ['sok.component.css']

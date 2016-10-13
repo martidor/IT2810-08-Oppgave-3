@@ -14,6 +14,7 @@ var ProfilComponent = (function () {
     }
     ProfilComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-app',
             templateUrl: 'profil.component.html',
             styleUrls: ['profil.component.css']

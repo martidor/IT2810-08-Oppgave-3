@@ -14,9 +14,11 @@ var NavComponent = (function () {
     }
     NavComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'navigation',
-            templateUrl: './nav/nav.component.html',
-            styleUrls: ['./nav/nav.component.css']
+            /*templateUrl: 'nav.component.html',*/
+            template: "\n  <nav>\n    <a>Navigation:</a>\n    <ul>\n      <li><a [routerLink]=\"['oversikt']\">Oversikt</a></li>\n      <li><a [routerLink]=\"['sok']\">S\u00F8k</a></li>\n      <li><a [routerLink]=\"['profil']\">Profile</a></li>\n      <li><a [routerLink]=\"['loggut']\">Logg ut</a></li>\n    </ul>\n  </nav>\n  ",
+            styleUrls: ['nav.component.css']
         }), 
         __metadata('design:paramtypes', [])
     ], NavComponent);

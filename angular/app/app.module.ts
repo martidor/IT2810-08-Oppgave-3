@@ -10,21 +10,21 @@ import { NavComponent } from './nav/nav.component';
 @NgModule({
   imports: [
     BrowserModule,
-  /*RouterModule.forRoot([
-    { path: '/oversikt', component: OversiktComponent },
-      { path: '/sok', component: SokComponent },
+  RouterModule.forRoot([
+  { path: 'oversikt', component: OversiktComponent },
+      { path: 'sok', component: SokComponent },
       { path: 'profil', component: ProfilComponent },
-      { path: '/loggut', component: LoggUtComponent },
-      { path: '/nav', component: NavComponent }
-    ])*/
+      { path: 'loggut', component: LoggUtComponent },
+      { path: '', component: AppComponent }
+    ])
   ],
   declarations: [
     AppComponent,
-    /*NavComponent,
+    NavComponent,
     OversiktComponent,
     SokComponent,
     ProfilComponent,
-    LoggUtComponent*/
+    LoggUtComponent
 
   ],
   bootstrap:    [ AppComponent ]

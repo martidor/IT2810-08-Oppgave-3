@@ -16,6 +16,7 @@ var OversiktComponent = (function () {
     }
     OversiktComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'oversikt',
             templateUrl: 'oversikt.component.html',
             styleUrls: ['oversikt.component.css']

@@ -14,6 +14,7 @@ var LoggUtComponent = (function () {
     }
     LoggUtComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-app',
             templateUrl: 'loggut.component.html',
             styleUrls: ['loggut.component.css']
