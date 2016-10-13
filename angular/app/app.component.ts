@@ -4,8 +4,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   moduleId: module.id,
   selector: 'my-app',
-  template: '<h1>Main</h1>'
-  /*template: `
+  template: `
   <nav>
     <a>Navigation:</a>
     <ul>
@@ -15,6 +14,7 @@ import { RouterModule } from '@angular/router';
       <li><a [routerLink]="['loggut']">Logg ut</a></li>
     </ul>
   </nav>
-  `,*/
+  <router-outlet></router-outlet>
+  `,
 })
 export class AppComponent { }
