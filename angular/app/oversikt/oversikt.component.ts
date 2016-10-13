@@ -66,8 +66,6 @@ export class OversiktComponent implements OnInit {
                          err =>  this.errorMessage = <any>err);
     }
 
-    //console.log(this.jSon);
-
     sortObject(){
       if(this.jSon!=undefined && !this.onlyOnce){
         this.funds=this.jSon.funds;

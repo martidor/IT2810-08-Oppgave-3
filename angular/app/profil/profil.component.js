@@ -16,8 +16,8 @@ var ProfilComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
-            template: '<h1>Profil</h1>',
-            styleUrls: ['profil.component.css']
+            styleUrls: ['profil.component.css'],
+            template: "\n\t<div class=\"profil\">\n\t\t<h2> Profil </h2>\n\t</div>\n\n\t "
         }), 
         __metadata('design:paramtypes', [])
     ], ProfilComponent);

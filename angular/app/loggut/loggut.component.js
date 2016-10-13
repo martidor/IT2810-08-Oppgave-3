@@ -16,8 +16,8 @@ var LoggUtComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
-            template: '<h1>Du har blitt logget ut</h1>',
-            styleUrls: ['loggut.component.css']
+            styleUrls: ['loggut.component.css'],
+            template: "\n\t<div class=\"loggut\">\n\t\t<h2> Du har blitt logget ut </h2>\n\t</div>\n\n\t "
         }), 
         __metadata('design:paramtypes', [])
     ], LoggUtComponent);

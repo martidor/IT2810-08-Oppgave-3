@@ -9,19 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var LoggUtComponent = (function () {
-    function LoggUtComponent() {
+var HomeComponent = (function () {
+    function HomeComponent() {
     }
-    LoggUtComponent = __decorate([
+    HomeComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
-            template: '<h1>Du har blitt logget ut</h1>',
-            styleUrls: ['loggut.component.css']
+            styleUrls: ['home.component.css'],
+            template: " \n \t<div class = \"home\">\n \t\t<h2> B\u00F8rsoversikten </h2>\n\n    \t<img alt=\"IMG GOES HERE\" ng-src=\"http://www.norcap.no/img/filarkiv/Image/graf_Oslo_Bors_november_2014.png\"/>\n\n\t</div>",
         }), 
         __metadata('design:paramtypes', [])
-    ], LoggUtComponent);
-    return LoggUtComponent;
+    ], HomeComponent);
+    return HomeComponent;
 }());
-exports.LoggUtComponent = LoggUtComponent;
-//# sourceMappingURL=loggut.component.js.map
+exports.HomeComponent = HomeComponent;
+//# sourceMappingURL=home.component.js.map

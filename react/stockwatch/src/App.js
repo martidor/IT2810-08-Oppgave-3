@@ -10,7 +10,10 @@ class App extends Component {
       <div>
         <NavigationBar />
         <Grid>
-            {this.props.children}
+          <div className="header">
+            <h2> {this.props.children.props.route.name} </h2>
+          </div>
+          {this.props.children}
         </Grid>
       </div>
     );

@@ -1,6 +1,12 @@
 .search{
-
+	text-align: center;
 }
 .searchbar{
-	text-align: center;
+	
+}
+.searchbar input{
+	width: 60%;
+}
+.searchdisplay{
+
 }

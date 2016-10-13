@@ -16,8 +16,8 @@ var LoggInnComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
-            template: '<h1>Du er nå logget inn</h1>',
-            styleUrls: ['logginn.component.css']
+            styleUrls: ['logginn.component.css'],
+            template: "\n\t<div class=\"logginn\">\n\n\t\t<h2>Logg inn:</h2>\n\t\t<button ng-href=\"#\">Logg inn med facebook</button>\n\t</div>\n\n\t "
         }), 
         __metadata('design:paramtypes', [])
     ], LoggInnComponent);
