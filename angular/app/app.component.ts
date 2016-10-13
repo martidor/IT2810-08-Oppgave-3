@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" data-unsp-sanitized="clean" href=
-                "/">Stockwatch</a><button class="navbar-toggle collapsed" type=
+                "/home">Stockwatch</a><button class="navbar-toggle collapsed" type=
                 "button"><span class="sr-only">
                 navigation</span><span class="icon-bar"></span><span class=
                 "icon-bar"></span><span class="icon-bar"></span></button>

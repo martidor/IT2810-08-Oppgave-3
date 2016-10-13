@@ -1,4 +1,4 @@
-import { Component } from  '@angular/core'
+import { Component, Input } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -12,6 +12,12 @@ import { Component } from  '@angular/core'
  		<div class ="searchbar">
  			<input type="text" ng-model="searchtext" />
  		</div>
+
+ 		<div class="searchdisplay">
+ 		<p> result1 </p>
+ 		<p> result2 </p>
+ 		</div>
+
 	</div>`,
 
 })
