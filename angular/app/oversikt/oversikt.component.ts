@@ -3,7 +3,7 @@ import { Component } from  '@angular/core'
 @Component({
   moduleId: module.id,
   selector: 'oversikt',
-  templateUrl: 'oversikt.component.html',
+  template: '<h1>Oversikt</h1>',
   styleUrls: ['oversikt.component.css']
 })
 export class OversiktComponent {
