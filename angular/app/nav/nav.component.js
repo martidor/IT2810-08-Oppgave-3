@@ -15,8 +15,8 @@ var NavComponent = (function () {
     NavComponent = __decorate([
         core_1.Component({
             selector: 'navigation',
-            templateUrl: 'nav.component.html',
-            styleUrls: ['nav.component.css']
+            templateUrl: './nav/nav.component.html',
+            styleUrls: ['./nav/nav.component.css']
         }), 
         __metadata('design:paramtypes', [])
     ], NavComponent);
