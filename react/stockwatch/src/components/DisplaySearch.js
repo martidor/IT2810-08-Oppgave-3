@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 import './DisplaySearch.css';
 class DisplaySearch extends Component {
   
@@ -17,6 +18,7 @@ class DisplaySearch extends Component {
         <td>{this.props.fund.dateUpdated}</td>
         <td className={this.getClassName(this.props.fund.percentChanged)}>{this.props.fund.percentChanged} %</td>
         <td>{this.props.fund.stockValue} kr</td>
+        <td><Button bsSize="xsmall">Legg til</Button></td>
       </tr>
     );
   }

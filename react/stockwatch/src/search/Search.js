@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Grid, Row, Col, FormControl , FormGroup, ControlLabel} from 'react-bootstrap';
+import { Table, Grid, Row, Col, FormControl, FormGroup, ControlLabel} from 'react-bootstrap';
 import DisplaySearch from '../components/DisplaySearch';
 import funds from '../dummy-funds.json';
 import './Search.css';
@@ -30,51 +30,46 @@ class Search extends Component {
   
   render() {
     return (
-      <div>
-        <div className="searchhead">
-          <h2> Søk </h2>
-        </div>
-          <Grid>
-            <Row className="show-grid">
-              <Col md={12}>
-                <FormGroup
-                  controlId="formBasicText"
-                >
-                  <ControlLabel>Søk etter fond/aksje</ControlLabel>
-                  <FormControl
-                    type="text"
-                    placeholder="Søk etter fond/aksje"
-                    onChange={this.search.bind(this)}
-                  />
-                </FormGroup>
-              </Col>
-            </Row>
-            <Row className="show-grid">
-              <Col md={12}>
-                <Table hover responsive>
-                  <thead>
-                    <tr>
-                      <th>Navn</th>
-                      <th>Oppdatert</th>
-                      <th>Siste dag</th>
-                      <th>Pris</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {
-                      this.state.funds.map(function(fund) {
-                        return (
-                          <DisplaySearch fund={fund} />
-                        )
-                      })
-                    }
-                  </tbody>
-                </Table>
-              </Col>
-            </Row>
-          </Grid>
-        
-      </div>
+      <Grid>
+        <Row className="show-grid">
+          <Col md={12}>
+            <FormGroup
+              controlId="formBasicText"
+            >
+              <ControlLabel>Søk etter fond/aksje</ControlLabel>
+              <FormControl
+                type="text"
+                placeholder="Søk etter fond/aksje"
+                onChange={this.search.bind(this)}
+              />
+            </FormGroup>
+          </Col>
+        </Row>
+        <Row className="show-grid">
+          <Col md={12}>
+            <Table hover responsive>
+              <thead>
+                <tr>
+                  <th>Navn</th>
+                  <th>Oppdatert</th>
+                  <th>Siste dag</th>
+                  <th>Pris</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  this.state.funds.map(function(fund) {
+                    return (
+                      <DisplaySearch fund={fund} />
+                    )
+                  })
+                }
+              </tbody>
+            </Table>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }
