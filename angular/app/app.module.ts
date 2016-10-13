@@ -6,7 +6,6 @@ import { SokComponent } from './sok/sok.component';
 import { ProfilComponent } from './profil/profil.component';
 import { LoggUtComponent } from './loggut/loggut.component';
 import { RouterModule } from '@angular/router';
-import { NavComponent } from './nav/nav.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -15,12 +14,11 @@ import { NavComponent } from './nav/nav.component';
       { path: 'sok', component: SokComponent },
       { path: 'profil', component: ProfilComponent },
       { path: 'loggut', component: LoggUtComponent },
-      { path: '', component: AppComponent }
+    /*  { path: '', component: AppComponent }*/
     ])
   ],
   declarations: [
     AppComponent,
-    NavComponent,
     OversiktComponent,
     SokComponent,
     ProfilComponent,

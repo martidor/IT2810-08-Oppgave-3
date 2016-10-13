@@ -16,7 +16,6 @@ var sok_component_1 = require('./sok/sok.component');
 var profil_component_1 = require('./profil/profil.component');
 var loggut_component_1 = require('./loggut/loggut.component');
 var router_1 = require('@angular/router');
-var nav_component_1 = require('./nav/nav.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -29,12 +28,10 @@ var AppModule = (function () {
                     { path: 'sok', component: sok_component_1.SokComponent },
                     { path: 'profil', component: profil_component_1.ProfilComponent },
                     { path: 'loggut', component: loggut_component_1.LoggUtComponent },
-                    { path: '', component: app_component_1.AppComponent }
                 ])
             ],
             declarations: [
                 app_component_1.AppComponent,
-                nav_component_1.NavComponent,
                 oversikt_component_1.OversiktComponent,
                 sok_component_1.SokComponent,
                 profil_component_1.ProfilComponent,

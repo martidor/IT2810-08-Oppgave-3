@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
-import { Table, Grid, Row, Col } from 'react-bootstrap';
+import { Table, Row, Col } from 'react-bootstrap';
 import funds from '../dummy-funds.json';
 import FundRow from '../components/FundRow';
+import FundModal from '../components/FundModal';
 
 class Overview extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {show: false, fund: {}};
+    this.showModal = this.showModal.bind(this);
+  }
+
+  showModal(fund) {
+    this.setState({show: true, fund: fund});
+  }
 
   render() {
     return (
@@ -22,15 +32,16 @@ class Overview extends Component {
             </thead>
             <tbody>
               {
-                funds.funds.map(function(fund) {
+                funds.funds.map((fund, i) => {
                   return (
-                    <FundRow fund={fund} />
+                    <FundRow key={i} showModal={() => this.showModal(fund)} fund={fund} />
                   )
                 })
               }
             </tbody>
           </Table>
         </Col>
+        <FundModal show={this.state.show} fund={this.state.fund}/>
       </Row>
     );
   }

@@ -16,8 +16,9 @@ var SokComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
-            templateUrl: 'sok.component.html',
-            styleUrls: ['sok.component.css']
+            template: '<h1>Søk</h1>',
+            styleUrls: ['sok.component.css'],
+            template: " \n  <div class='testcont'>\n  \t\t<h1> WADUP </h1>\n  \t\t\n\t</div>",
         }), 
         __metadata('design:paramtypes', [])
     ], SokComponent);
