@@ -4,7 +4,7 @@ import Searchbar from '../components/Searchbar';
 import DisplaySearch from '../components/DisplaySearch';
 import funds from '../dummy-funds.json';
 import './Search.css';
-import './searchscript.js';
+
 
 class Search extends Component {
   
