@@ -1,0 +1,9 @@
+#upper {
+	height:200px;
+	width: auto;
+}
+#bottom {
+	height: auto;
+	width: 700px;
+	margin: 50px auto 50px;
+}

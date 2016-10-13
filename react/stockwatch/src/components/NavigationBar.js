@@ -27,6 +27,9 @@ class NavigationBar extends Component {
 	        <LinkContainer to="/profil">
 	        	<NavItem eventKey={3}><FontAwesome name="user" /> Profil</NavItem>
         	</LinkContainer>
+        	<LinkContainer to="/logg-inn">
+	        	<NavItem eventKey={3}><FontAwesome name="sign-in" /> Logg inn</NavItem>
+        	</LinkContainer>
 	        <NavItem eventKey={4}><FontAwesome name="sign-out" /> Logg ut</NavItem>
 	      </Nav>
 	    </Navbar.Collapse>
