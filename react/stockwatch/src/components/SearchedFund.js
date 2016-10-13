@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
-import './DisplaySearch.css';
-class DisplaySearch extends Component {
+import './SearchedFund.css';
+
+class SearchedFund extends Component {
   
   getClassName(property) {
     if (property < 0) 
@@ -24,4 +25,4 @@ class DisplaySearch extends Component {
   }
 }
 
-export default DisplaySearch;
+export default SearchedFund;
