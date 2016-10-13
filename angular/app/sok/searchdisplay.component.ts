@@ -9,8 +9,9 @@ import { Component } from  '@angular/core'
 
   template: ` 
  	<div class = "search">
- 		<div class ="searchbar">
- 			<input type="text" ng-model="searchtext" />
+ 		<div class ="searchdisplay">
+ 			<p> RESULT1 </p>
+ 			<p> RESULT2 </p>
  		</div>
 	</div>`,
 

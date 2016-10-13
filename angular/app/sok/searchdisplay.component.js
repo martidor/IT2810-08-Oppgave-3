@@ -17,11 +17,11 @@ var SokComponent = (function () {
             moduleId: module.id,
             selector: 'my-app',
             styleUrls: ['sok.component.css'],
-            template: " \n \t<div class = \"search\">\n \t\t<div class =\"searchbar\">\n \t\t\t<input type=\"text\" ng-model=\"searchtext\" />\n \t\t</div>\n\t</div>",
+            template: " \n \t<div class = \"search\">\n \t\t<div class =\"searchdisplay\">\n \t\t\t<p> RESULT1 </p>\n \t\t\t<p> RESULT2 </p>\n \t\t</div>\n\t</div>",
         }), 
         __metadata('design:paramtypes', [])
     ], SokComponent);
     return SokComponent;
 }());
 exports.SokComponent = SokComponent;
-//# sourceMappingURL=sok.component.js.map
+//# sourceMappingURL=searchdisplay.component.js.map
