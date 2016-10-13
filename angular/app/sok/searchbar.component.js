@@ -24,4 +24,4 @@ var SokComponent = (function () {
     return SokComponent;
 }());
 exports.SokComponent = SokComponent;
-//# sourceMappingURL=sok.component.js.map
+//# sourceMappingURL=searchbar.component.js.map
