@@ -14,6 +14,7 @@ var app_component_1 = require('./app.component');
 var oversikt_component_1 = require('./oversikt/oversikt.component');
 var sok_component_1 = require('./sok/sok.component');
 var profil_component_1 = require('./profil/profil.component');
+var logginn_component_1 = require('./logginn/logginn.component');
 var loggut_component_1 = require('./loggut/loggut.component');
 var router_1 = require('@angular/router');
 var AppModule = (function () {
@@ -27,6 +28,7 @@ var AppModule = (function () {
                     { path: 'oversikt', component: oversikt_component_1.OversiktComponent },
                     { path: 'sok', component: sok_component_1.SokComponent },
                     { path: 'profil', component: profil_component_1.ProfilComponent },
+                    { path: 'logginn', component: logginn_component_1.LoggInnComponent },
                     { path: 'loggut', component: loggut_component_1.LoggUtComponent },
                 ])
             ],
@@ -35,6 +37,7 @@ var AppModule = (function () {
                 oversikt_component_1.OversiktComponent,
                 sok_component_1.SokComponent,
                 profil_component_1.ProfilComponent,
+                logginn_component_1.LoggInnComponent,
                 loggut_component_1.LoggUtComponent
             ],
             bootstrap: [app_component_1.AppComponent]
