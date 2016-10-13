@@ -10,7 +10,7 @@ class Profile extends Component {
 					<ProfileTable />
 				</div>
 				<div id="bottom">
-					<img src={"http://www.itjobswatch.co.uk/charts/daily-rate-trend.aspx?s=highcharts+js&l=uk"} />
+					<img alt="chart" src={"http://www.itjobswatch.co.uk/charts/daily-rate-trend.aspx?s=highcharts+js&l=uk"} />
 				</div>
 			</div>
 		);
