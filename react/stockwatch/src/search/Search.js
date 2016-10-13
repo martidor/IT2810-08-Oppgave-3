@@ -14,9 +14,6 @@ class Search extends Component {
         <div className="searchhead">
         <h2> Søk </h2>
         <Searchbar />
-        
-        
-        
         </div>
           <Grid>
             <Row className="show-grid">

@@ -7,7 +7,7 @@ class Searchbar extends Component {
     <div>
       <div className="searchbar">
    
-      	<input type="text" id="funds" />
+      	<input type="text" id="XXX" />
 
       </div>
 
