@@ -8,11 +8,11 @@ import { Component } from  '@angular/core'
 
   template: ` 
   <div class='testcont'>
-  		<h1> WADUP </h1>
-  		
+  		<input></input>
+
 	</div>`,
 
 })
-export class SokComponent {
+export class SearchbarComponent {
 
 }

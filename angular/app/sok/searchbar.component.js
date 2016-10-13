@@ -9,19 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var SokComponent = (function () {
-    function SokComponent() {
+var SearchbarComponent = (function () {
+    function SearchbarComponent() {
     }
-    SokComponent = __decorate([
+    SearchbarComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
             styleUrls: ['sok.component.css'],
-            template: " \n  <div class='testcont'>\n  \t\t<h1> WADUP </h1>\n  \t\t\n\t</div>",
+            template: " \n  <div class='testcont'>\n  \t\t<input></input>\n\n\t</div>",
         }), 
         __metadata('design:paramtypes', [])
-    ], SokComponent);
-    return SokComponent;
+    ], SearchbarComponent);
+    return SearchbarComponent;
 }());
-exports.SokComponent = SokComponent;
-//# sourceMappingURL=sok.component.js.map
+exports.SearchbarComponent = SearchbarComponent;
+//# sourceMappingURL=searchbar.component.js.map
