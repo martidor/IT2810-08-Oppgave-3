@@ -4,11 +4,10 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="App">
-          <div className="App-header">
-            <h2>Home</h2>
-          </div>
-        </div>
+      <div className="homehead">
+      <h2> inserttext </h2>
+
+       </div>
     );
   }
 }

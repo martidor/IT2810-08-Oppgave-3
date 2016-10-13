@@ -74,3 +74,9 @@ Session.vim
 *~
 # auto-generated tag files
 tags
+
+### Bower ###
+bower_components
+.bower-cache
+.bower-registry
+.bower-tmp
