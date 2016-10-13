@@ -8,7 +8,7 @@ import { Component } from  '@angular/core'
 
   template: ` 
   <div class='testcont'>
-  		<input></input>
+  		
 
 	</div>`,
 

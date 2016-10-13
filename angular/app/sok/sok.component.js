@@ -11,14 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var SokComponent = (function () {
     function SokComponent() {
+        this.bajs = 'hei';
     }
     SokComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
-            template: '<h1>Søk</h1>',
             styleUrls: ['sok.component.css'],
-            template: " \n  <div class='testcont'>\n  \t\t<h1> WADUP </h1>\n  \t\t\n\t</div>",
+            template: " \n  <div>\n  \t\t\n  \t\t<input type=\"text\" ng-model=\"thetext\" />\n  \t\t<p>{{thetext}}</p>\n  \t\t<p> down here </p>\n  \t\t<p>{{bajs}} , du </p>\n  \t\t\n<div ng-app=\"\">\n  <form>\n    <input type=\"text\" ng-model=\"firstname\">\n  </form>\n  <h1>You entered: {{firstname}}</h1>\n</div>\n\n\n\t</div>",
         }), 
         __metadata('design:paramtypes', [])
     ], SokComponent);

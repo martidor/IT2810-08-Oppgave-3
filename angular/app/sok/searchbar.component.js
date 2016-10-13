@@ -17,7 +17,7 @@ var SearchbarComponent = (function () {
             moduleId: module.id,
             selector: 'my-app',
             styleUrls: ['sok.component.css'],
-            template: " \n  <div class='testcont'>\n  \t\t<input></input>\n\n\t</div>",
+            template: " \n  <div class='testcont'>\n  \t\t\n\n\t</div>",
         }), 
         __metadata('design:paramtypes', [])
     ], SearchbarComponent);
