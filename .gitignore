@@ -7,6 +7,9 @@ logs
 *.log
 npm-debug.log*
 
+#nohup
+nohup.out
+
 # Runtime data
 pids
 *.pid
