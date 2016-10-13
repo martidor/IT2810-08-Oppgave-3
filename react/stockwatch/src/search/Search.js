@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Table, Grid, Row, Col, FormControl, FormGroup, ControlLabel} from 'react-bootstrap';
-import DisplaySearch from '../components/DisplaySearch';
+import { Table, Row, Col, FormControl, FormGroup, ControlLabel} from 'react-bootstrap';
+import SearchedFund from '../components/SearchedFund';
 import funds from '../dummy-funds.json';
 import './Search.css';
 import Fuse from'fuse.js';
@@ -30,7 +30,7 @@ class Search extends Component {
   
   render() {
     return (
-      <Grid>
+      <div>
         <Row className="show-grid">
           <Col md={12}>
             <FormGroup
@@ -61,7 +61,7 @@ class Search extends Component {
                 {
                   this.state.funds.map(function(fund) {
                     return (
-                      <DisplaySearch fund={fund} />
+                      <SearchedFund fund={fund} />
                     )
                   })
                 }
@@ -69,7 +69,7 @@ class Search extends Component {
             </Table>
           </Col>
         </Row>
-      </Grid>
+      </div>
     );
   }
 }
