@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ProfileTable from './components/ProfileTable.js';
+import ProfileTable from '../components/ProfileTable.js';
 import './Profile.css';
 
 class Profile extends Component {

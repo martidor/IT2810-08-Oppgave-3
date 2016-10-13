@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './search.css';
 import './FundRow.css';
 class DisplaySearch extends Component {
   

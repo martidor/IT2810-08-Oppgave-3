@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Table, Grid, Row, Col } from 'react-bootstrap';
-import funds from './dummy-funds.json';
-import FundRow from './components/FundRow';
+import funds from '../dummy-funds.json';
+import FundRow from '../components/FundRow';
 
 class Overview extends Component {
 

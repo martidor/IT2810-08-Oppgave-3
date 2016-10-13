@@ -2,12 +2,12 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router'
 import App from './App';
-import Overview from './Overview';
-import Profile from './Profile';
-import Home from './Home'
-import Login from './Login'
-import NotFound from './NotFound'
-import Search from './Search';
+import Overview from './overview/Overview';
+import Profile from './profile/Profile';
+import Home from './home/Home'
+import Login from './login/Login'
+import NotFound from './notfound/NotFound'
+import Search from './search/Search';
 import './index.css';
 
 render(
@@ -24,15 +24,3 @@ render(
 	  </Router>
 	), document.getElementById('root')
 );
-
-/*
-<Router history={browserHistory}>
-	<Route path="/" component={App}>
-	  <Route path="about" component={About}/> 
-	  <Route path="users" component={Users}>
-	    <Route path="/user/:userId" component={User}/>
-	  </Route>
-	  <Route path="*" component={NoMatch}/>
-	</Route>
-</Router>
-*/
