@@ -9,19 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var SokComponent = (function () {
-    function SokComponent() {
+var LoggInnComponent = (function () {
+    function LoggInnComponent() {
     }
-    SokComponent = __decorate([
+    LoggInnComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
-            styleUrls: ['sok.component.css'],
-            template: " \n \t<div class = \"search\">\n \t\t<div class =\"searchbar\">\n \t\t\t<input type=\"text\" ng-model=\"searchtext\" />\n \t\t</div>\n\t</div>",
+            template: '<h1>Du er nå logget inn</h1>',
+            styleUrls: ['logginn.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], SokComponent);
-    return SokComponent;
+    ], LoggInnComponent);
+    return LoggInnComponent;
 }());
-exports.SokComponent = SokComponent;
-//# sourceMappingURL=sok.component.js.map
+exports.LoggInnComponent = LoggInnComponent;
+//# sourceMappingURL=logginn.component.js.map

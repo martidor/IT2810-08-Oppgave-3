@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var funds_service_1 = require("./funds.service");
+var core_1 = require('@angular/core');
+var funds_service_1 = require('./funds.service');
 var FundRow = (function () {
     function FundRow() {
     }
@@ -33,18 +33,18 @@ var OversiktComponent = (function () {
         console.log(_fundService.getFunds());
         ;
     }
+    OversiktComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            providers: [funds_service_1.FundService],
+            selector: 'oversikt',
+            //templateUrl: 'oversikt.component.html',
+            template: "\n    <tr>\n      <td>{{row.name}}</td>\n      <td>{{row.dateUpdated}}</td>\n      <td>{{row.percentChanged}}</td>\n      <td>{{row.return}}</td>\n      <td>{{row.annualPercentReturn}}</td>\n      <td>{{row.totalValue}}</td>\n    </tr>",
+            styleUrls: ['oversikt.component.css']
+        }), 
+        __metadata('design:paramtypes', [funds_service_1.FundService])
+    ], OversiktComponent);
     return OversiktComponent;
 }());
-OversiktComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        providers: [funds_service_1.FundService],
-        selector: 'oversikt',
-        //templateUrl: 'oversikt.component.html',
-        template: "\n    <tr>\n      <td>{{row.name}}</td>\n      <td>{{row.dateUpdated}}</td>\n      <td>{{row.percentChanged}}</td>\n      <td>{{row.return}}</td>\n      <td>{{row.annualPercentReturn}}</td>\n      <td>{{row.totalValue}}</td>\n    </tr>",
-        styleUrls: ['oversikt.component.css']
-    }),
-    __metadata("design:paramtypes", [funds_service_1.FundService])
-], OversiktComponent);
 exports.OversiktComponent = OversiktComponent;
 //# sourceMappingURL=oversikt.component.js.map
