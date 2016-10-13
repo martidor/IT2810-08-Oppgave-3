@@ -14,12 +14,12 @@ render(
 	(
 	  <Router history={browserHistory}>
 	    <Route path="/" component={App}>
-	    	<IndexRoute component={Home}/>
-	    	<Route path="oversikt" component={Overview}/>
-			<Route path="profil" component={Profile}/>	
-	    	<Route path="sok" component={Search}/> 
-	    	<Route path="logg-inn" component={Login}/> 
-	    	<Route path="*" component={NotFound}/>
+	    	<IndexRoute component={Home} name="Børsoversikten"/>
+	    	<Route path="oversikt" component={Overview} name="Oversikt"/>
+			<Route path="profil" component={Profile} name="Profil"/>	
+	    	<Route path="sok" component={Search} name="Søk"/> 
+	    	<Route path="logg-inn" component={Login} name="Logg inn"/> 
+	    	<Route path="*" component={NotFound} name="Ikke funnet"/>
 	    </Route>
 	  </Router>
 	), document.getElementById('root')
