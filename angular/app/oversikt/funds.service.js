@@ -9,19 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var SokComponent = (function () {
-    function SokComponent() {
+var http_1 = require('@angular/http');
+var FundService = (function () {
+    function FundService(http) {
+        var _this = this;
+        this.http = http;
+        //console.log(">>friend.service.ts:constructor--")
+        http.request('./../../../dummy-funds.json')
+            .subscribe(function (response) { return _this.funds = response.json(); });
     }
-    SokComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'my-app',
-            styleUrls: ['sok.component.css'],
-            template: " \n \t<div class = \"search\">\n \t\t<div class =\"searchbar\">\n \t\t\t<input type=\"text\" ng-model=\"searchtext\" />\n \t\t</div>\n\t</div>",
-        }), 
-        __metadata('design:paramtypes', [])
-    ], SokComponent);
-    return SokComponent;
+    FundService.prototype.getFunds = function () {
+        //console.log(">>friend.service.ts:getFriends--")
+        console.log(this.funds);
+        return this.funds;
+    };
+    FundService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], FundService);
+    return FundService;
 }());
-exports.SokComponent = SokComponent;
-//# sourceMappingURL=searchbar.component.js.map
+exports.FundService = FundService;
+//# sourceMappingURL=funds.service.js.map
