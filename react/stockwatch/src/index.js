@@ -5,6 +5,7 @@ import App from './App';
 import Overview from './Overview';
 import Profile from './Profile';
 import Home from './Home'
+import Login from './Login'
 import NotFound from './NotFound'
 import Search from './Search';
 import './index.css';
@@ -15,8 +16,9 @@ render(
 	    <Route path="/" component={App}>
 	    	<IndexRoute component={Home}/>
 	    	<Route path="oversikt" component={Overview}/>
-				<Route path="profil" component={Profile}/>	
+			<Route path="profil" component={Profile}/>	
 	    	<Route path="sok" component={Search}/> 
+	    	<Route path="logg-inn" component={Login}/> 
 	    	<Route path="*" component={NotFound}/>
 	    </Route>
 	  </Router>
