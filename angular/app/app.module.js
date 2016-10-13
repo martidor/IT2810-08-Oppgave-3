@@ -17,6 +17,8 @@ var profil_component_1 = require('./profil/profil.component');
 var logginn_component_1 = require('./logginn/logginn.component');
 var loggut_component_1 = require('./loggut/loggut.component');
 var router_1 = require('@angular/router');
+var forms_1 = require('@angular/forms');
+var http_1 = require('@angular/http');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,6 +26,9 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
+                forms_1.FormsModule,
+                http_1.HttpModule,
+                http_1.JsonpModule,
                 router_1.RouterModule.forRoot([
                     { path: 'oversikt', component: oversikt_component_1.OversiktComponent },
                     { path: 'sok', component: sok_component_1.SokComponent },

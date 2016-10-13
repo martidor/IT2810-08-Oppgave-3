@@ -7,9 +7,14 @@ import { ProfilComponent } from './profil/profil.component';
 import { LoggInnComponent } from './logginn/logginn.component';
 import { LoggUtComponent } from './loggut/loggut.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpModule, JsonpModule } from '@angular/http';
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpModule,
+    JsonpModule,
   RouterModule.forRoot([
   { path: 'oversikt', component: OversiktComponent },
       { path: 'sok', component: SokComponent },

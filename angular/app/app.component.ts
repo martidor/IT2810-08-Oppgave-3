@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import './rxjs-operators';
+
 @Component({
   moduleId: module.id,
   selector: 'my-app',
