@@ -6,7 +6,7 @@ class ProfileTable extends Component {
 		return(
 			<div id="profile">
 				<div id="profileimage">
-					<img id="avatar" src={"http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"}
+					<img alt="Avatar" id="avatar" src={"http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"}
 						width="175"/>
 				</div>
 				<div id="userprofile">
@@ -34,7 +34,7 @@ class ProfileTable extends Component {
 					</table>
 				</div>
 				<div id="edit">
-					<img src={"https://cdn4.iconfinder.com/data/icons/miu/22/editor_pencil_pen_edit_write_-512.png"} 							width="30" height="30"/>
+					<img alt="Edit" src={"https://cdn4.iconfinder.com/data/icons/miu/22/editor_pencil_pen_edit_write_-512.png"} width="30" height="30"/>
 				</div>
 			</div>
 		);
