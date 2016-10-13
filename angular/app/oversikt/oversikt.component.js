@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var funds_service_1 = require('./funds.service');
 var FundRow = (function () {
     function FundRow() {
     }
@@ -17,8 +16,7 @@ var FundRow = (function () {
 }());
 exports.FundRow = FundRow;
 var OversiktComponent = (function () {
-    function OversiktComponent(_fundService) {
-        this._fundService = _fundService;
+    function OversiktComponent() {
         this.title = "Dette er oversikt siden";
         this.body = "Oversiktskroppen";
         this.row = {
@@ -29,20 +27,17 @@ var OversiktComponent = (function () {
             return: 6131.88,
             totalValue: 9631.88
         };
-        //this.funds = _fundService.getFunds();
-        console.log(_fundService.getFunds());
-        ;
     }
     OversiktComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            providers: [funds_service_1.FundService],
+            //providers: [FundService],
             selector: 'oversikt',
             //templateUrl: 'oversikt.component.html',
             template: "\n    <tr>\n      <td>{{row.name}}</td>\n      <td>{{row.dateUpdated}}</td>\n      <td>{{row.percentChanged}}</td>\n      <td>{{row.return}}</td>\n      <td>{{row.annualPercentReturn}}</td>\n      <td>{{row.totalValue}}</td>\n    </tr>",
             styleUrls: ['oversikt.component.css']
         }), 
-        __metadata('design:paramtypes', [funds_service_1.FundService])
+        __metadata('design:paramtypes', [])
     ], OversiktComponent);
     return OversiktComponent;
 }());

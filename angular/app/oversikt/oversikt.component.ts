@@ -12,7 +12,7 @@ export class FundRow {
 
 @Component({
   moduleId: module.id,
-  providers: [FundService],
+  //providers: [FundService],
   selector: 'oversikt',
   //templateUrl: 'oversikt.component.html',
   template: `
@@ -37,9 +37,9 @@ export class OversiktComponent {
     return: 6131.88,
     totalValue: 9631.88
   };
-  constructor(private _fundService: FundService)
+/*  constructor(private _fundService: FundService)
         {
         //this.funds = _fundService.getFunds();
         console.log(_fundService.getFunds());
-      ;}
+      ;}*/
     }

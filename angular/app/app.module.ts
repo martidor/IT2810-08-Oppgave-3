@@ -18,7 +18,7 @@ import { RouterModule } from '@angular/router';
       { path: 'profil', component: ProfilComponent },
       { path: 'logginn', component: LoggInnComponent },
       { path: 'loggut', component: LoggUtComponent },
-    /*  { path: '', component: AppComponent }*/
+      { path: '', redirectTo: '/home', pathMatch: 'full'}
     ])
   ],
   declarations: [

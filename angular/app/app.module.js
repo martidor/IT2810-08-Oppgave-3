@@ -32,6 +32,7 @@ var AppModule = (function () {
                     { path: 'profil', component: profil_component_1.ProfilComponent },
                     { path: 'logginn', component: logginn_component_1.LoggInnComponent },
                     { path: 'loggut', component: loggut_component_1.LoggUtComponent },
+                    { path: '', redirectTo: '/home', pathMatch: 'full' }
                 ])
             ],
             declarations: [
