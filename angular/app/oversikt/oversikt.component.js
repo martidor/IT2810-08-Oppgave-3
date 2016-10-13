@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
+var core_1 = require('@angular/core');
 var FundRow = (function () {
     function FundRow() {
     }
@@ -28,17 +28,17 @@ var OversiktComponent = (function () {
             totalValue: 9631.88
         };
     }
+    OversiktComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'oversikt',
+            //templateUrl: 'oversikt.component.html',
+            template: "\n    <tr>\n      <td>{{row.name}}</td>\n      <td>{{row.dateUpdated}}</td>\n      <td>{{row.percentChanged}}</td>\n      <td>{{row.return}}</td>\n      <td>{{row.annualPercentReturn}}</td>\n      <td>{{row.totalValue}}</td>\n    </tr>",
+            styleUrls: ['oversikt.component.css']
+        }), 
+        __metadata('design:paramtypes', [])
+    ], OversiktComponent);
     return OversiktComponent;
 }());
-OversiktComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'oversikt',
-        //templateUrl: 'oversikt.component.html',
-        template: "\n    <tr>\n      <td>{{row.name}}</td>\n      <td>{{row.dateUpdated}}</td>\n      <td>{{row.percentChanged}}</td>\n      <td>{{row.return}}</td>\n      <td>{{row.annualPercentReturn}}</td>\n      <td>{{row.totalValue}}</td>\n    </tr>",
-        styleUrls: ['oversikt.component.css']
-    }),
-    __metadata("design:paramtypes", [])
-], OversiktComponent);
 exports.OversiktComponent = OversiktComponent;
 //# sourceMappingURL=oversikt.component.js.map
