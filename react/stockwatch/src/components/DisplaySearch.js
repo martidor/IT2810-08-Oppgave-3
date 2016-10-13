@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Displaysearch.css';
+import './DisplaySearch.css';
 class DisplaySearch extends Component {
   
   getClassName(property) {
@@ -15,10 +15,8 @@ class DisplaySearch extends Component {
       <tr>
         <td>{this.props.fund.name}</td>
         <td>{this.props.fund.dateUpdated}</td>
-        <td className={this.getClassName(this.props.fund.percentChanged)}>{this.props.fund.percentChanged}%</td>
-        <td>{this.props.fund.return} kr</td>
-        <td className={this.getClassName(this.props.fund.annualPercentReturn)}>{this.props.fund.annualPercentReturn}%</td>
-        <td>{this.props.fund.totalValue} kr</td>
+        <td className={this.getClassName(this.props.fund.percentChanged)}>{this.props.fund.percentChanged} %</td>
+        <td>{this.props.fund.stockValue} kr</td>
       </tr>
     );
   }
