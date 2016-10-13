@@ -9,20 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var NavComponent = (function () {
-    function NavComponent() {
+var SearchbarComponent = (function () {
+    function SearchbarComponent() {
     }
-    NavComponent = __decorate([
+    SearchbarComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'navigation',
-            /*templateUrl: 'nav.component.html',*/
-            template: "\n  <nav>\n    <a>Navigation:</a>\n    <ul>\n      <li><a [routerLink]=\"['oversikt']\">Oversikt</a></li>\n      <li><a [routerLink]=\"['sok']\">S\u00F8k</a></li>\n      <li><a [routerLink]=\"['profil']\">Profile</a></li>\n      <li><a [routerLink]=\"['loggut']\">Logg ut</a></li>\n    </ul>\n  </nav>\n  ",
-            styleUrls: ['nav.component.css']
+            selector: 'my-app',
+            styleUrls: ['sok.component.css'],
+            template: " \n  <div class='testcont'>\n  \t\t<input></input>\n\n\t</div>",
         }), 
         __metadata('design:paramtypes', [])
-    ], NavComponent);
-    return NavComponent;
+    ], SearchbarComponent);
+    return SearchbarComponent;
 }());
-exports.NavComponent = NavComponent;
-//# sourceMappingURL=nav.component.js.map
+exports.SearchbarComponent = SearchbarComponent;
+//# sourceMappingURL=searchbar.component.js.map

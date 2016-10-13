@@ -13,13 +13,25 @@ class Overview extends Component {
 
   render() {
     return (
-      <tr>
-        <td>{this.props.fund.name}</td>
-        <td>{this.props.fund.dateUpdated}</td>
-        <td className={this.getClassName(this.props.fund.percentChanged)}>{this.props.fund.percentChanged}%</td>
-        <td>{this.props.fund.return} kr</td>
-        <td className={this.getClassName(this.props.fund.annualPercentReturn)}>{this.props.fund.annualPercentReturn}%</td>
-        <td>{this.props.fund.totalValue} kr</td>
+      <tr onClick={this.props.showModal}>
+        <td>
+          {this.props.fund.name}
+        </td>
+        <td>
+          {this.props.fund.dateUpdated}
+        </td>
+        <td className={this.getClassName(this.props.fund.percentChanged)}>
+          {this.props.fund.percentChanged}%
+        </td>
+        <td>
+          {this.props.fund.return} kr
+        </td>
+        <td className={this.getClassName(this.props.fund.annualPercentReturn)}>
+          {this.props.fund.annualPercentReturn}%
+        </td>
+        <td>
+          {this.props.fund.totalValue} kr
+        </td>
       </tr>
     );
   }

@@ -3,10 +3,6 @@ import { FacebookLogin } from 'react-facebook-login-component';
 
 class Login extends React.Component{
 
-    constructor (props, context) {
-      super(props, context);
-    }
-
     responseFacebook (response) {
         console.log(response);
         //anything else you want to do(save to localStorage)...
