@@ -3,7 +3,8 @@ import Searchbar from './components/Searchbar';
 import DisplaySearch from './components/DisplaySearch';
 import { Table, Grid, Row, Col } from 'react-bootstrap';
 import funds from './dummy-funds.json';
-import './components/search.css'
+import './components/search.css';
+import './typeahead.bundle.js';
 class Search extends Component {
   
   render() {
