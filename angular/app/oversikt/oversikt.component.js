@@ -9,18 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var OversiktComponent = (function () {
+    function OversiktComponent() {
+        this.title = "Dette er oversikt siden";
+        this.body = "Oversiktskroppen";
     }
-    AppComponent = __decorate([
+    OversiktComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'my-app',
-            template: "\n  <nav>\n    <a>Navigation:</a>\n    <ul>\n      <li><a [routerLink]=\"['oversikt']\">Oversikt</a></li>\n      <li><a [routerLink]=\"['sok']\">S\u00F8k</a></li>\n      <li><a [routerLink]=\"['profil']\">Profile</a></li>\n      <li><a [routerLink]=\"['loggut']\">Logg ut</a></li>\n    </ul>\n  </nav>\n  <router-outlet></router-outlet>\n  ",
+            selector: 'oversikt',
+            template: '<h1>Oversikt</h1>',
+            styleUrls: ['oversikt.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], OversiktComponent);
+    return OversiktComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.OversiktComponent = OversiktComponent;
+//# sourceMappingURL=oversikt.component.js.map

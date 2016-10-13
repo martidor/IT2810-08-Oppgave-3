@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Searchbar.css';
 class Searchbar extends Component {
   
   render() {
@@ -7,7 +7,7 @@ class Searchbar extends Component {
     <div>
       <div className="searchbar">
    
-      	<input type="text" />
+      	<input type="text" id="XXX" />
 
       </div>
 

@@ -5,6 +5,7 @@ import DisplaySearch from '../components/DisplaySearch';
 import funds from '../dummy-funds.json';
 import './Search.css';
 
+
 class Search extends Component {
   
   render() {

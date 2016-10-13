@@ -9,18 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var SokComponent = (function () {
+    function SokComponent() {
     }
-    AppComponent = __decorate([
+    SokComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
-            template: "\n  <nav>\n    <a>Navigation:</a>\n    <ul>\n      <li><a [routerLink]=\"['oversikt']\">Oversikt</a></li>\n      <li><a [routerLink]=\"['sok']\">S\u00F8k</a></li>\n      <li><a [routerLink]=\"['profil']\">Profile</a></li>\n      <li><a [routerLink]=\"['loggut']\">Logg ut</a></li>\n    </ul>\n  </nav>\n  <router-outlet></router-outlet>\n  ",
+            template: '<h1>Søk</h1>',
+            styleUrls: ['sok.component.css'],
+            template: " \n  <div class='testcont'>\n  \t\t<h1> WADUP </h1>\n  \t\t\n\t</div>",
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], SokComponent);
+    return SokComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.SokComponent = SokComponent;
+//# sourceMappingURL=sok.component.js.map
