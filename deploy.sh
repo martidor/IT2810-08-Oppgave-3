@@ -4,4 +4,4 @@ sudo git pull origin master 	# pull down the latest changes using git
 sudo npm --prefix ./react/stockwatch install ./react/stockwatch #react
 sudo npm --prefix ./angular install ./angular
 sudo PORT=80 nohup npm --prefix ./react/stockwatch start & # run the server as a background process on port 80
-sudo PORT=1337 nohup npm --prefix ./angular start & # run the server as a background process on port 1337
+sudo nohup npm --prefix ./angular start & # run the server as a background process on port 3000
