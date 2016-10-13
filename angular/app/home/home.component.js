@@ -17,7 +17,7 @@ var HomeComponent = (function () {
             moduleId: module.id,
             selector: 'my-app',
             styleUrls: ['home.component.css'],
-            template: " \n \t<div class = \"home\">\n \t\t<h2> B\u00F8rsoversikten </h2>\n\n    \t<img alt=\"IMG GOES HERE\" ng-src=\"http://www.norcap.no/img/filarkiv/Image/graf_Oslo_Bors_november_2014.png\"/>\n \t\t\n\n\t</div>",
+            template: " \n \t<div class = \"home\">\n \t\t<h2> B\u00F8rsoversikten </h2>\n\n    \t<img alt=\"IMG GOES HERE\" ng-src=\"http://www.norcap.no/img/filarkiv/Image/graf_Oslo_Bors_november_2014.png\"/>\n\n\t\t\t\n\n\n\n\t</div>",
         }), 
         __metadata('design:paramtypes', [])
     ], HomeComponent);

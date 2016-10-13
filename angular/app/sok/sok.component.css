@@ -4,6 +4,9 @@
 .searchbar{
 	
 }
+.searchbar input{
+	width: 60%;
+}
 .searchdisplay{
 
 }

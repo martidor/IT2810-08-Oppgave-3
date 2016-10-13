@@ -12,7 +12,10 @@ import { Component, Input } from '@angular/core';
  		<h2> Børsoversikten </h2>
 
     	<img alt="IMG GOES HERE" ng-src="http://www.norcap.no/img/filarkiv/Image/graf_Oslo_Bors_november_2014.png"/>
- 		
+
+			
+
+
 
 	</div>`,
 

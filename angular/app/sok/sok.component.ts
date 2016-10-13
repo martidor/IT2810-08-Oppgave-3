@@ -14,8 +14,8 @@ import { Component, Input } from '@angular/core';
  		</div>
 
  		<div class="searchdisplay">
- 		<p> result1 </p>
- 		<p> result2 </p>
+	 		<p> result1	</p>
+	 		<p> result2 </p>
  		</div>
 
 	</div>`,
