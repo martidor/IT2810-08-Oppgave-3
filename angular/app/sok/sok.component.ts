@@ -5,7 +5,7 @@ import { Component } from  '@angular/core'
   selector: 'my-app',
   
 
-  styleUrls: ['sok.component.css']
+  styleUrls: ['sok.component.css'],
 
   template: ` 
   <div>
