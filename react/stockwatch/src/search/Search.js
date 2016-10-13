@@ -4,6 +4,7 @@ import Searchbar from '../components/Searchbar';
 import DisplaySearch from '../components/DisplaySearch';
 import funds from '../dummy-funds.json';
 import './Search.css';
+import './searchscript.js';
 
 class Search extends Component {
   
@@ -13,6 +14,9 @@ class Search extends Component {
         <div className="searchhead">
         <h2> Søk </h2>
         <Searchbar />
+        
+        
+        
         </div>
           <Grid>
             <Row className="show-grid">

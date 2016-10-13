@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './FundRow.css';
+import './Displaysearch.css';
 class DisplaySearch extends Component {
   
   getClassName(property) {
