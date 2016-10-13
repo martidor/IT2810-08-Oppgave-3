@@ -16,7 +16,7 @@ var SokComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
-            templateUrl: 'sok.component.html',
+            template: '<h1>Søk</h1>',
             styleUrls: ['sok.component.css']
         }), 
         __metadata('design:paramtypes', [])
