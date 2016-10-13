@@ -4,9 +4,7 @@ import { Component, Input } from '@angular/core';
   moduleId: module.id,
   selector: 'my-app',
   
-
   styleUrls: ['sok.component.css'],
-
   template: ` 
  	<div class = "search">
  		<div class ="searchbar">

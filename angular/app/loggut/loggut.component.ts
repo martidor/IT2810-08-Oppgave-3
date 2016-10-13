@@ -3,8 +3,14 @@ import { Component } from  '@angular/core'
 @Component({
   moduleId: module.id,
   selector: 'my-app',
-  template: '<h1>Du har blitt logget ut</h1>',
-  styleUrls: ['loggut.component.css']
+  styleUrls: ['loggut.component.css'],
+
+  template: `
+	<div class="loggut">
+		<h2> Du har blitt logget ut </h2>
+	</div>
+
+	 `
 })
 export class LoggUtComponent {
 

@@ -3,8 +3,14 @@ import { Component } from  '@angular/core'
 @Component({
   moduleId: module.id,
   selector: 'my-app',
-  template: '<h1>Profil</h1>',
-  styleUrls: ['profil.component.css']
+  styleUrls: ['profil.component.css'],
+
+    template: `
+	<div class="profil">
+		<h2> Profil </h2>
+	</div>
+
+	 `
 })
 export class ProfilComponent {
 
