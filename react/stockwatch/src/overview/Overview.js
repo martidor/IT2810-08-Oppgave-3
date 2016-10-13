@@ -7,33 +7,31 @@ class Overview extends Component {
 
   render() {
     return (
-      <Grid>
-        <Row className="show-grid">
-          <Col md={12}>
-            <Table hover responsive>
-              <thead>
-                <tr>
-                  <th>Navn</th>
-                  <th>Oppdatert</th>
-                  <th>Siste dag</th>
-                  <th>Avkastning</th>
-                  <th>Ann avk. %</th>
-                  <th>Total Verdi</th>
-                </tr>
-              </thead>
-              <tbody>
-                {
-                  funds.funds.map(function(fund) {
-                    return (
-                      <FundRow fund={fund} />
-                    )
-                  })
-                }
-              </tbody>
-            </Table>
-          </Col>
-        </Row>
-      </Grid>
+      <Row className="show-grid">
+        <Col md={12}>
+          <Table hover responsive>
+            <thead>
+              <tr>
+                <th>Navn</th>
+                <th>Oppdatert</th>
+                <th>Siste dag</th>
+                <th>Avkastning</th>
+                <th>Ann avk. %</th>
+                <th>Total Verdi</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                funds.funds.map(function(fund) {
+                  return (
+                    <FundRow fund={fund} />
+                  )
+                })
+              }
+            </tbody>
+          </Table>
+        </Col>
+      </Row>
     );
   }
 }
