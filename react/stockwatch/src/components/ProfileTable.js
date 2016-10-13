@@ -34,7 +34,8 @@ class ProfileTable extends Component {
 					</table>
 				</div>
 				<div id="edit">
-					<img alt="Edit" src={"https://cdn4.iconfinder.com/data/icons/miu/22/editor_pencil_pen_edit_write_-512.png"} width="30" height="30"/>
+					E D I T
+					// <img alt="Edit" src={"https://cdn4.iconfinder.com/data/icons/miu/22/editor_pencil_pen_edit_write_-512.png"} width="20" height="20"/>
 				</div>
 			</div>
 		);
