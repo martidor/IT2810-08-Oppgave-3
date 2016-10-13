@@ -17,7 +17,7 @@ var SokComponent = (function () {
             moduleId: module.id,
             selector: 'my-app',
             styleUrls: ['sok.component.css'],
-            template: " \n \t<div class = \"search\">\n \t\t<div class =\"searchbar\">\n \t\t\t<input type=\"text\" ng-model=\"searchtext\" />\n \t\t</div>\n\t</div>",
+            template: " \n \t<div class = \"search\">\n \t\t<div class =\"searchbar\">\n \t\t\t<input type=\"text\" ng-model=\"searchtext\" />\n \t\t</div>\n\n \t\t<div class=\"searchdisplay\">\n \t\t<p> result1 </p>\n \t\t<p> result2 </p>\n \t\t</div>\n\n\t</div>",
         }), 
         __metadata('design:paramtypes', [])
     ], SokComponent);

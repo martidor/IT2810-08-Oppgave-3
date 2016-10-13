@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
+var home_component_1 = require('./home/home.component');
 var oversikt_component_1 = require('./oversikt/oversikt.component');
 var sok_component_1 = require('./sok/sok.component');
 var profil_component_1 = require('./profil/profil.component');
@@ -25,6 +26,7 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 router_1.RouterModule.forRoot([
+                    { path: 'home', component: home_component_1.HomeComponent },
                     { path: 'oversikt', component: oversikt_component_1.OversiktComponent },
                     { path: 'sok', component: sok_component_1.SokComponent },
                     { path: 'profil', component: profil_component_1.ProfilComponent },
@@ -34,6 +36,7 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
+                home_component_1.HomeComponent,
                 oversikt_component_1.OversiktComponent,
                 sok_component_1.SokComponent,
                 profil_component_1.ProfilComponent,

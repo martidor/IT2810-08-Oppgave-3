@@ -15,6 +15,6 @@ import { Component } from  '@angular/core'
 	</div>`,
 
 })
-export class SokComponent {
+export class SearchbarComponent {
 	
 }

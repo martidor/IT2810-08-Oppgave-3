@@ -9,10 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var SokComponent = (function () {
-    function SokComponent() {
+var SearchbarComponent = (function () {
+    function SearchbarComponent() {
     }
-    SokComponent = __decorate([
+    SearchbarComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
@@ -20,8 +20,8 @@ var SokComponent = (function () {
             template: " \n \t<div class = \"search\">\n \t\t<div class =\"searchbar\">\n \t\t\t<input type=\"text\" ng-model=\"searchtext\" />\n \t\t</div>\n\t</div>",
         }), 
         __metadata('design:paramtypes', [])
-    ], SokComponent);
-    return SokComponent;
+    ], SearchbarComponent);
+    return SearchbarComponent;
 }());
-exports.SokComponent = SokComponent;
+exports.SearchbarComponent = SearchbarComponent;
 //# sourceMappingURL=searchbar.component.js.map
