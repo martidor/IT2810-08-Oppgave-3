@@ -23,23 +23,23 @@ import './rxjs-operators';
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li [routerLinkActive]="['active']" class="active" role="presentation">
-                    <a [routerLink]="['/oversikt']"  data-unsp-sanitized="clean"><span class="fa fa-area-chart"></span>Oversikt
+                    <a [routerLink]="['/oversikt']"  data-unsp-sanitized="clean"><span class="fa fa-area-chart"></span> Oversikt
                     </a>
                     </li>
                     <li [routerLinkActive]="['active']" class="" role="presentation">
-                      <a [routerLink]="['/sok']"  data-unsp-sanitized="clean"><span class="fa fa-area-chart"></span>Søk
+                      <a [routerLink]="['/sok']"  data-unsp-sanitized="clean"><span class="fa fa-area-chart"></span> Søk
                       </a>
                     </li>
                     <li [routerLinkActive]="['active']" class="" role="presentation">
-                        <a [routerLink]="['/profil']"  data-unsp-sanitized="clean"><span class="fa fa-area-chart"></span>Profil
+                        <a [routerLink]="['/profil']"  data-unsp-sanitized="clean"><span class="fa fa-area-chart"></span> Profil
                         </a>
                     </li>
                     <li [routerLinkActive]="['active']" class="" role="presentation">
-                        <a [routerLink]="['/logginn']"  data-unsp-sanitized="clean"><span class="fa fa-area-chart"></span>Logg inn
+                        <a [routerLink]="['/logginn']"  data-unsp-sanitized="clean"><span class="fa fa-area-chart"></span> Logg inn
                         </a>
                     </li>
                     <li [routerLinkActive]="['active']" class="" role="presentation">
-                        <a [routerLink]="['/loggut']"  data-unsp-sanitized="clean"><span class="fa fa-area-chart"></span>Logg ut
+                        <a [routerLink]="['/loggut']"  data-unsp-sanitized="clean"><span class="fa fa-area-chart"></span> Logg ut
                         </a>
                     </li>
                 </ul>

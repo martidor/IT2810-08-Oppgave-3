@@ -22,6 +22,12 @@ var OversiktComponent = (function () {
         this.onlyOnce = false;
         this.mode = 'Observable';
     }
+    OversiktComponent.prototype.getColor = function (value) {
+        if (value > 0)
+            return "green";
+        else if (value < 0)
+            return "red";
+    };
     OversiktComponent.prototype.ngOnInit = function () {
         this.getFunds();
     };
@@ -42,7 +48,7 @@ var OversiktComponent = (function () {
             providers: [oversikt_service_1.OversiktService],
             selector: 'oversikt',
             //templateUrl: 'oversikt.component.html',
-            template: "\n  <Table hover responsive>\n    <thead>\n      <tr>\n        <th>Navn</th>\n        <th>Oppdatert</th>\n        <th>Siste dag</th>\n        <th>Avkastning</th>\n        <th>Ann avk. %</th>\n        <th>Total Verdi</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let no of sortObject()\">\n      <tr *ngFor=\"let row of this.funds\">\n        <td>{{row.name}}</td>\n        <td>{{row.dateUpdated}}</td>\n        <td>{{row.percentChanged}}</td>\n        <td>{{row.return}}</td>\n        <td>{{row.annualPercentReturn}}</td>\n        <td>{{row.totalValue}}</td>\n      </tr>\n    </tbody>\n  </Table>",
+            template: "\n  <div class=\"container\">\n    <div class=\"header\">\n        <h2>Oversikt</h2>\n    </div>\n    <div class=\"show-grid row\">\n        <div class=\"col-md-12\">\n            <div class=\"table-responsive\">\n                <table class=\"table table-hover\">\n                    <thead>\n                        <tr>\n                            <th>Navn</th>\n                            <th>Oppdatert</th>\n                            <th>Siste dag</th>\n                            <th>Avkastning</th>\n                            <th>Ann avk. %</th>\n                            <th>Total Verdi</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let no of sortObject()\">\n                        <tr *ngFor=\"let row of this.funds\">\n                          <td>{{row.name}}</td>\n                          <td>{{row.dateUpdated}}</td>\n                          <td class=\"{{this.getColor(row.percentChanged)}}\">{{row.percentChanged}} %</td>\n                          <td>{{row.return}} kr</td>\n                          <td class=\"{{this.getColor(row.annualPercentReturn)}}\">{{row.annualPercentReturn}} %</td>\n                          <td>{{row.totalValue}} kr</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>",
             styleUrls: ['oversikt.component.css']
         }), 
         __metadata('design:paramtypes', [oversikt_service_1.OversiktService])

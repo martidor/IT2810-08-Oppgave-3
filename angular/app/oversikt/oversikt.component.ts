@@ -21,29 +21,40 @@ export class FundRow {
   selector: 'oversikt',
   //templateUrl: 'oversikt.component.html',
   template: `
-  <Table hover responsive>
-    <thead>
-      <tr>
-        <th>Navn</th>
-        <th>Oppdatert</th>
-        <th>Siste dag</th>
-        <th>Avkastning</th>
-        <th>Ann avk. %</th>
-        <th>Total Verdi</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let no of sortObject()">
-      <tr *ngFor="let row of this.funds">
-        <td>{{row.name}}</td>
-        <td>{{row.dateUpdated}}</td>
-        <td>{{row.percentChanged}}</td>
-        <td>{{row.return}}</td>
-        <td>{{row.annualPercentReturn}}</td>
-        <td>{{row.totalValue}}</td>
-      </tr>
-    </tbody>
-  </Table>`,
+  <div class="container">
+    <div class="header">
+        <h2>Oversikt</h2>
+    </div>
+    <div class="show-grid row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Navn</th>
+                            <th>Oppdatert</th>
+                            <th>Siste dag</th>
+                            <th>Avkastning</th>
+                            <th>Ann avk. %</th>
+                            <th>Total Verdi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let no of sortObject()">
+                        <tr *ngFor="let row of this.funds">
+                          <td>{{row.name}}</td>
+                          <td>{{row.dateUpdated}}</td>
+                          <td class="{{this.getColor(row.percentChanged)}}">{{row.percentChanged}} %</td>
+                          <td>{{row.return}} kr</td>
+                          <td class="{{this.getColor(row.annualPercentReturn)}}">{{row.annualPercentReturn}} %</td>
+                          <td>{{row.totalValue}} kr</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>`,
   styleUrls: ['oversikt.component.css']
 })
 
@@ -55,6 +66,13 @@ export class OversiktComponent implements OnInit {
   mode = 'Observable';
 
   constructor (private oversikt: OversiktService) {}
+
+  getColor(value){
+    if (value > 0)
+      return "green";
+    else if (value < 0)
+      return "red";
+  }
 
   ngOnInit() {
     this.getFunds();
