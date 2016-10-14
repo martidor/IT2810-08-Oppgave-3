@@ -19,7 +19,6 @@ export class FundRow {
   moduleId: module.id,
   providers: [OversiktService],
   selector: 'oversikt',
-  //templateUrl: 'oversikt.component.html',
   template: `
   <div class="container">
     <div class="header">
