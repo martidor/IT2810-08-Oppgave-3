@@ -49,7 +49,7 @@ export class FundRow {
 
 export class OversiktComponent implements OnInit {
   errorMessage: string;
-  jSon: Object;
+  jSon: any;
   funds: any[];
   onlyOnce: boolean = false;
   mode = 'Observable';
@@ -67,7 +67,7 @@ export class OversiktComponent implements OnInit {
     }
 
     sortObject(){
-      if(this.jSon!=undefined && !this.onlyOnce){
+      if(this.jSon!=null && this.jSon.funds != null && !this.onlyOnce){
         this.funds=this.jSon.funds;
         this.onlyOnce=true;
       }

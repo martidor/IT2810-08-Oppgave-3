@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var oversikt_service_1 = require("./oversikt.service");
+var core_1 = require('@angular/core');
+var oversikt_service_1 = require('./oversikt.service');
 var FundRow = (function () {
     function FundRow() {
     }
@@ -31,23 +31,23 @@ var OversiktComponent = (function () {
             .subscribe(function (suc) { return _this.jSon = suc; }, function (err) { return _this.errorMessage = err; });
     };
     OversiktComponent.prototype.sortObject = function () {
-        if (this.jSon != undefined && !this.onlyOnce) {
+        if (this.jSon != null && this.jSon.funds != null && !this.onlyOnce) {
             this.funds = this.jSon.funds;
             this.onlyOnce = true;
         }
     };
+    OversiktComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            providers: [oversikt_service_1.OversiktService],
+            selector: 'oversikt',
+            //templateUrl: 'oversikt.component.html',
+            template: "\n  <Table hover responsive>\n    <thead>\n      <tr>\n        <th>Navn</th>\n        <th>Oppdatert</th>\n        <th>Siste dag</th>\n        <th>Avkastning</th>\n        <th>Ann avk. %</th>\n        <th>Total Verdi</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let no of sortObject()\">\n      <tr *ngFor=\"let row of this.funds\">\n        <td>{{row.name}}</td>\n        <td>{{row.dateUpdated}}</td>\n        <td>{{row.percentChanged}}</td>\n        <td>{{row.return}}</td>\n        <td>{{row.annualPercentReturn}}</td>\n        <td>{{row.totalValue}}</td>\n      </tr>\n    </tbody>\n  </Table>",
+            styleUrls: ['oversikt.component.css']
+        }), 
+        __metadata('design:paramtypes', [oversikt_service_1.OversiktService])
+    ], OversiktComponent);
     return OversiktComponent;
 }());
-OversiktComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        providers: [oversikt_service_1.OversiktService],
-        selector: 'oversikt',
-        //templateUrl: 'oversikt.component.html',
-        template: "\n  <Table hover responsive>\n    <thead>\n      <tr>\n        <th>Navn</th>\n        <th>Oppdatert</th>\n        <th>Siste dag</th>\n        <th>Avkastning</th>\n        <th>Ann avk. %</th>\n        <th>Total Verdi</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let no of sortObject()\">\n      <tr *ngFor=\"let row of this.funds\">\n        <td>{{row.name}}</td>\n        <td>{{row.dateUpdated}}</td>\n        <td>{{row.percentChanged}}</td>\n        <td>{{row.return}}</td>\n        <td>{{row.annualPercentReturn}}</td>\n        <td>{{row.totalValue}}</td>\n      </tr>\n    </tbody>\n  </Table>",
-        styleUrls: ['oversikt.component.css']
-    }),
-    __metadata("design:paramtypes", [oversikt_service_1.OversiktService])
-], OversiktComponent);
 exports.OversiktComponent = OversiktComponent;
 //# sourceMappingURL=oversikt.component.js.map
