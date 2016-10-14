@@ -10,3 +10,6 @@ th:not(:first-child), td:not(:first-child){
 	color: rgb(204, 0, 0);
 }
 
+.mouse-pointer tr {
+	cursor: pointer;
+}
