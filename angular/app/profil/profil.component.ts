@@ -41,7 +41,7 @@ import { Component } from  '@angular/core'
 		<div id="bottom">
 			<div id="editprofile">
 				<form>
-					Synlighets instillinger:
+					Synlighetsinstillinger:
 					<select>
 						<option value="select">Vis alt til besøkende</option>
 						<option value="other">Begrenset synlighet, ingen e-mail eller alder</option>

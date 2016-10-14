@@ -7,7 +7,7 @@ class EditProfile extends Component {
 			<div id="editprofile">
 				<form>
 				<FormGroup controlId="formControlsSelect">
-					<ControlLabel> Synlighets instillinger </ControlLabel>
+					<ControlLabel> Synlighetsinstillinger </ControlLabel>
 					<FormControl componentClass="select" placeholder="select">
 						<option value="select">Vis alt til besøkende</option>
 						<option value="other">Begrenset synlighet, ingen e-mail eller alder</option>
