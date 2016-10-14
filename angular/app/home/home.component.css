@@ -1,3 +1,8 @@
 .home{
 	text-align: center;
 }
+#homechart{
+	width: 600px;
+	height: auto;
+	margin: 150px 0;
+}
