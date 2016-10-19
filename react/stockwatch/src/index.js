@@ -10,6 +10,7 @@ import NotFound from './notfound/NotFound'
 import Search from './search/Search';
 import './index.css';
 
+// This methods initializes the routing on the page.
 render(
 	(
 	  <Router history={browserHistory}>

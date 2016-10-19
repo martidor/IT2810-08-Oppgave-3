@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import './FundRow.css'
 
-class Overview extends Component {
+class FundRow extends Component {
+  /*
+  This component is a table row showing info about a fund.
+  It contains info about the funds in a users portfolio.
+  */
 
   getClassName(property) {
+    // Get the classname based on a property
     if (property < 0) 
       return "red";
     else if (property > 0)
@@ -37,4 +42,4 @@ class Overview extends Component {
   }
 }
 
-export default Overview;
+export default FundRow;

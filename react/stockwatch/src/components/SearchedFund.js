@@ -3,8 +3,13 @@ import { Button } from 'react-bootstrap';
 import './SearchedFund.css';
 
 class SearchedFund extends Component {
+  /*
+  This component is a table row showing info about a searched fund.
+  It contains info about a fund and is not related to a user.
+  */
   
   getClassName(property) {
+    // Get the classname based on a property
     if (property < 0) 
       return "red";
     else if (property > 0)

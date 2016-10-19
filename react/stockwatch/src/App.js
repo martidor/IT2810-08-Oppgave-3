@@ -4,7 +4,11 @@ import './App.css';
 import NavigationBar from './components/NavigationBar';
 
 class App extends Component {
-
+  /*
+  This component serves as a wrapper for all the other pages. When the user enters a page,
+  the page component will be rendered in the {this.props.children}.
+  */
+  
   render() {
     return (
       <div>

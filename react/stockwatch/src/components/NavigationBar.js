@@ -4,6 +4,10 @@ import { LinkContainer } from 'react-router-bootstrap';
 var FontAwesome = require('react-fontawesome');
 
 class NavigationBar extends Component {
+	/*
+	This component is a navbar that is rendered on all the pages.
+	It contains links to the different sites.
+	*/
 
   render() {
     return (

@@ -3,19 +3,28 @@ import { Modal, Button, Table, Image } from 'react-bootstrap';
 import './FundModal.css';
 
 class FundModal extends Component{
+  /*
+  This component is showing info about a fund in a modal.
+  */
 
   constructor(props) {
     super(props);
+
+    // Initial state
     this.state = {show: false};
+
+    // Bind the function to the class instance
     this.hideModal = this.hideModal.bind(this);
   }
 
   componentWillReceiveProps(newProps){
+    // Update the modal when new props arrive.
     var self = this;
     self.setState({show: newProps.show});
   }
 
   getClassName(property) {
+    // Get the classname based on a property
     if (property < 0) 
       return "red";
     else if (property > 0)

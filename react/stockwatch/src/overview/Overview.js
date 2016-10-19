@@ -5,13 +5,22 @@ import FundRow from '../components/FundRow';
 import FundModal from '../components/FundModal';
 
 class Overview extends Component {
+  /*
+  This component shows a list of the users portfolio.
+  */
+
   constructor(props) {
     super(props);
+
+    // Initialize the state with no funds and modal not showing.
     this.state = {show: false, fund: {}};
+
+    // Bind the function to the class instance
     this.showModal = this.showModal.bind(this);
   }
 
   showModal(fund) {
+    // Show the modal and set the modal to display the fund clicked.
     this.setState({show: true, fund: fund});
   }
 
