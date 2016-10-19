@@ -13,7 +13,7 @@ class Overview extends Component {
 
   render() {
     return (
-      <tr onClick={this.props.showModal}>
+      <tr className="mouse-pointer" onClick={this.props.showModal}>
         <td>
           {this.props.fund.name}
         </td>
