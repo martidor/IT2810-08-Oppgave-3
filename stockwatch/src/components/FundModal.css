@@ -1,0 +1,8 @@
+.modal-dialog {
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s;
+}
+
+.table > .no-border > tr > td{
+	border-top: none;
+}

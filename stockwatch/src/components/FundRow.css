@@ -1,0 +1,15 @@
+th:not(:first-child), td:not(:first-child){
+	text-align: right;
+}
+
+.green {
+	color: rgb(69, 139, 0);
+}
+
+.red {
+	color: rgb(204, 0, 0);
+}
+
+.mouse-pointer {
+	cursor: pointer;
+}
