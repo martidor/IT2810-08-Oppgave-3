@@ -5,7 +5,7 @@
 
 The project is located in the `stockwatch` folder. Previous assignments are located in the `previous_assignments` folder.
 
-## Introduction
+### Introduction
 Stockwatch is your number one source for keeping track of stock values. Using data generated from Oslo Stock Exchange' API, stock values from all the listed businesses in Norway are updated in real time. By creating your own profile, you can easily manage your equities and find new and exciting stocks all in one place.
 
 The react application is running at http://it2810-08.idi.ntnu.no.
@@ -74,8 +74,14 @@ Go into the directory `/it2810-08-oppgave-3/stockwatch/` and install npm
 ```
 
 ### Built With
-* [React](https://reactjs.net/) - *libary* - The main libary used
-* [React-bootstrap](https://react-bootstrap.github.io/) - *layout* - React implementation for bootstrap
+* [React](https://reactjs.net/) - The main libary used
+* [Node](https://nodejs.org/en/) - JavaScript runtime
+* [npm](https://www.npmjs.com/)- Package manager for node programs
+* [React-bootstrap](https://react-bootstrap.github.io/) - React implementation for bootstrap
+* [React-router](https://github.com/ReactTraining/react-router) - React Routing
+* [Bower](https://bower.io/) - Package manange for frontend packages
+* [Fuse.js](http://fusejs.io/) - Frontend library for searching
+* [Facebook-login](https://github.com/kennetpostigo/react-facebook-login-component) - Facebook login component
 
 ### Authors
 - Eirik Fosse
