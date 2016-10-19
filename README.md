@@ -14,7 +14,7 @@ The react application is running at http://it2810-08.idi.ntnu.no.
 
 The main pages are set up in different folders, whereas the components that's not site-specific are placed in `/components`. This way the file-structure is clear and concise, which makes it easy to navigate. The following tree structure starts from the `stockwatch` folder.
 
-<pre>
+```
     
     src
     │   App.css
@@ -59,7 +59,7 @@ The main pages are set up in different folders, whereas the components that's no
             Search.css
             Search.js
 
-</pre>
+```
 
 ### How to install
 
@@ -78,9 +78,9 @@ Go into the directory `/it2810-08-oppgave-3/stockwatch/` and install npm
 * [React-bootstrap](https://react-bootstrap.github.io/) - *layout* - React implementation for bootstrap
 
 ### Authors
-**Eirik Fosse**
-**Martin Dørum**
-**Joakim Grønstad Lindgren**
-**Christoffer A. Nilsen**
-**Cornelius Grieg Dahling**
-**Kristian Skog**
+- Eirik Fosse
+- Martin Dørum
+- Joakim Grønstad Lindgren
+- Christoffer A. Nilsen
+- Cornelius Grieg Dahling
+- Kristian Skog
