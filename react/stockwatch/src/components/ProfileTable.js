@@ -1,6 +1,14 @@
 import React, {Component} from 'react';
 import './ProfileTable.css'
 
+/*
+ * ProfileTable component for the profile sub-page.
+ * Contains a avatar, creates a much-up table with 
+ * username, firstname,lastname, age and email.
+ *
+ * Note: currently have muchup data, will be removed.
+ */
+
 class ProfileTable extends Component {
 	render() {
 		return(

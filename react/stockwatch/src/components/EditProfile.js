@@ -1,6 +1,15 @@
 import React, {Component} from 'react';
 import {Button, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
 
+/*
+ * EditProfile component for user to change privacy settings.
+ * Select form with a submit button.
+ * Using react-bootstrap. 
+ *
+ * Note: Contains much-up text.
+ *
+ */
+
 class EditProfile extends Component {
 	render() {
 		return(
