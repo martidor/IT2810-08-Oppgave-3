@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './Home.css'
 class Home extends Component {
-
+	/*The Home page Component will be the default page of the site. 
+	Here we'll show some basic information about equities, and the user can log in.
+	Once the user has logged in, the Home page will show some user-relevant information as well.*/
   render() {
     return (
     	<div className="home">

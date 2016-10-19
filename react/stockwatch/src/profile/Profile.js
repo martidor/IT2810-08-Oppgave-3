@@ -4,6 +4,14 @@ import ProfileTable from '../components/ProfileTable.js';
 import EditProfile from '../components/EditProfile.js';
 import './Profile.css';
 
+/*
+ * Main profile sub-page.
+ * Using react-bootstrap RoW and Col for page layout.
+ * Importing Profile components.
+ *
+ * Note: Using much-up graph.
+ */
+
 class Profile extends Component {
 	render() {
 		return(
