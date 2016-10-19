@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Image } from 'react-bootstrap';
 import './Home.css'
+
 class Home extends Component {
 	/*The Home page Component will be the default page of the site. 
 	Here we'll show some basic information about equities, and the user can log in.
@@ -8,7 +10,7 @@ class Home extends Component {
     return (
     	<div className="home">
 	      <div className="homebody">
-	      	<img id="homechart" alt="osloborschart" src={'http://www.norcap.no/img/filarkiv/Image/graf_Oslo_Bors_november_2014.png'} />
+	      	<Image responsive id="homechart" alt="osloborschart" src={'http://www.norcap.no/img/filarkiv/Image/graf_Oslo_Bors_november_2014.png'} />
 	      </div>
        </div>
     );
