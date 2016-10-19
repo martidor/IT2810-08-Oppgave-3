@@ -5,27 +5,37 @@ import funds from '../dummy-funds.json';
 import './Search.css';
 import Fuse from'fuse.js';
 
-const fuseOptions = {
-  keys: ['name'],
-  threshold: 0.4,
-  shouldSort: true
-};
-
 class Search extends Component {
+  /*
+  This component is listing funds, and a search bar. When the user adds input to the
+  search bar, the funds will automatically update with results matching the query.
+  */
 
   constructor(props) {
     super(props);
     this.state = {funds: funds.funds};
+
+    // Initialize the searcher with search options
+    this.fuse = new Fuse(funds.funds, {
+      keys: ['name'],
+      threshold: 0.4,
+      shouldSort: true
+    });
   }
 
   search (event) {
-    let fuse = new Fuse(funds.funds, fuseOptions);
+    // Extract the query
     let query = event.target.value;
-    let result = fuse.search(query);
-    if (query !== "")
-      this.setState({funds: result});
-    else
+
+    if (query === "")
+      // If the query is empty, show all of the funds.
       this.setState(funds: funds.funds);
+    else {
+      // Otherwise, search in the funds, and update the state with the results.
+      let result = this.fuse.search(query);
+      this.setState({funds: result});
+    }
+      
   }
   
   render() {
