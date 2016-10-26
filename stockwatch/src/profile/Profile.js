@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Row, Col} from 'react-bootstrap';
 import ProfileTable from '../components/ProfileTable.js';
 import EditProfile from '../components/EditProfile.js';
+import CreateProfile from '../components/CreateProfile.js';
+import TestCreate from '../components/test.js';
 import './Profile.css';
 
 /*
@@ -24,6 +26,15 @@ class Profile extends Component {
 					</Col>
 					<Col md={6} mdOffset={3}>
 						<div id="editSelector">
+						<hr />
+						<p> create profil </p>
+							<CreateProfile />
+						</div>
+					</Col>
+					<Col md={6} mdOffset={3}>
+						<div id="editSelector">
+						<hr />
+						<p> edit profil </p>
 							<EditProfile />
 						</div>
 					</Col>
