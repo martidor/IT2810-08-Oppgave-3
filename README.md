@@ -73,6 +73,11 @@ Go into the directory `/it2810-08-oppgave-3/stockwatch/` and install npm
     npm start #Opens the website on port 3000 (by default)
 ```
 
+### Choice of framework: React
+All of the team members felt that they got a better grip of React. We also think that we get the functionality that we need from React. Since Angular is a more comprehensive framework, we believe it is unnecessary to use this. During the development of the prototype in Angular, the group also encountered some unexpected problems with git. More functionality was also implemented in the React prototype, and we think we have a better basis there.
+React’s compile-time error versus Angular’s run-time error, having React display more of a comprehensive error-log helping us the developers solve issues faster. React will provide both line number, and missing unclosed tags making finding issues quicker.
+Most of Angular’s documentaions is written in TypeScript, while this can be converted to, or replaced with JavaScript, our team have more experience with JavaScrip, and feel it will be easier to apply our knowledge with React.
+
 ### Built With
 * [React](https://reactjs.net/) - The main libary used
 * [Node](https://nodejs.org/en/) - JavaScript runtime
