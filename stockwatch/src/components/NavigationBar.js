@@ -11,7 +11,7 @@ class NavigationBar extends Component {
 
   render() {
     return (
-	  <Navbar default>
+	  <Navbar id="NavigationBar" fixedTop>
 	    <Navbar.Header>
 	      <Navbar.Brand>
 	      <LinkContainer to="/">
