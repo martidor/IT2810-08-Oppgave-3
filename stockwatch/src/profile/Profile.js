@@ -3,7 +3,7 @@ import {Row, Col} from 'react-bootstrap';
 import ProfileTable from '../components/ProfileTable.js';
 import EditProfile from '../components/EditProfile.js';
 import CreateProfile from '../components/CreateProfile.js';
-import TestCreate from '../components/test.js';
+/*import TestCreate from '../components/test.js';*/
 import './Profile.css';
 
 /*
