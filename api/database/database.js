@@ -10,6 +10,7 @@ class Database{
 		const db = this.getDatabase();
 		db.all("SELECT * FROM user", function(err, rows) {
 			callback(rows);
+			db.close();
 		});
 	}
 
@@ -18,6 +19,15 @@ class Database{
 		const stmt = db.prepare("INSERT INTO user VALUES (?)");
 		stmt.run(username);
 		stmt.finalize(callback);
+	}
+
+	static getEquitiesByUserId(userId, callback){
+		const db = this.getDatabase();
+		const stmt = "SELECT EquityId, ExternalEquityId, TotalPrice, TransactionTimestamp, Stockholding FROM Equity WHERE UserId = ? AND IsSold = 0";
+		db.all(stmt, userId, function(err, rows){
+			callback(rows);
+			db.close();
+		});
 	}
 }
 

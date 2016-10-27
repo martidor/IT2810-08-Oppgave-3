@@ -43,4 +43,14 @@ router.route('/user')
 		})
 	});
 
+router.route('/user/:userId')
+
+    .get(function(req, res) {
+    	let userId = req.params.userId
+    	console.log(userId);
+    	Database.getEquitiesByUserId(userId, function(equities){
+    		res.json(equities);
+    	})
+    });
+
 module.exports = router;
