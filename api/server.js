@@ -14,10 +14,6 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 8008;        // set our port
 
-// ROUTES FOR API
-// =============================================================================
-
-// REGISTER ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', routes);
 
