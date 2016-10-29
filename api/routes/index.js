@@ -1,5 +1,7 @@
 var express 	= require('express');
 var Database 	= require('../database/database');
+var OsloBors	= require('../external-apis/oslobors');
+var Helper		= require('../helper/helper');
 
 // ROUTES FOR OUR API
 // =============================================================================
@@ -55,5 +57,29 @@ router.route('/user/:userId')
     		res.json(equities);
     	});
     });
+
+// on routes that end in /equities
+// ----------------------------------------------------
+router.route('/equities')
+
+	// get all the equities (accessed at GET /api/equities)
+	.get(function(req, res) {
+		OsloBors.getEquities(function(equities){
+			eqArray = Helper.convertObjectToArray(equities);
+    		res.json(eqArray);
+		});
+	});
+
+module.exports = router;
+
+// ticker routes
+// ----------------------------------------------------
+router.route('/ticker')
+
+	.get(function(req, res) {
+		OsloBors.getTicker(function(json){
+    		res.json(json);
+		});
+	});
 
 module.exports = router;
