@@ -10,6 +10,11 @@ var router = express.Router();
 
 // middleware to use for all requests
 router.use(function(req, res, next) {
+	// set headers
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	res.header("Content-Type", "application/json");
+
 	console.log('Perform authentication here.');
 	next();
 });
@@ -25,7 +30,6 @@ router.route('/user')
 
 	// create a user (accessed at POST /user)
 	.post(function(req, res) {
-		
 		const username = req.body.name;
 		if (!username)
 			res.json({message: 'Something went wrong'});
@@ -46,11 +50,10 @@ router.route('/user')
 router.route('/user/:userId')
 
     .get(function(req, res) {
-    	let userId = req.params.userId
-    	console.log(userId);
+    	let userId = req.params.userId;
     	Database.getEquitiesByUserId(userId, function(equities){
     		res.json(equities);
-    	})
+    	});
     });
 
 module.exports = router;
