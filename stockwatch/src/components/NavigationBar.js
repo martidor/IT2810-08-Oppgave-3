@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-var FontAwesome = require('react-fontawesome');
+import FontAwesome from 'react-fontawesome';
 
 class NavigationBar extends Component {
 	/*
@@ -15,7 +15,7 @@ class NavigationBar extends Component {
 	    <Navbar.Header>
 	      <Navbar.Brand>
 	      <LinkContainer to="/">
-	        <a href="/">Stockwatch</a>
+	      	<a href="/">Stockwatch</a>
 	      </LinkContainer>
 	      </Navbar.Brand>
 	      <Navbar.Toggle />

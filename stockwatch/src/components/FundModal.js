@@ -40,10 +40,8 @@ class FundModal extends Component{
     return (
       <Modal
           {...this.props}
-          animation={false}
           show={this.state.show}
           onHide={this.hideModal}
-          dialogClassName="animated fadeIn"
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-lg">{this.props.fund.name}</Modal.Title>
@@ -73,7 +71,9 @@ class FundModal extends Component{
                 </tr>
                 <tr>
                   <td>Siste dag</td>
-                  <td className={this.getClassName(this.props.fund.percentChanged)}>{this.props.fund.percentChanged} %</td>
+                  <td className={this.getClassName(this.props.fund.percentChanged)}>
+                    {this.props.fund.percentChanged} %
+                  </td>
                 </tr>
                 <tr>
                   <td>Avkastning</td>
@@ -81,11 +81,15 @@ class FundModal extends Component{
                 </tr>
                 <tr>
                   <td>Avkastning %</td>
-                  <td className={this.getClassName(this.props.fund.percentReturn)}>{this.props.fund.percentReturn} %</td>
+                  <td className={this.getClassName(this.props.fund.percentReturn)}>
+                    {this.props.fund.percentReturn} %
+                  </td>
                 </tr>
                 <tr>
                   <td>Årlig avkastning %</td>
-                  <td className={this.getClassName(this.props.fund.annualPercentReturn)}>{this.props.fund.annualPercentReturn} %</td>
+                  <td className={this.getClassName(this.props.fund.annualPercentReturn)}>
+                    {this.props.fund.annualPercentReturn} %
+                  </td>
                 </tr>
                 <tr>
                   <td>Total verdi</td>
