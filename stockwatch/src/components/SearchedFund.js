@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
+import { FormattedDate, FormattedTime, FormattedNumber } from 'react-intl';
+import moment from 'moment';
 import './SearchedFund.css';
 
 class SearchedFund extends Component {
@@ -17,13 +19,55 @@ class SearchedFund extends Component {
     else return "";
   }
 
+  getDateTime(timestamp, type){
+    if (type === "SHARES" && moment(timestamp).isSame(Date.now(), 'day')) {
+      return (
+        <div>
+          <span>kl </span>
+          <FormattedTime
+            value={new Date(timestamp)}
+          />
+        </div>
+      )
+    }
+    return (
+      <FormattedDate value={new Date(timestamp)} />
+    )
+  }
+
   render() {
+    const equity = this.props.fund;
     return (
       <tr>
-        <td>{this.props.fund.name}</td>
-        <td>{this.props.fund.dateUpdated}</td>
-        <td className={this.getClassName(this.props.fund.percentChanged)}>{this.props.fund.percentChanged} %</td>
-        <td>{this.props.fund.stockValue} kr</td>
+        <td>{equity.name}</td>
+        <td>
+          {
+            this.getDateTime(equity.time, equity.type)
+          }
+        </td>
+        <td className={this.getClassName(equity.percent)}>
+          { 
+            equity.percent ?
+            <FormattedNumber  // eslint-disable-next-line
+              style='percent'
+              minimumFractionDigits={2}
+              maximumFractionDigits={2}
+              value={equity.percent / 100}
+            />
+            : "-"
+          }
+        </td>
+        <td>
+          {
+            equity.price ?
+            <FormattedNumber
+              minimumFractionDigits={2}
+              maximumFractionDigits={2}
+              value={equity.price}
+            /> 
+            : "-"
+           }
+         </td>
         <td><Button bsSize="xsmall">Legg til</Button></td>
       </tr>
     );

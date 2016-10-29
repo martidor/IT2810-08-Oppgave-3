@@ -3,4 +3,14 @@
 	text-align: center;
 }
 
+.no-results{
+	display: none;
+}
 
+.no-results:first-child:last-child{
+	display: table-row;
+}
+
+.loading {
+	font-size: 1.3em;
+}

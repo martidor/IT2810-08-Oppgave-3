@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Table, Row, Col, FormControl, FormGroup, ControlLabel} from 'react-bootstrap';
 import SearchedFund from '../components/SearchedFund';
-import funds from '../dummy-funds.json';
+import FontAwesome from 'react-fontawesome';
 import './Search.css';
 import Fuse from'fuse.js';
 
@@ -13,29 +13,52 @@ class Search extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {funds: funds.funds};
 
-    // Initialize the searcher with search options
-    this.fuse = new Fuse(funds.funds, {
-      keys: ['name'],
-      threshold: 0.4,
-      shouldSort: true
-    });
+    this.state = {
+      'equities': [],
+      'maxSearchResults': 60,
+      'loading': true
+    };
+
+    this.getFunds = this.getFunds.bind(this)
+    this.search = this.search.bind(this)
+    this.initialize = this.initialize.bind(this)
+    
+    this.getFunds(this.initialize);
+  }
+
+  initialize(equities){
+      this.setState({ 'equities': equities, 'loading': false });
+
+      // Initialize the searcher with search options
+      this.fuse = new Fuse(equities, {
+        keys: ['name'],
+        threshold: 0.4,
+        shouldSort: true
+      });
+  }
+
+  getFunds(callback){
+    return fetch('http://localhost:8008/api/equities')
+      .then((response) => response.json())
+      .then((json) => {
+        callback(json);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   search (event) {
     // Extract the query
     let query = event.target.value;
 
-    if (query === "")
-      // If the query is empty, show all of the funds.
-      this.setState(funds: funds.funds);
-    else {
-      // Otherwise, search in the funds, and update the state with the results.
+    // Only search if we have at least three characters
+    if (query.length >= 3) {
+      // Search in the funds, and update the state with the results.
       let result = this.fuse.search(query);
-      this.setState({funds: result});
-    }
-      
+      this.setState({equities: result.slice(0, this.state.maxSearchResults)});
+    }   
   }
   
   render() {
@@ -63,18 +86,29 @@ class Search extends Component {
                   <th>Navn</th>
                   <th>Oppdatert</th>
                   <th>Siste dag</th>
-                  <th>Pris</th>
+                  <th>Kurs</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
                 {
-                  this.state.funds.map(function(fund) {
+                  this.state.equities.map(function(equity, i) {
                     return (
-                      <SearchedFund fund={fund} />
+                      <SearchedFund key={i} fund={equity} />
                     )
                   })
                 }
+                {
+                  this.state.loading ?
+                    (
+                      <tr>
+                        <td colSpan="5" className="loading"> Laster inn.. <FontAwesome spin name="circle-o-notch" /> </td>
+                      </tr>
+                    ) : ""
+                }
+                <tr className="no-results">
+                  <td colSpan="5">Ingen treff på søket..</td>
+                </tr>
               </tbody>
             </Table>
           </Col>
