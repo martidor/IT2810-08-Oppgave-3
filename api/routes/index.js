@@ -49,11 +49,11 @@ router.route('/user')
 		})
 	});
 
-router.route('/user/:userId')
+router.route('/user/:userId/equities')
 
     .get(function(req, res) {
     	let userId = req.params.userId;
-    	Database.getEquitiesByUserId(userId, function(equities){
+    	Helper.getUserEquities(userId, function(equities){
     		res.json(equities);
     	});
     });
