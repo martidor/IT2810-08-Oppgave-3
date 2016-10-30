@@ -20,6 +20,10 @@ class OsloBors{
 		return "http://oslobors.no/ob/servlets/components?columns=CLOSE_BEGIN_1DAY&itemSector=OSEBX.OSE&space=DAY";
 	}
 
+	static equityStatsUrl(equityId){
+		return `http://www.oslobors.no/ob/servlets/components/graphdata/(CLOSE_CA)/DAY/${equityId}?points=2000&stop=2016-10-28&period=3years`;
+	}
+
 	// Methods to get data from API
 	static getEquities(callback) {
 		let requestUrls = [OsloBors.stockUrl(), OsloBors.fundUrl()];
@@ -44,6 +48,17 @@ class OsloBors{
 		}).then(function(results) {
 			let ticker = OsloBors.mergeTickerAndYesterday(results);
 			return callback(ticker);
+		});
+	}
+
+	static getEquityStats(equityId, callback){
+		let requestUrl = OsloBors.equityStatsUrl(equityId);
+		Promise.try(function(){
+			return fetch(requestUrl).then(function(res) {
+				return res.json();
+			})
+		}).then(function(json){
+			return callback(json.rows[0].values.series.c1.data);
 		});
 	}
 

@@ -58,11 +58,11 @@ router.route('/user/:userId/equities')
     	});
     });
 
-// on routes that end in /equities
+// on routes that end in /equity
 // ----------------------------------------------------
-router.route('/equities')
+router.route('/equity')
 
-	// get all the equities (accessed at GET /api/equities)
+	// get all the equities (accessed at GET /api/equity)
 	.get(function(req, res) {
 		OsloBors.getEquities(function(equities){
 			eqArray = Helper.convertObjectToArray(equities);
@@ -70,7 +70,14 @@ router.route('/equities')
 		});
 	});
 
-module.exports = router;
+router.route('/equity/:equityId')
+
+	// get all the equities (accessed at GET /api/equity)
+	.get(function(req, res) {
+		OsloBors.getEquityStats(req.params.equityId, function(equityStats){
+    		res.json(equityStats);
+		});
+	});
 
 // ticker routes
 // ----------------------------------------------------
