@@ -1,6 +1,7 @@
 
 export default class EquityHelper{
 
+	/* eslint-disable */
 	constructor(equity){
 		this.annualPercentReturn = this.getAnnualPercentReturn(equity);
 		this.return = this.getReturn(equity);

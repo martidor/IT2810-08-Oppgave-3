@@ -10,6 +10,8 @@ export default class ChartOptions {
         return ChartOptions.tickerOptions(that);
       case "equity":
         return ChartOptions.equityOptions(that);
+      default:
+        return null
     }
   }
 

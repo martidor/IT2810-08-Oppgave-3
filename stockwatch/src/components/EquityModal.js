@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Modal, Button, Table, Image } from 'react-bootstrap';
+import { Modal, Button, Table } from 'react-bootstrap';
 import { FormattedDate, FormattedTime, FormattedNumber } from 'react-intl';
 import Chart from '../components/highcharts/Chart';
 import moment from 'moment';

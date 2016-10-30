@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
-import Chart from '../components/highcharts/Chart';
+//import Chart from '../components/highcharts/Chart';
 
 class Stats extends Component {
 
+	// eslint-disable-next-line
     constructor(props){
         super(props);
     }
