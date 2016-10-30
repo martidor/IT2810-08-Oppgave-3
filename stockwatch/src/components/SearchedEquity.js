@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { FormattedDate, FormattedTime, FormattedNumber } from 'react-intl';
 import moment from 'moment';
-import './SearchedFund.css';
+import './SearchedEquity.css';
 
-class SearchedFund extends Component {
+class SearchedEquity extends Component {
   /*
-  This component is a table row showing info about a searched fund.
-  It contains info about a fund and is not related to a user.
+  This component is a table row showing info about a searched equity.
+  It contains info about a equity and is not related to a user.
   */
   
   getClassName(property) {
@@ -36,7 +36,7 @@ class SearchedFund extends Component {
   }
 
   render() {
-    const equity = this.props.fund;
+    const equity = this.props.equity;
     return (
       <tr>
         <td>{equity.name}</td>
@@ -74,4 +74,4 @@ class SearchedFund extends Component {
   }
 }
 
-export default SearchedFund;
+export default SearchedEquity;

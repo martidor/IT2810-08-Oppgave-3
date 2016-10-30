@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Table, Row, Col, FormControl, FormGroup, ControlLabel} from 'react-bootstrap';
-import SearchedFund from '../components/SearchedFund';
+import SearchedEquity from '../components/SearchedEquity';
 import FontAwesome from 'react-fontawesome';
 import './Search.css';
 import Fuse from'fuse.js';
 
 class Search extends Component {
   /*
-  This component is listing funds, and a search bar. When the user adds input to the
-  search bar, the funds will automatically update with results matching the query.
+  This component is listing equities, and a search bar. When the user adds input to the
+  search bar, the equities will automatically update with results matching the query.
   */
 
   constructor(props) {
@@ -20,11 +20,11 @@ class Search extends Component {
       'loading': true
     };
 
-    this.getFunds = this.getFunds.bind(this)
-    this.search = this.search.bind(this)
-    this.initialize = this.initialize.bind(this)
+    this.getEquities = this.getEquities.bind(this);
+    this.search = this.search.bind(this);
+    this.initialize = this.initialize.bind(this);
     
-    this.getFunds(this.initialize);
+    this.getEquities(this.initialize);
   }
 
   initialize(equities){
@@ -38,7 +38,7 @@ class Search extends Component {
       });
   }
 
-  getFunds(callback){
+  getEquities(callback){
     return fetch('http://localhost:8008/api/equities')
       .then((response) => response.json())
       .then((json) => {
@@ -55,7 +55,7 @@ class Search extends Component {
 
     // Only search if we have at least three characters
     if (query.length >= 3) {
-      // Search in the funds, and update the state with the results.
+      // Search in the equities, and update the state with the results.
       let result = this.fuse.search(query);
       this.setState({equities: result.slice(0, this.state.maxSearchResults)});
     }   
@@ -94,7 +94,7 @@ class Search extends Component {
                 {
                   this.state.equities.map(function(equity, i) {
                     return (
-                      <SearchedFund key={i} fund={equity} />
+                      <SearchedEquity key={i} equity={equity} />
                     )
                   })
                 }

@@ -7,11 +7,7 @@ class NotFound extends Component {
 
   render() {
     return (
-      <div className="App">
-          <div className="App-header">
-            <h2>404</h2>
-          </div>
-        </div>
+      <p style={{textAlign: 'center', marginTop: '50px'}}> Vennligst prøv en annen URL, eller ta kontakt med administrator Donald Trump. </p>
     );
   }
 }

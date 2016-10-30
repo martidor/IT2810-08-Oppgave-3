@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Table, Row, Col } from 'react-bootstrap';
-import funds from '../dummy-funds.json';
-import FundRow from '../components/FundRow';
-import FundModal from '../components/FundModal';
+import equities from '../dummy-equities.json';
+import EquityRow from '../components/EquityRow';
+import EquityModal from '../components/EquityModal';
 
 class Portfolio extends Component {
   /*
@@ -12,16 +12,21 @@ class Portfolio extends Component {
   constructor(props) {
     super(props);
 
-    // Initialize the state with no funds and modal not showing.
-    this.state = {show: false, fund: {}};
+    // Initialize the state with no equities and modal not showing.
+    this.state = {
+      show: false,
+      modalEquity: {},
+      equitiesLoaded: false,
+      equities: []
+    };
 
     // Bind the function to the class instance
     this.showModal = this.showModal.bind(this);
   }
 
-  showModal(fund) {
-    // Show the modal and set the modal to display the fund clicked.
-    this.setState({show: true, fund: fund});
+  showModal(equity) {
+    // Show the modal and set the modal to display the equity clicked.
+    this.setState({show: true, modalEquity: equity});
   }
 
   render() {
@@ -41,16 +46,16 @@ class Portfolio extends Component {
             </thead>
             <tbody>
               {
-                funds.funds.map((fund, i) => {
+                equities.equities.map((equity, i) => {
                   return (
-                    <FundRow key={i} showModal={() => this.showModal(fund)} fund={fund} />
+                    <EquityRow key={i} showModal={() => this.showModal(equity)} equity={equity} />
                   )
                 })
               }
             </tbody>
           </Table>
         </Col>
-        <FundModal show={this.state.show} fund={this.state.fund}/>
+        <EquityModal show={this.state.show} equity={this.state.modalEquity}/>
       </Row>
     );
   }

@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import { Modal, Button, Table, Image } from 'react-bootstrap';
-import './FundModal.css';
+import './EquityModal.css';
 
-class FundModal extends Component{
+class EquityModal extends Component{
   /*
-  This component is showing info about a fund in a modal.
+  This component is showing info about a equity in a modal.
   */
 
   constructor(props) {
@@ -44,56 +44,56 @@ class FundModal extends Component{
           onHide={this.hideModal}
         >
           <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-lg">{this.props.fund.name}</Modal.Title>
+            <Modal.Title id="contained-modal-title-lg">{this.props.equity.name}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Table hover responsive>
               <tbody className="no-border">
                 <tr>
                   <td>Kostpris</td>
-                  <td>{this.props.fund.costPrice} kr</td>
+                  <td>{this.props.equity.costPrice} kr</td>
                 </tr>
                 <tr>
                   <td>Dato investert</td>
-                  <td>{this.props.fund.dateInvested}</td>
+                  <td>{this.props.equity.dateInvested}</td>
                 </tr>
                 <tr>
                   <td>Beholdning</td>
-                  <td>{this.props.fund.stockHolding}</td>
+                  <td>{this.props.equity.stockHolding}</td>
                 </tr>
                 <tr>
                   <td>Siste kurs</td>
-                  <td>{this.props.fund.stockValue} kr</td>
+                  <td>{this.props.equity.stockValue} kr</td>
                 </tr>
                 <tr>
                   <td>Oppdatert</td>
-                  <td>{this.props.fund.dateUpdated}</td>
+                  <td>{this.props.equity.dateUpdated}</td>
                 </tr>
                 <tr>
                   <td>Siste dag</td>
-                  <td className={this.getClassName(this.props.fund.percentChanged)}>
-                    {this.props.fund.percentChanged} %
+                  <td className={this.getClassName(this.props.equity.percentChanged)}>
+                    {this.props.equity.percentChanged} %
                   </td>
                 </tr>
                 <tr>
                   <td>Avkastning</td>
-                  <td>{this.props.fund.return} kr</td>
+                  <td>{this.props.equity.return} kr</td>
                 </tr>
                 <tr>
                   <td>Avkastning %</td>
-                  <td className={this.getClassName(this.props.fund.percentReturn)}>
-                    {this.props.fund.percentReturn} %
+                  <td className={this.getClassName(this.props.equity.percentReturn)}>
+                    {this.props.equity.percentReturn} %
                   </td>
                 </tr>
                 <tr>
                   <td>Årlig avkastning %</td>
-                  <td className={this.getClassName(this.props.fund.annualPercentReturn)}>
-                    {this.props.fund.annualPercentReturn} %
+                  <td className={this.getClassName(this.props.equity.annualPercentReturn)}>
+                    {this.props.equity.annualPercentReturn} %
                   </td>
                 </tr>
                 <tr>
                   <td>Total verdi</td>
-                  <td>{this.props.fund.totalValue} kr</td>
+                  <td>{this.props.equity.totalValue} kr</td>
                 </tr>
               </tbody>
             </Table>
@@ -107,4 +107,4 @@ class FundModal extends Component{
   }
 }
 
-export default FundModal;
+export default EquityModal;
