@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Table, Row, Col } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
+import { FormattedNumber } from 'react-intl';
 import EquityHelper from '../components/EquityHelper';
 import EquityRow from '../components/EquityRow';
 import EquityModal from '../components/EquityModal';
@@ -42,7 +43,6 @@ class Portfolio extends Component {
   }
 
   equitiesLoaded(json){
-    console.log(json);
     // Add object for getting calculated info about the equity
     for (let equity of json)
       equity.calculated = new EquityHelper(equity);
@@ -56,6 +56,38 @@ class Portfolio extends Component {
   showModal(equity) {
     // Show the modal and set the modal to display the equity clicked.
     this.setState({show: true, modalEquity: equity});
+  }
+
+  getPortfolioTotals(){
+    if (this.state.equitiesLoaded){
+      let totalPrice = 0, totalValue = 0;
+
+      for (var equity of this.state.equities){
+        totalPrice += equity.TotalPrice;
+        totalValue += equity.price * equity.Stockholding;
+      }
+
+      return (
+        <tr style={{fontWeight: 600}}>
+          <td colSpan="3">Totalt</td>
+          <td>
+            <FormattedNumber
+              minimumFractionDigits={0}
+              maximumFractionDigits={0}
+              value={ (totalValue - totalPrice) }
+            /> 
+          </td>
+          <td colSpan="2">
+            <FormattedNumber
+              minimumFractionDigits={0}
+              maximumFractionDigits={0}
+              value={ totalValue }
+            /> 
+          </td> 
+        </tr>
+      );
+    }
+    return null;
   }
 
   render() {
@@ -86,6 +118,9 @@ class Portfolio extends Component {
                       <td colSpan="5" className="loading"> Laster inn.. <FontAwesome spin name="circle-o-notch" /> </td>
                     </tr>
                   )
+              }
+              {
+                this.getPortfolioTotals()
               }
             </tbody>
           </Table>
