@@ -23,7 +23,7 @@ class Database{
 
 	static getEquitiesByUserId(userId, callback){
 		const db = this.getDatabase();
-		const stmt = "SELECT EquityId, ExternalEquityId, TotalPrice, TransactionTimestamp, Stockholding FROM Equity WHERE UserId = ? AND IsSold = 0";
+		const stmt = "SELECT EquityId, ExternalEquityId, TotalPrice, TransactionTimestamp, Stockholding FROM Equity WHERE UserId = ? AND IsSold = 0 ORDER BY TransactionTimestamp";
 		db.all(stmt, userId, function(err, rows){
 			callback(rows);
 			db.close();
