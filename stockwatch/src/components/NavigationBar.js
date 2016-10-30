@@ -11,7 +11,7 @@ class NavigationBar extends Component {
 
   render() {
     return (
-	  <Navbar id="NavigationBar" fixedTop>
+	  <Navbar id="NavigationBar" fixedTop collapseOnSelect>
 	    <Navbar.Header>
 	      <Navbar.Brand>
 	      <LinkContainer to="/">
@@ -22,19 +22,22 @@ class NavigationBar extends Component {
 	    </Navbar.Header>
 	    <Navbar.Collapse>
 	      <Nav pullRight>
+	      	<LinkContainer to="/stats">
+	      		<NavItem eventKey={1}><FontAwesome name="area-chart" /> Statistikk</NavItem>
+	      	</LinkContainer>
 	      	<LinkContainer to="/portefolje">
-	      		<NavItem eventKey={1}><FontAwesome name="area-chart" /> Portefølje</NavItem>
+	      		<NavItem eventKey={2}><FontAwesome name="list-ul" /> Portefølje</NavItem>
 	      	</LinkContainer>
 	      	<LinkContainer to="/sok">
-	        	<NavItem eventKey={2}><FontAwesome name="search" /> Søk</NavItem>
+	        	<NavItem eventKey={3}><FontAwesome name="search" /> Søk</NavItem>
 	        </LinkContainer>
 	        <LinkContainer to="/profil">
-	        	<NavItem eventKey={3}><FontAwesome name="user" /> Profil</NavItem>
+	        	<NavItem eventKey={4}><FontAwesome name="user" /> Profil</NavItem>
         	</LinkContainer>
         	<LinkContainer to="/logg-inn">
-	        	<NavItem eventKey={3}><FontAwesome name="sign-in" /> Logg inn</NavItem>
+	        	<NavItem eventKey={5}><FontAwesome name="sign-in" /> Logg inn</NavItem>
         	</LinkContainer>
-	        <NavItem eventKey={4}><FontAwesome name="sign-out" /> Logg ut</NavItem>
+	        <NavItem eventKey={6}><FontAwesome name="sign-out" /> Logg ut</NavItem>
 	      </Nav>
 	    </Navbar.Collapse>
 	  </Navbar>
