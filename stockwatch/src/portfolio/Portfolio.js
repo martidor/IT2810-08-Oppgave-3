@@ -4,7 +4,7 @@ import funds from '../dummy-funds.json';
 import FundRow from '../components/FundRow';
 import FundModal from '../components/FundModal';
 
-class Overview extends Component {
+class Portfolio extends Component {
   /*
   This component shows a list of the users portfolio.
   */
@@ -56,4 +56,4 @@ class Overview extends Component {
   }
 }
 
-export default Overview;
+export default Portfolio;

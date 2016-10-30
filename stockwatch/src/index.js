@@ -4,7 +4,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { IntlProvider, addLocaleData } from 'react-intl';
 import noLocaleData from 'react-intl/locale-data/no';
 import App from './App';
-import Overview from './overview/Overview';
+import Portfolio from './portfolio/Portfolio';
 import Profile from './profile/Profile';
 import Home from './home/Home'
 import Login from './login/Login'
@@ -21,7 +21,7 @@ render(
 		  <Router history={browserHistory}>
 		    <Route path="/" component={App}>
 		    	<IndexRoute component={Home} name="Børsoversikten"/>
-		    	<Route path="oversikt" component={Overview} name="Oversikt"/>
+		    	<Route path="portefolje" component={Portfolio} name="Portefølje"/>
 				<Route path="profil" component={Profile} name="Profil"/>	
 		    	<Route path="sok" component={Search} name="Søk"/> 
 		    	<Route path="logg-inn" component={Login} name="Logg inn"/> 

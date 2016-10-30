@@ -22,8 +22,8 @@ class NavigationBar extends Component {
 	    </Navbar.Header>
 	    <Navbar.Collapse>
 	      <Nav pullRight>
-	      	<LinkContainer to="/oversikt">
-	      		<NavItem eventKey={1}><FontAwesome name="area-chart" /> Oversikt</NavItem>
+	      	<LinkContainer to="/portefolje">
+	      		<NavItem eventKey={1}><FontAwesome name="area-chart" /> Portefølje</NavItem>
 	      	</LinkContainer>
 	      	<LinkContainer to="/sok">
 	        	<NavItem eventKey={2}><FontAwesome name="search" /> Søk</NavItem>
