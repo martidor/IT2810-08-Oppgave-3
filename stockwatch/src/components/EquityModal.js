@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { Modal, Button, Table, Image } from 'react-bootstrap';
+import { FormattedDate, FormattedTime, FormattedNumber } from 'react-intl';
+import moment from 'moment';
 import './EquityModal.css';
 
 class EquityModal extends Component{
@@ -32,78 +34,160 @@ class EquityModal extends Component{
     else return "";
   }
 
+  getDateTime(timestamp, type){
+    if (type === "SHARES" && moment(timestamp).isSame(Date.now(), 'day')) {
+      return (
+        <div>
+          <span>kl </span>
+          <FormattedTime
+            value={new Date(timestamp)}
+          />
+        </div>
+      )
+    }
+    return (
+      <FormattedDate value={new Date(timestamp)} />
+    )
+  }
+
   hideModal() {
     this.setState({show: false});
   }
 
   render() {
-    return (
-      <Modal
-          {...this.props}
-          show={this.state.show}
-          onHide={this.hideModal}
-        >
-          <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-lg">{this.props.equity.name}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Table hover responsive>
-              <tbody className="no-border">
-                <tr>
-                  <td>Kostpris</td>
-                  <td>{this.props.equity.costPrice} kr</td>
-                </tr>
-                <tr>
-                  <td>Dato investert</td>
-                  <td>{this.props.equity.dateInvested}</td>
-                </tr>
-                <tr>
-                  <td>Beholdning</td>
-                  <td>{this.props.equity.stockHolding}</td>
-                </tr>
-                <tr>
-                  <td>Siste kurs</td>
-                  <td>{this.props.equity.stockValue} kr</td>
-                </tr>
-                <tr>
-                  <td>Oppdatert</td>
-                  <td>{this.props.equity.dateUpdated}</td>
-                </tr>
-                <tr>
-                  <td>Siste dag</td>
-                  <td className={this.getClassName(this.props.equity.percentChanged)}>
-                    {this.props.equity.percentChanged} %
-                  </td>
-                </tr>
-                <tr>
-                  <td>Avkastning</td>
-                  <td>{this.props.equity.return} kr</td>
-                </tr>
-                <tr>
-                  <td>Avkastning %</td>
-                  <td className={this.getClassName(this.props.equity.percentReturn)}>
-                    {this.props.equity.percentReturn} %
-                  </td>
-                </tr>
-                <tr>
-                  <td>Årlig avkastning %</td>
-                  <td className={this.getClassName(this.props.equity.annualPercentReturn)}>
-                    {this.props.equity.annualPercentReturn} %
-                  </td>
-                </tr>
-                <tr>
-                  <td>Total verdi</td>
-                  <td>{this.props.equity.totalValue} kr</td>
-                </tr>
-              </tbody>
-            </Table>
-            <Image src="graph.png" responsive />
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.hideModal}>Close</Button>
-          </Modal.Footer>
-        </Modal>
-    );
+    const equity = this.props.equity;
+    if (equity.hasOwnProperty("calculated")){
+      return (
+        <Modal
+            {...this.props}
+            show={this.state.show}
+            onHide={this.hideModal}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title id="contained-modal-title-lg">{equity.name}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Table hover responsive>
+                <tbody className="no-border">
+                  <tr>
+                    <td>Kostpris</td>
+                    <td>
+                      <FormattedNumber
+                        minimumFractionDigits={0}
+                        maximumFractionDigits={0}
+                        value={ equity.TotalPrice }
+                      /> 
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Dato investert</td>
+                    <td>
+                      <FormattedDate value={new Date(equity.TransactionTimestamp)} />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Beholdning</td>
+                    <td>
+                      <FormattedNumber
+                        minimumFractionDigits={0}
+                        maximumFractionDigits={4}
+                        value={ equity.Stockholding }
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Siste kurs</td>
+                    <td>
+                      <FormattedNumber
+                        minimumFractionDigits={2}
+                        maximumFractionDigits={2}
+                        value={equity.price}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Oppdatert</td>
+                    <td>
+                      {
+                        this.getDateTime(equity.time, equity.type)
+                      }
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Siste dag</td>
+                    <td className={this.getClassName(equity.percent)}>
+                      { 
+                        equity.percent ?
+                        <FormattedNumber  // eslint-disable-next-line
+                          style='percent'
+                          minimumFractionDigits={2}
+                          maximumFractionDigits={2}
+                          value={equity.percent / 100}
+                        />
+                        : "-"
+                      }
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Avkastning</td>
+                    <td>
+                      <FormattedNumber
+                        minimumFractionDigits={0}
+                        maximumFractionDigits={0}
+                        value={ equity.calculated.return }
+                      /> 
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Avkastning %</td>
+                    <td className={this.getClassName(equity.calculated.percentReturn)}>
+                      {
+                        equity.calculated.percentReturn ?
+                        <FormattedNumber  // eslint-disable-next-line
+                          style='percent'
+                          minimumFractionDigits={2}
+                          maximumFractionDigits={2}
+                          value={equity.calculated.percentReturn }
+                        />
+                        : "-"
+                      }
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Årlig avkastning %</td>
+                    <td className={this.getClassName(equity.calculated.annualPercentReturn)}>
+                      {
+                        equity.percent ?
+                        <FormattedNumber  // eslint-disable-next-line
+                          style='percent'
+                          minimumFractionDigits={2}
+                          maximumFractionDigits={2}
+                          value={equity.calculated.annualPercentReturn}
+                        />
+                        : "-"
+                      }
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Total verdi</td>
+                    <td>
+                      <FormattedNumber
+                        minimumFractionDigits={0}
+                        maximumFractionDigits={0}
+                        value={ equity.calculated.totalValue }
+                      /> 
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+              <Image src="graph.png" responsive />
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={this.hideModal}>Close</Button>
+            </Modal.Footer>
+          </Modal>
+      );
+    } return null;
   }
 }
 

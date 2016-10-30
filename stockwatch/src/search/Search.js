@@ -92,20 +92,19 @@ class Search extends Component {
               </thead>
               <tbody>
                 {
-                  this.state.equities.map(function(equity, i) {
-                    return (
-                      <SearchedEquity key={i} equity={equity} />
-                    )
-                  })
-                }
-                {
                   this.state.loading ?
                     (
                       <tr>
                         <td colSpan="5" className="loading"> Laster inn.. <FontAwesome spin name="circle-o-notch" /> </td>
                       </tr>
-                    ) : ""
+                    )
+                  : this.state.equities.map(function(equity, i) {
+                    return (
+                      <SearchedEquity key={i} equity={equity} />
+                    )
+                  })
                 }
+                  
                 <tr className="no-results">
                   <td colSpan="5">Ingen treff på søket..</td>
                 </tr>

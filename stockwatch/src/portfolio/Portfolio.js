@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Table, Row, Col } from 'react-bootstrap';
-import equities from '../dummy-equities.json';
+import FontAwesome from 'react-fontawesome';
+import EquityHelper from '../components/EquityHelper';
 import EquityRow from '../components/EquityRow';
 import EquityModal from '../components/EquityModal';
 
@@ -22,6 +23,34 @@ class Portfolio extends Component {
 
     // Bind the function to the class instance
     this.showModal = this.showModal.bind(this);
+    this.loadEquities = this.loadEquities.bind(this)
+    this.equitiesLoaded = this.equitiesLoaded.bind(this)
+
+    this.loadEquities(this.equitiesLoaded);
+  }
+
+  loadEquities(callback){
+    // User id hard coded for now.
+    return fetch('http://localhost:8008/api/user/1/equities')
+      .then((response) => response.json())
+      .then((json) => {
+        callback(json);
+      })
+      .catch((error) => {
+        console.error(error);
+    });
+  }
+
+  equitiesLoaded(json){
+    console.log(json);
+    // Add object for getting calculated info about the equity
+    for (let equity of json)
+      equity.calculated = new EquityHelper(equity);
+
+    this.setState({ 
+      'equitiesLoaded': true,
+      'equities': json
+    });
   }
 
   showModal(equity) {
@@ -46,11 +75,17 @@ class Portfolio extends Component {
             </thead>
             <tbody>
               {
-                equities.equities.map((equity, i) => {
-                  return (
-                    <EquityRow key={i} showModal={() => this.showModal(equity)} equity={equity} />
+                this.state.equitiesLoaded ?
+                  this.state.equities.map((equity, i) => {
+                    return (
+                      <EquityRow key={i} showModal={() => this.showModal(equity)} equity={equity} />
+                    )
+                  })
+                : (
+                    <tr>
+                      <td colSpan="5" className="loading"> Laster inn.. <FontAwesome spin name="circle-o-notch" /> </td>
+                    </tr>
                   )
-                })
               }
             </tbody>
           </Table>
