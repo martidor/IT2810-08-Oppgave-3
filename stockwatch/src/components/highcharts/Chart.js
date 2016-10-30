@@ -17,7 +17,7 @@ class Chart extends Component {
                 module(Highcharts);
             });
         }
-
+        
         // Get options for the chart to be rendered
         let options = ChartOptions.getOptions(this);
         this.chart = new Highcharts[this.props.type || "Chart"](this.props.container, options);

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Modal, Button, Table, Image } from 'react-bootstrap';
 import { FormattedDate, FormattedTime, FormattedNumber } from 'react-intl';
+import Chart from '../components/highcharts/Chart';
 import moment from 'moment';
 import './EquityModal.css';
 
@@ -13,16 +14,45 @@ class EquityModal extends Component{
     super(props);
 
     // Initial state
-    this.state = {show: false};
+    this.state = {
+      show: false,
+      chartLoaded: false,
+      chart: []
+    };
 
     // Bind the function to the class instance
     this.hideModal = this.hideModal.bind(this);
+    this.loadChart = this.loadChart.bind(this)
+    this.chartLoaded = this.chartLoaded.bind(this)
   }
 
   componentWillReceiveProps(newProps){
     // Update the modal when new props arrive.
     var self = this;
     self.setState({show: newProps.show});
+    
+    if (newProps.show){
+      console.log(newProps.equity);
+      self.loadChart(newProps.equity.id, this.chartLoaded);
+    }
+  }
+
+  loadChart(equityId, callback){
+    return fetch('http://localhost:8008/api/equity/' + equityId)
+      .then((response) => response.json())
+      .then((json) => {
+        callback(json);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    }
+    
+  chartLoaded(json){
+    this.setState({ 
+      'chartLoaded': true,
+      'chart': json
+    });
   }
 
   getClassName(property) {
@@ -180,7 +210,10 @@ class EquityModal extends Component{
                   </tr>
                 </tbody>
               </Table>
-              <Image src="graph.png" responsive />
+              { this.state.chartLoaded ?
+                <Chart container="equity-chart" chartKey="equity" data={this.state.chart}/>
+                : ""
+              }
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={this.hideModal}>Close</Button>

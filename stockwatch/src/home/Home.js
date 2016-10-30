@@ -32,15 +32,6 @@ class Home extends Component {
           });
     }
 
-    getClassName(property) {
-	    // Get the classname based on a property
-	    if (property < 0) 
-	      return "red";
-	    else if (property > 0)
-	      return "green";
-	    else return "";
-	  }
-
     chartLoaded(json){
     	let currentValue = json.ticker[json.ticker.length - 1][1]
     	let percentChanged = (currentValue / json.yesterday) - 1;
@@ -50,6 +41,15 @@ class Home extends Component {
         	'currentValue': currentValue,
         	'percentChanged': percentChanged
         });
+    }
+
+    getClassName(property) {
+        // Get the classname based on a property
+        if (property < 0) 
+          return "red";
+        else if (property > 0)
+          return "green";
+        else return "";
     }
 
 	render() {
