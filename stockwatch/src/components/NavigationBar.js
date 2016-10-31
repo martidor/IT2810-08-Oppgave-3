@@ -11,7 +11,7 @@ class NavigationBar extends Component {
 
   render() {
     return (
-	  <Navbar id="NavigationBar" fixedTop collapseOnSelect>
+	  <Navbar id="NavigationBar" collapseOnSelect fixedTop >
 	    <Navbar.Header>
 	      <Navbar.Brand>
 	      <LinkContainer to="/">

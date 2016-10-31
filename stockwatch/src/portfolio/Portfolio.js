@@ -32,7 +32,7 @@ class Portfolio extends Component {
 
   loadEquities(callback){
     // User id hard coded for now.
-    return fetch('http://localhost:8008/api/user/1/equities')
+    return fetch(window.apiUrl + '/user/1/equities')
       .then((response) => response.json())
       .then((json) => {
         callback(json);

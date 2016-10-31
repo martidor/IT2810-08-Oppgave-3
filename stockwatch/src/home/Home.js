@@ -22,7 +22,7 @@ class Home extends Component {
     }
 
     loadChart(callback){
-        return fetch('http://localhost:8008/api/ticker')
+        return fetch(window.apiUrl + '/ticker')
           .then((response) => response.json())
           .then((json) => {
             callback(json);

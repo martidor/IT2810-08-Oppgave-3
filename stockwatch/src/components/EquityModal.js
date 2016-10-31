@@ -38,7 +38,7 @@ class EquityModal extends Component{
   }
 
   loadChart(equityId, callback){
-    return fetch('http://localhost:8008/api/equity/' + equityId)
+    return fetch(window.apiUrl + '/equity/' + equityId)
       .then((response) => response.json())
       .then((json) => {
         callback(json);
