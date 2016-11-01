@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Grid } from 'react-bootstrap';
 import './App.css';
 import NavigationBar from './components/NavigationBar';
+import Notes from './notes/Notes';
 
 class App extends Component {
   /*
@@ -9,7 +10,7 @@ class App extends Component {
   the page component will be rendered in the {this.props.children}.
   */
 
-  
+
   render() {
     // set API globally for now. Find better way later
     window.apiUrl = 'http://' + window.location.hostname + ':8008/api';
@@ -17,6 +18,7 @@ class App extends Component {
     return (
       <div>
         <NavigationBar />
+        <Notes />
         <Grid>
           <div className="header">
             <h2> {this.props.children.props.route.name} </h2>
