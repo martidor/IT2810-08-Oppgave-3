@@ -4,10 +4,27 @@
   store that person into the database in order to remember that person
   untill the next time they log in.
 */
-import React from 'react';
+
+import React, {Component} from 'react';
 import { FacebookLogin } from 'react-facebook-login-component';
+import {Button, Modal} from 'react-bootstrap';
+import CreateProfile from '../components/CreateProfile.js';
 
 class Login extends React.Component{
+    constructor(){
+        super();
+
+        this.state ={showModal: false};
+        this.open = this.open.bind(this);
+        this.close = this.close.bind(this);
+    }
+
+    close(){
+        this.setState({ showModal: false});
+    }
+    open(){
+        this.setState({ showModal: true});
+    }
 
     /*
      This function takes the response from Facebook, which will be
@@ -37,6 +54,21 @@ class Login extends React.Component{
                          version="v2.8"
                          class="facebook-login"
                          buttonText="Login With Facebook"/>
+
+
+            <Button onClick={this.open}>Opprett profil</Button>
+
+                <Modal show={this.state.showModal} onHide={this.close}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Opprett profil</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <CreateProfile />
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button onClick={this.close}>Close</Button>
+                    </Modal.Footer>
+                </Modal>
           </div>
         );
     }

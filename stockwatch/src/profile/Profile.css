@@ -1,17 +1,8 @@
-#upper {
-	height:200px;
-	width: auto;
-}
-#bottom {
-	height: auto;
-	width: 700px;
-	margin: 50px auto 50px;
-}
-#editSelector {
-	width:100%;
-	margin: 0 auto 0;
-}
-
 #createprofile, #editprofile{
 	display: inline-block;
+}
+.profilebody{
+	margin: auto;
+	border: 1px solid;
+	width: 80%;
 }
