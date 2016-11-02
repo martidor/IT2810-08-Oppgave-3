@@ -24,9 +24,9 @@ render(
 		    	<IndexRoute component={Home} name="Børsoversikten"/>
 		    	<Route path="stats" component={Stats} name="Statistikk"/>
 		    	<Route path="portefolje" component={Portfolio} name="Portefølje"/>
-				<Route path="profil" component={Profile} name="Profil"/>	
-		    	<Route path="sok" component={Search} name="Søk"/> 
-		    	<Route path="logg-inn" component={Login} name="Logg inn"/> 
+				<Route path="profil" component={Profile} name="Profil"/>
+			<Route path="sok" component={Search} name="Søk"/>
+			<Route path="logg-inn" component={Login} name="Logg inn"/>
 		    	<Route path="*" component={NotFound} name="Ikke funnet"/>
 		    </Route>
 		  </Router>

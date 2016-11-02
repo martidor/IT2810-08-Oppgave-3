@@ -1,10 +1,3 @@
-/*
-  Login is the component that connects to Facebooks SDK and returns
-  the information from the users Facebook profile. This is used to
-  store that person into the database in order to remember that person
-  untill the next time they log in.
-*/
-
 import React, {Component} from 'react';
 import { FacebookLogin } from 'react-facebook-login-component';
 import {Button, Modal} from 'react-bootstrap';
@@ -79,6 +72,9 @@ class Login extends React.Component{
                 </Button>
                 </form>
 
+
+
+            <Button><a href="/auth/facebook">Login with Facebook</a></Button>
 
 
             <Button onClick={this.open}>Opprett ny profil</Button>
