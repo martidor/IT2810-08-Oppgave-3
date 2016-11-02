@@ -10,7 +10,7 @@ export default class Notes extends Component{
   constructor(){
     super();
     this.state = {
-      value: "Enter a quick note",
+      value: "",
       showNoteField: false,
     };
   }
@@ -31,7 +31,8 @@ export default class Notes extends Component{
           </div>
 
           {this.state.showNoteField ?
-            <div>
+            <div id="note_components">
+            <h3 id="note_title">Enter a quick note</h3>
             <NoteField value={this.state.value} />
             <NoteInput updateNotes={this.updateNotes.bind(this)} />
           </div>
