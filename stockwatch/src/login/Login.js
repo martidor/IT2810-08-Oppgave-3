@@ -5,7 +5,7 @@
   untill the next time they log in.
 */
 import React from 'react';
-import { FacebookLogin } from 'react-facebook-login-component';
+//import { FacebookLogin } from 'react-facebook-login-component';
 
 class Login extends React.Component{
 
@@ -27,7 +27,8 @@ class Login extends React.Component{
     */
     render () {
         return (
-          <div>
+          <a href="/auth/facebook">Login with Facebook</a>
+          /*<div>
             <FacebookLogin socialId="658913754278482"
                          language="en_US"
                          scope="public_profile,email"
@@ -37,7 +38,7 @@ class Login extends React.Component{
                          version="v2.8"
                          class="facebook-login"
                          buttonText="Login With Facebook"/>
-          </div>
+          </div>*/
         );
     }
 

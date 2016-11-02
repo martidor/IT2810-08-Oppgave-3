@@ -1,4 +1,5 @@
 var express 	= require('express');
+var passport = require('passport');
 
 // ROUTES FOR OUR AUTH
 // =============================================================================
