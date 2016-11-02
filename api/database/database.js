@@ -29,6 +29,16 @@ class Database{
 			db.close();
 		});
 	}
+
+	static getStatsByUserId(userId, callback){
+		const db = this.getDatabase();
+		const stmt = "SELECT Timestamp, Invested, Values FROM UserStats Where UserId = ?";
+		db.all(stmt, userId, function(err, rows){
+			callback(rows);
+			db.close();
+			console.log(rows);
+		});
+	}
 }
 
 
