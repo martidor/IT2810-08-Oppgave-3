@@ -39,7 +39,7 @@ class Search extends Component {
   }
 
   getEquities(callback){
-    return fetch(window.apiUrl + '/api/equity')
+    return fetch(window.apiUrl + '/equity')
       .then((response) => response.json())
       .then((json) => {
         callback(json);
