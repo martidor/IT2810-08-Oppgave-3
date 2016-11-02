@@ -18,7 +18,7 @@ export default class Notes extends Component{
 
   render(){
     return(
-      <div pullRight>
+      <div id="notes" pullRight>
         <NoteField value={this.state.value}/>
         <NoteInput updateNotes={this.updateNotes.bind(this)} />
       </div>
