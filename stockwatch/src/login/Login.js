@@ -9,6 +9,7 @@ import React, {Component} from 'react';
 import { FacebookLogin } from 'react-facebook-login-component';
 import {Button, Modal} from 'react-bootstrap';
 import CreateProfile from '../components/CreateProfile.js';
+import './Login.css';
 
 class Login extends React.Component{
     constructor(){
@@ -44,7 +45,7 @@ class Login extends React.Component{
     */
     render () {
         return (
-          <div>
+          <div className="loginbody">
             <FacebookLogin socialId="658913754278482"
                          language="en_US"
                          scope="public_profile,email"
@@ -56,11 +57,11 @@ class Login extends React.Component{
                          buttonText="Login With Facebook"/>
 
 
-            <Button onClick={this.open}>Opprett profil</Button>
+            <Button onClick={this.open}>Opprett ny profil</Button>
 
                 <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Opprett profil</Modal.Title>
+                        <Modal.Title>Opprett ny profil</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <CreateProfile />

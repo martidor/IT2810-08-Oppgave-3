@@ -28,18 +28,22 @@ class Profile extends Component {
 	open(){
 		this.setState({ showModal: true});
 	}
+	areyousure(){
+		
+	}
 
 	render() {
 		
 		
 		return(
 			<div className="profilebody">
-				
+				<h3> Name Nameson </h3>
 				<Button	onClick={this.open}>Endre profilinnstillinger</Button>
+				<Button onClick="areyousure();">Slett profil</Button>
 
 				<Modal show={this.state.showModal} onHide={this.close}>
 					<Modal.Header closeButton>
-						<Modal.Title>Opprett profil</Modal.Title>
+						<Modal.Title>Endre profilinnstillinger</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
 						<EditProfile />
