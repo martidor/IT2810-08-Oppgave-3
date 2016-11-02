@@ -1,12 +1,9 @@
 #editprofile, #createprofile{
-	 
+	
 }
 #username, #email, #pw, #pw2{
 	display: block;
 }
 hr{
 
-}
-#togglebutt{
-	width: 80px;
 }

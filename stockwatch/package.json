@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.6.1"
+    "react-scripts": "0.6.1",
+    "react-toggle": "^2.1.1"
   },
   "dependencies": {
     "fuse.js": "^2.5.0",
