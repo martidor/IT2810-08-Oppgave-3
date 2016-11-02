@@ -1,7 +1,4 @@
-#createprofile, #editprofile{
-	display: inline-block;
-}
-.profilebody{
+#profilebody{
 	margin: auto;
 	text-align: center;
 	border-left: 1px solid;

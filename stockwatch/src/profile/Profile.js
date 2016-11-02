@@ -36,8 +36,8 @@ class Profile extends Component {
 		
 		
 		return(
-			<div className="profilebody">
-				<h3> Name Nameson </h3>
+			<div id="profilebody">
+				<h3>getname</h3>
 				<Button	onClick={this.open}>Endre profilinnstillinger</Button>
 				<Button onClick="areyousure();">Slett profil</Button>
 

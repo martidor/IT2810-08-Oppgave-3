@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { FacebookLogin } from 'react-facebook-login-component';
-import {Button, Modal} from 'react-bootstrap';
+import {Button, Modal, FormGroup, ControlLabel} from 'react-bootstrap';
 import CreateProfile from '../components/CreateProfile.js';
 import './Login.css';
 
@@ -38,40 +38,17 @@ class Login extends React.Component{
     */
     render () {
         return (
-          <div className="loginbody">
-              <div>
-                <FacebookLogin socialId="658913754278482"
-                             language="en_US"
-                             scope="public_profile,email"
-                             fields="id,name,first_name,last_name,picture,email"
-                             responseHandler={this.responseFacebook}
-                             xfbml={true}
-                             version="v2.8"
-                             class="facebook-login"
-                             buttonText="Login With Facebook"/>
+          <div id="loginbody">
 
-                </div>
             <form>
-                <FormGroup controlId="formControlsSelect">
-                    <ControlLabel> Brukernavn: </ControlLabel>
-                    <input type="text" id="username" placeholder="Brukernavn" />
-                    <ControlLabel> E-post: </ControlLabel>
-                    <input type="email" id="email" placeholder="me@me.no" />
-                    <ControlLabel> Passord: </ControlLabel>
-                    <input type="password" id="pw" placeholder="*****" />
-                    <ControlLabel> Gjenta passord: </ControlLabel>
-                    <input type="passord" id="pw2" placeholder="*****" />
-                    <ControlLabel> Synlighet (På/Av): </ControlLabel>
-                    <label>
-                        <Toggle/>
-                    </label>
-                    
-                </FormGroup>
-                <Button type="submit">
-                    Lagre endringer
-                </Button>
-                </form>
-
+            <FormGroup controlId="loginform">
+              <ControlLabel> Brukernavn: </ControlLabel>
+              <input type="text" id="username" placeholder="corny" />
+              <ControlLabel> Passord: </ControlLabel>
+              <input type="password" id="pw" placeholder="****" />
+            </FormGroup>
+            <Button id="logginnButton" type="submit">Logg inn</Button>
+          </form>
 
 
             <Button><a href="/auth/facebook">Login with Facebook</a></Button>
