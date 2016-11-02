@@ -3,7 +3,7 @@ import { Table, Row, Col, FormControl, FormGroup, ControlLabel} from 'react-boot
 import SearchedEquity from '../components/SearchedEquity';
 import FontAwesome from 'react-fontawesome';
 import './Search.css';
-import Fuse from'fuse.js';
+import Fuse from 'fuse.js';
 
 class Search extends Component {
   /*
@@ -23,7 +23,7 @@ class Search extends Component {
     this.getEquities = this.getEquities.bind(this);
     this.search = this.search.bind(this);
     this.initialize = this.initialize.bind(this);
-    
+
     this.getEquities(this.initialize);
   }
 
@@ -58,9 +58,9 @@ class Search extends Component {
       // Search in the equities, and update the state with the results.
       let result = this.fuse.search(query);
       this.setState({equities: result.slice(0, this.state.maxSearchResults)});
-    }   
+    }
   }
-  
+
   render() {
     return (
       <div>
@@ -104,7 +104,7 @@ class Search extends Component {
                     )
                   })
                 }
-                  
+
                 <tr className="no-results">
                   <td colSpan="5">Ingen treff på søket..</td>
                 </tr>
