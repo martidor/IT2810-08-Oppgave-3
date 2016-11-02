@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid } from 'react-bootstrap';
+import { Grid, Footer } from 'react-bootstrap';
 import './App.css';
 import NavigationBar from './components/NavigationBar';
 import Notes from './notes/Notes';
@@ -25,6 +25,9 @@ class App extends Component {
           </div>
           {this.props.children}
         </Grid>
+        <footer>
+        <h3>CONTACT cornydick@gmail.com FOR ANY INQUIRIES</h3>
+        </footer>
       </div>
     );
   }

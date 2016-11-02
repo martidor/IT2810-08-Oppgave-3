@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {Button, FormGroup, ControlLabel} from 'react-bootstrap';
+import Toggle from 'react-toggle';
 import './CreateEditProfile.css';
-/*import ToggleButton from 'react-toggle-button';*/
+import './togglebutton.css';
+
 
 class EditProfile extends Component {
 	render() {
@@ -17,9 +19,11 @@ class EditProfile extends Component {
 					<input type="password" id="pw" placeholder="*****" />
 					<ControlLabel> Gjenta passord: </ControlLabel>
 					<input type="passord" id="pw2" placeholder="*****" />
+					<ControlLabel> Synlighet (På/Av): </ControlLabel>
+					<label>
+						<Toggle/>
+					</label>
 					
-					<ControlLabel> Synlighet </ControlLabel>
-					<img id="togglebutt" alt="toggle" src={'https://daks2k3a4ib2z.cloudfront.net/56e9b4349a3c3ee83032ddae/57173789a18a4b4832355401_Sk%C3%A6rmbillede%2B2016-04-20%2Bkl.%2B10.00.40.png'} />
 				</FormGroup>
 				<Button type="submit">
 					Lagre endringer

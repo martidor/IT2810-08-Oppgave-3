@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
-import {Row, Col} from 'react-bootstrap';
-import ProfileTable from '../components/ProfileTable.js';
+import {Button, Modal} from 'react-bootstrap';
 import EditProfile from '../components/EditProfile.js';
-import CreateProfile from '../components/CreateProfile.js';
-/*import TestCreate from '../components/test.js';*/
 import './Profile.css';
 
 /*
@@ -14,34 +11,49 @@ import './Profile.css';
  * Note: Using much-up graph.
  */
 
+
 class Profile extends Component {
+
+	constructor(){
+		super();
+
+		this.state ={showModal: false};
+		this.open = this.open.bind(this);
+		this.close = this.close.bind(this);
+	}
+
+	close(){
+		this.setState({ showModal: false});
+	}
+	open(){
+		this.setState({ showModal: true});
+	}
+	areyousure(){
+		
+	}
+
 	render() {
+		
+		
 		return(
-			<div>
-				<Row className="show-grid">
-					<Col md={12}>
-						<div id="upper">
-							<ProfileTable />
-						</div>
-					</Col>
-					<Col md={6} mdOffset={3}>
-						<div id="editSelector">
-						<hr />
-						<p> create profil </p>
-							<CreateProfile />
-						</div>
-					</Col>
-					<Col md={6} mdOffset={3}>
-						<div id="editSelector">
-						<hr />
-						<p> edit profil </p>
-							<EditProfile />
-						</div>
-					</Col>
-					<div id="bottom">
-						<img alt="chart" src={"http://www.itjobswatch.co.uk/charts/daily-rate-trend.aspx?s=highcharts+js&l=uk"} />
-					</div>
-					</Row>
+			<div className="profilebody">
+				<h3> Name Nameson </h3>
+				<Button	onClick={this.open}>Endre profilinnstillinger</Button>
+				<Button onClick="areyousure();">Slett profil</Button>
+
+				<Modal show={this.state.showModal} onHide={this.close}>
+					<Modal.Header closeButton>
+						<Modal.Title>Endre profilinnstillinger</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+						<EditProfile />
+					</Modal.Body>
+					<Modal.Footer>
+						<Button onClick={this.close}>Close</Button>
+					</Modal.Footer>
+				</Modal>
+
+				
 			</div>
 		);
 	}
