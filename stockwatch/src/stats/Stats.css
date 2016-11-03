@@ -1,0 +1,12 @@
+.charts > div {
+	padding: 20px 0;
+}
+
+.charts > div + div {
+	padding-top: 50px;
+	border-top: 1px solid #e7e7e7;
+}
+
+.charts tspan{
+	font-weight: 300;
+}
