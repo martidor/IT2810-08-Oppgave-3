@@ -37,6 +37,30 @@ class Helper{
 			callback(dbResults);
 		});
 	}
+
+	static getStatsByUserId(userId, callback){
+		var promise = new Promise(function(resolve, reject) {
+			Database.getStatsByUserId(userId, function(userStats){
+				resolve(userStats);
+			});
+		});
+
+		promise.then(function(userStats){
+			let stats = {
+				'return': [],
+				'value': [],
+				'invested': []
+			}
+
+			for(let userStat of userStats){
+				stats.return.push([userStat.Timestamp, userStat.Value - userStat.Invested]);
+				stats.value.push([userStat.Timestamp, userStat.Value]);
+				stats.invested.push([userStat.Timestamp, userStat.Invested]);
+			}
+
+			callback(stats);
+		});
+	}
 }
 
 module.exports = Helper;

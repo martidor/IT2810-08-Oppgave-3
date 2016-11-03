@@ -58,6 +58,15 @@ router.route('/user/:userId/equities')
     	});
     });
 
+router.route('/user/:userId/stats')
+
+    .get(function(req, res) {
+    	let userId = req.params.userId;
+    	Helper.getStatsByUserId(userId, function(userStats){
+    		res.json(userStats);
+    	});
+    });
+
 // on routes that end in /equity
 // ----------------------------------------------------
 router.route('/equity')

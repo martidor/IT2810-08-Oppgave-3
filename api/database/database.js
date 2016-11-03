@@ -32,11 +32,10 @@ class Database{
 
 	static getStatsByUserId(userId, callback){
 		const db = this.getDatabase();
-		const stmt = "SELECT Timestamp, Invested, Values FROM UserStats Where UserId = ?";
+		const stmt = "SELECT Timestamp, Invested, Value FROM UserStats Where UserId = ? ORDER BY Timestamp";
 		db.all(stmt, userId, function(err, rows){
 			callback(rows);
 			db.close();
-			console.log(rows);
 		});
 	}
 }
