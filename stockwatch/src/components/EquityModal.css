@@ -6,3 +6,7 @@
 .table > .no-border > tr > td{
 	border-top: none;
 }
+
+.float-left {
+	float: left;
+}

@@ -216,7 +216,8 @@ class EquityModal extends Component{
               }
             </Modal.Body>
             <Modal.Footer>
-              <Button onClick={this.hideModal}>Close</Button>
+            <Button className="float-left" onClick={this.hideModal}>Slett fra portefølje</Button>
+              <Button onClick={this.hideModal}>Lukk</Button>
             </Modal.Footer>
           </Modal>
       );
