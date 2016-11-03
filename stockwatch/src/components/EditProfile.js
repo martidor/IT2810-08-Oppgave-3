@@ -19,8 +19,7 @@ class EditProfile extends Component {
 					<input type="password" id="pw" placeholder="*****" />
 					<ControlLabel> Gjenta passord: </ControlLabel>
 					<input type="passord" id="pw2" placeholder="*****" />
-					
-					<ControlLabel> Synlighetsinstillinger </ControlLabel>
+					<ControlLabel> Synlighet (På/Av): </ControlLabel>
 					<label>
 						<Toggle/>
 					</label>

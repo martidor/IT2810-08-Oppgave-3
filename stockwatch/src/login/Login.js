@@ -1,14 +1,8 @@
-/*
-  Login is the component that connects to Facebooks SDK and returns
-  the information from the users Facebook profile. This is used to
-  store that person into the database in order to remember that person
-  untill the next time they log in.
-*/
-
 import React, {Component} from 'react';
 import { FacebookLogin } from 'react-facebook-login-component';
-import {Button, Modal} from 'react-bootstrap';
+import {Button, Modal, FormGroup, ControlLabel} from 'react-bootstrap';
 import CreateProfile from '../components/CreateProfile.js';
+import './Login.css';
 
 class Login extends React.Component{
     constructor(){
@@ -44,23 +38,27 @@ class Login extends React.Component{
     */
     render () {
         return (
-          <div>
-            <FacebookLogin socialId="658913754278482"
-                         language="en_US"
-                         scope="public_profile,email"
-                         fields="id,name,first_name,last_name,picture,email"
-                         responseHandler={this.responseFacebook}
-                         xfbml={true}
-                         version="v2.8"
-                         class="facebook-login"
-                         buttonText="Login With Facebook"/>
+          <div id="loginbody">
+
+            <form>
+            <FormGroup controlId="loginform">
+              <ControlLabel> Brukernavn: </ControlLabel>
+              <input type="text" id="username" placeholder="corny" />
+              <ControlLabel> Passord: </ControlLabel>
+              <input type="password" id="pw" placeholder="****" />
+            </FormGroup>
+            <Button id="logginnButton" type="submit">Logg inn</Button>
+          </form>
 
 
-            <Button onClick={this.open}>Opprett profil</Button>
+            <Button><a href="/auth/facebook">Login with Facebook</a></Button>
+
+
+            <Button onClick={this.open}>Opprett ny profil</Button>
 
                 <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Opprett profil</Modal.Title>
+                        <Modal.Title>Opprett ny profil</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <CreateProfile />

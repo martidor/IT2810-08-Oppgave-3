@@ -1,0 +1,15 @@
+#loginbody{
+	margin: auto;
+	text-align: center;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	width: 80%;
+	
+}
+#logginnButton{
+	margin-bottom: 10px;
+}
+#username, #pw{
+	margin: auto;
+	text-align: center;
+}
