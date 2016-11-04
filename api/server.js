@@ -9,6 +9,7 @@ var routes 		= require('./routes/index');
 var authRoutes	= require('./routes/auth');
 var passport 	= require('passport')
 var FacebookStrategy = require('passport-facebook').Strategy;
+var Cronjob = require('./helper/cronjob')
 
 passport.use(new FacebookStrategy({
     clientID: 658913754278482,
@@ -36,8 +37,11 @@ app.use('/api', routes);
 // Auth routes
 app.use('/auth', authRoutes);
 
+// Register a cronjob for updating stats daily
+Cronjob.registerStatsUpdate();
+
 // START THE SERVER
 // =============================================================================
 app.listen(port);
 
-console.log('Shit is going down on port ' + port);
+console.log('API up and running on port ' + port);

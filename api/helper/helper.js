@@ -38,6 +38,30 @@ class Helper{
 		});
 	}
 
+	// This method is getting all user equities from the database,
+	// and merge it with information from Oslo Børs.
+	static getAllUserEquities(callback){
+		let dbPromise = new Promise(function (resolve, reject) {
+			Database.getAllEquities(function(userEquities){
+	    		resolve(userEquities);
+	    	});
+    	});
+
+    	let apiPromise = new Promise(function (resolve, reject) {
+	    	OsloBors.getEquities(function(equities){
+	    		resolve(equities);
+			});
+		});
+
+		Promise.all([dbPromise, apiPromise]).then(values => {
+			let dbResults = values[0];
+			const apiResults = values[1];
+
+			let users = Helper.placeEquitiesOnUsers(dbResults, apiResults);
+			callback(users);
+		});
+	}
+
 	static getStatsByUserId(userId, callback){
 		var promise = new Promise(function(resolve, reject) {
 			Database.getStatsByUserId(userId, function(userStats){
@@ -60,6 +84,44 @@ class Helper{
 
 			callback(stats);
 		});
+	}
+
+	static placeEquitiesOnUsers(dbResults, apiResults){
+		let users = {};
+		for (let dbResult of dbResults) {
+			let userId = dbResult.UserId;
+
+			// Add user to object if it doesn't exist yet.
+			if (! users.hasOwnProperty(userId))
+				users[userId] = [];
+
+			const apiResult = apiResults[dbResult.ExternalEquityId]
+			for (const attr in apiResult)
+				dbResult[attr] = apiResult[attr];
+
+			users[userId].push(dbResult);
+		}
+		return users;
+	}
+
+	static calculateUserStats(users){
+		let stats = [];
+		for (let userKey in users){
+			let user = users[userKey];
+			let userStat = {
+				timestamp: new Date().getTime(),
+				invested: 0,
+				value: 0,
+				userId: 0
+			}
+			for (let userEquity of user){
+				userStat.invested += userEquity.TotalPrice;
+				userStat.value += userEquity.Stockholding * userEquity.price;
+				userStat.userId = userEquity.UserId;
+			}
+			stats.push(userStat);
+		}
+		return stats;
 	}
 }
 

@@ -16,7 +16,7 @@ class Database{
 
 	static createNewUser(username, callback){
 		const db = this.getDatabase();
-		const stmt = db.prepare("INSERT INTO user VALUES (?)");
+		const stmt = db.prepare("INSERT INTO user(username) VALUES (?)");
 		stmt.run(username);
 		stmt.finalize(callback);
 	}
@@ -30,6 +30,15 @@ class Database{
 		});
 	}
 
+	static getAllEquities(callback){
+		const db = this.getDatabase();
+		const stmt = "SELECT UserId, EquityId, ExternalEquityId, TotalPrice, TransactionTimestamp, Stockholding FROM Equity WHERE IsSold = 0";
+		db.all(stmt, function(err, rows){
+			callback(rows);
+			db.close();
+		});
+	}
+
 	static getStatsByUserId(userId, callback){
 		const db = this.getDatabase();
 		const stmt = "SELECT Timestamp, Invested, Value FROM UserStats Where UserId = ? ORDER BY Timestamp";
@@ -37,6 +46,15 @@ class Database{
 			callback(rows);
 			db.close();
 		});
+	}
+
+	static insertUserStats(userArray){
+		const db = this.getDatabase();
+		const stmt = db.prepare("INSERT INTO UserStats(Timestamp, Invested, Value, UserId) VALUES (?,?,?,?)");
+		for (let user of userArray)
+			stmt.run(user.timestamp, user.invested, user.value, user.userId);
+		stmt.finalize();
+		db.close();
 	}
 }
 
