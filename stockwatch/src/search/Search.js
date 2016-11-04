@@ -26,20 +26,26 @@ class Search extends Component {
     this.initialize = this.initialize.bind(this);
     this.showTenMoreEquities = this.showTenMoreEquities.bind(this);
     this.registerScrollSpy = this.registerScrollSpy.bind(this);
+    this.isScrolledToBottom = this.isScrolledToBottom.bind(this);
 
     this.getEquities(this.initialize);
   }
 
   registerScrollSpy(){
-    let that = this;
-    window.onscroll = function() {
-      var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-      var scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
-      var scrolledToBottom = (scrollTop + window.innerHeight) >= scrollHeight;
+    window.addEventListener("scroll", this.isScrolledToBottom);
+  }
 
-      if (scrolledToBottom)
-        that.showTenMoreEquities();
-    };
+  isScrolledToBottom(){
+    var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+    var scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
+    var scrolledToBottom = (scrollTop + window.innerHeight) >= scrollHeight;
+
+    if (scrolledToBottom)
+      this.showTenMoreEquities();
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener('scroll', this.isScrolledToBottom);
   }
 
   initialize(equities){
