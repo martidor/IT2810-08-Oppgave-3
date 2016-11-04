@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Row, Col, FormControl, FormGroup, ControlLabel} from 'react-bootstrap';
+import { Table, Row, Button, Col, FormControl, FormGroup, ControlLabel} from 'react-bootstrap';
 import SearchedEquity from '../components/SearchedEquity';
 import FontAwesome from 'react-fontawesome';
 import './Search.css';
@@ -16,19 +16,35 @@ class Search extends Component {
 
     this.state = {
       'equities': [],
-      'maxSearchResults': 60,
-      'loading': true
+      'defaultNumResults': 30,
+      'numResults': 30,
+      'loading': true,
     };
 
     this.getEquities = this.getEquities.bind(this);
     this.search = this.search.bind(this);
     this.initialize = this.initialize.bind(this);
+    this.showTenMoreEquities = this.showTenMoreEquities.bind(this);
+    this.registerScrollSpy = this.registerScrollSpy.bind(this);
 
     this.getEquities(this.initialize);
   }
 
+  registerScrollSpy(){
+    let that = this;
+    window.onscroll = function() {
+      var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+      var scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
+      var scrolledToBottom = (scrollTop + window.innerHeight) >= scrollHeight;
+
+      if (scrolledToBottom)
+        that.showTenMoreEquities();
+    };
+  }
+
   initialize(equities){
       this.setState({ 'equities': equities, 'loading': false });
+      this.equities = equities;
 
       // Initialize the searcher with search options
       this.fuse = new Fuse(equities, {
@@ -36,6 +52,8 @@ class Search extends Component {
         threshold: 0.4,
         shouldSort: true
       });
+
+      this.registerScrollSpy();
   }
 
   getEquities(callback){
@@ -49,19 +67,35 @@ class Search extends Component {
       });
   }
 
+  showTenMoreEquities(){
+      let numResults = this.state.numResults;
+      this.setState({
+        numResults: numResults + 10
+      });
+  }
+
   search (event) {
     // Extract the query
     let query = event.target.value;
+    // Only show the default number of results
+    let result, defaultNumResults = this.state.defaultNumResults;
 
-    // Only search if we have at least three characters
-    if (query.length >= 3) {
+    // Only search if we have at one characters
+    if (query.length >= 1)
       // Search in the equities, and update the state with the results.
-      let result = this.fuse.search(query);
-      this.setState({equities: result.slice(0, this.state.maxSearchResults)});
-    }
+      result = this.fuse.search(query);
+    // Otherwise, return to default state
+    else
+      result = this.equities;
+
+    this.setState({
+      equities: result,
+      numResults: defaultNumResults
+    });
   }
 
   render() {
+    let numResults = this.state.numResults;
     return (
       <div>
         <Row className="show-grid">
@@ -99,17 +133,24 @@ class Search extends Component {
                       </tr>
                     )
                   : this.state.equities.map(function(equity, i) {
-                    return (
-                      <SearchedEquity key={i} equity={equity} />
-                    )
+                    if (i < numResults){
+                      return (
+                        <SearchedEquity key={i} equity={equity} />
+                      );
+                    } else return null;
                   })
-                }
-
+                } 
                 <tr className="no-results">
                   <td colSpan="5">Ingen treff på søket..</td>
                 </tr>
               </tbody>
             </Table>
+            {
+              this.state.loading || this.state.equities.length < numResults ? "" :
+              <div className="show-more-results">
+                <Button onClick={this.showTenMoreEquities}>Vis 10 flere resultater</Button>
+              </div>
+            }
           </Col>
         </Row>
       </div>

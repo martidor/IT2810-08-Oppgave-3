@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import { FacebookLogin } from 'react-facebook-login-component';
 import {Button, Modal, FormGroup, ControlLabel} from 'react-bootstrap';
 import CreateProfile from '../components/CreateProfile.js';
 import './Login.css';
 
-class Login extends React.Component{
+class Login extends Component{
     constructor(){
         super();
 
