@@ -22,7 +22,8 @@ class Home extends Component {
     }
 
     loadChart(callback){
-        return fetch(window.apiUrl + '/ticker')
+        return fetch(window.apiUrl + '/ticker',
+            { credentials: 'include' })
           .then((response) => response.json())
           .then((json) => {
             callback(json);

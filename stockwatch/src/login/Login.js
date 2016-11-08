@@ -50,7 +50,7 @@ class Login extends Component{
           </form>
 
 
-            <Button><a href="/auth/facebook">Login with Facebook</a></Button>
+            <Button><a href="http://localhost:8008/auth/facebook">Login with Facebook</a></Button>
 
 
             <Button onClick={this.open}>Opprett ny profil</Button>

@@ -14,11 +14,31 @@ class Database{
 		});
 	}
 
-	static createNewUser(username, callback){
+	static getUserById(id, callback){
 		const db = this.getDatabase();
-		const stmt = db.prepare("INSERT INTO user(username) VALUES (?)");
-		stmt.run(username);
-		stmt.finalize(callback);
+		const stmt = "SELECT * FROM user WHERE UserId = ?";
+		db.get(stmt, id, function(err, row){
+			callback(err, row);
+			db.close();
+		})
+	}
+
+	static getUserByFacebookId(facebookId, callback){
+		const db = this.getDatabase();
+		const stmt = "SELECT * FROM user WHERE FacebookId = ?";
+		db.get(stmt, facebookId, function(err, row){
+			callback(err, row);
+			db.close();
+		})
+	}
+
+	static createNewUser(user, callback){
+		console.log("creating DBUSER: ", user);
+		const db = this.getDatabase();
+		const stmt = db.prepare("INSERT INTO user(FacebookId, Token, Name) VALUES (?,?,?)");
+		stmt.run([user.facebookId, user.token, user.name], function(){
+			callback();
+		});
 	}
 
 	static getEquitiesByUserId(userId, callback){

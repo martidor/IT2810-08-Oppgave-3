@@ -11,9 +11,11 @@ CREATE TABLE IF NOT EXISTS "UserStats" (
 
 CREATE TABLE IF NOT EXISTS `User` (
 	`UserId`	INTEGER NOT NULL UNIQUE,
-	`Username`	TEXT,
-	`FacebookId`	INTEGER,
 	`PortfolioVisibility`	INTEGER DEFAULT 1,
+	`FacebookId`	TEXT,
+	`Token`	TEXT,
+	`Name`	TEXT,
+	`Email`	TEXT,
 	PRIMARY KEY(`UserId`)
 );
 
@@ -28,9 +30,3 @@ CREATE TABLE IF NOT EXISTS "Equity" (
 	PRIMARY KEY(`EquityId`),
 	FOREIGN KEY(`UserId`) REFERENCES `User`(`UserId`)
 );
-
--- Testdata
--- INSERT INTO User('Username', 'FacebookId') VALUES ('Eirik', 123123124123);
--- INSERT INTO User('Username', 'FacebookId') VALUES ('CornyDick', 841231824);
-
--- INSERT INTO Equity('UserId', 'ExternalEquityId', 'TotalPrice', 'TransactionTimestamp', 'Stockholding') VALUES (1, 'HFISK_OSE', 2000, 1477578600000, 123.93);

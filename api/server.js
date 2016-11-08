@@ -4,32 +4,36 @@
 // =============================================================================
 var express		= require('express');
 var app        	= express();
+var port = process.env.PORT || 8008;
 var bodyParser 	= require('body-parser');
+var cookieParser = require('cookie-parser')
+var session = require('express-session');
 var routes 		= require('./routes/index');
 var authRoutes	= require('./routes/auth');
-var passport 	= require('passport')
-var FacebookStrategy = require('passport-facebook').Strategy;
-var Cronjob = require('./helper/cronjob')
+var passport 	= require('passport');
+var Cronjob = require('./helper/cronjob');
 
-passport.use(new FacebookStrategy({
-    clientID: 658913754278482,
-    clientSecret: "0fcb2a93e0cc115164149ee40d9fd530",
-    callbackURL: "http://localhost:8008/auth/facebook/callback"
-  },
-  function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate({ facebookId: profile.id }, function(err, user) {
-      if (err) { return done(err); }
-      done(null, user);
-    });
-  }
-));
+// create our router
+var router = express.Router();
+
+require('./config/passport')(passport);
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
+app.use(cookieParser()); // read cookies (needed for auth)
+app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
-var port = process.env.PORT || 8008;        // set our port
+// required for passport
+app.use(session({
+  secret: 'topSecretKey',
+  resave: true,
+  saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
 
 // API routes will be prefixed with /api
 app.use('/api', routes);

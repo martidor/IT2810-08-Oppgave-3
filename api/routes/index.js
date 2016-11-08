@@ -1,4 +1,5 @@
 var express 	= require('express');
+var passport	= require('passport');
 var Database 	= require('../database/database');
 var OsloBors	= require('../external-apis/oslobors');
 var Helper		= require('../helper/helper');
@@ -13,16 +14,17 @@ var router = express.Router();
 // middleware to use for all requests
 router.use(function(req, res, next) {
 	// set headers
-	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+	res.header("Access-Control-Allow-Credentials", true);
 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	res.header("Content-Type", "application/json");
 
-	console.log('Perform authentication here.');
 	next();
 });
 
 // test route to make sure everything is working (accessed at GET /api)
 router.get('/', function(req, res) {
+
 	res.json({message: 'API is up and running.'});
 });
 
@@ -32,7 +34,6 @@ router.route('/user')
 
 	// create a user (accessed at POST /user)
 	.post(function(req, res) {
-		const username = req.body.name;
 		if (!username)
 			res.json({message: 'Something went wrong'});
 		else {
@@ -50,7 +51,6 @@ router.route('/user')
 	});
 
 router.route('/user/:userId/equities')
-
     .get(function(req, res) {
     	let userId = req.params.userId;
     	Helper.getUserEquities(userId, function(equities){
@@ -72,7 +72,7 @@ router.route('/user/:userId/stats')
 router.route('/equity')
 
 	// get all the equities (accessed at GET /api/equity)
-	.get(function(req, res) {
+	.get(isLoggedIn, function(req, res) {
 		OsloBors.getEquities(function(equities){
 			eqArray = Helper.convertObjectToArray(equities);
     		res.json(eqArray);
@@ -97,5 +97,16 @@ router.route('/ticker')
     		res.json(json);
 		});
 	});
+
+// route middleware to make sure
+function isLoggedIn(req, res, next) {
+
+	// if user is authenticated in the session, carry on
+	if (req.isAuthenticated())
+		return next();
+
+	// if they aren't send forbidden
+	res.sendStatus(403);
+}
 
 module.exports = router;
