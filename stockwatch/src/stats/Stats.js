@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import Chart from '../components/highcharts/Chart';
+import config from '../config/config'
 import './Stats.css';
 
 class Stats extends Component {
@@ -23,7 +24,8 @@ class Stats extends Component {
 
     loadStats(callback){
 	    // User id hard coded for now.
-	    return fetch(window.apiUrl + '/user/1/stats')
+	    return fetch(config.apiUrl + '/user/stats',
+	      { credentials: 'include' })
 	      .then((response) => response.json())
 	      .then((json) => {
 	        callback(json);

@@ -6,10 +6,10 @@ class Database{
 		return new sqlite3.Database('./database/stockwatch.db');
 	}
 
-	static getAllUsers(callback){
+	static getPublicUsers(callback){
 		const db = this.getDatabase();
-		db.all("SELECT * FROM user", function(err, rows) {
-			callback(rows);
+		db.all("SELECT * FROM user where PortfolioVisibility = 1", function(err, rows) {
+			callback(err, rows);
 			db.close();
 		});
 	}
@@ -33,7 +33,6 @@ class Database{
 	}
 
 	static createNewUser(user, callback){
-		console.log("creating DBUSER: ", user);
 		const db = this.getDatabase();
 		const stmt = db.prepare("INSERT INTO user(FacebookId, Token, Name) VALUES (?,?,?)");
 		stmt.run([user.facebookId, user.token, user.name], function(){

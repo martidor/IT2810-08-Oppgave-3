@@ -4,6 +4,7 @@ import SearchedEquity from '../components/SearchedEquity';
 import FontAwesome from 'react-fontawesome';
 import './Search.css';
 import Fuse from 'fuse.js';
+import config from '../config/config'
 
 class Search extends Component {
   /*
@@ -63,7 +64,8 @@ class Search extends Component {
   }
 
   getEquities(callback){
-    return fetch(window.apiUrl + '/equity')
+    return fetch(config.apiUrl + '/equity',
+      { credentials: 'include' })
       .then((response) => response.json())
       .then((json) => {
         callback(json);

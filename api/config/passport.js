@@ -2,38 +2,32 @@
 var FacebookStrategy = require('passport-facebook').Strategy;
 var User = require('../models/user');
 
-// Auth variables
-var configAuth = require('./auth');
+// Config variables
+var config = require('./config');
 
-// expose this function to our app using module.exports
 module.exports = function(passport) {
-	// =========================================================================
-    // passport session setup ==================================================
-    // =========================================================================
-    // required for persistent login sessions
+	
+    // Passort session setup
+    // =============================================================================
     // passport needs ability to serialize and unserialize users out of session
 
-    // used to serialize the user for the session
     passport.serializeUser(function(user, done) {
-        console.log('serializing user');
         done(null, user.id);
     });
 
-    // used to deserialize the user
     passport.deserializeUser(function(id, done) {
-        console.log("deserialize");
         User.findById(id, function(err, user) {
             done(err, user);
         });
     });
 
-    // =========================================================================
-    // FACEBOOK ================================================================
-    // =========================================================================
+
+    // Facebook stratgy
+    // =============================================================================
     passport.use(new FacebookStrategy({
-        clientID        : configAuth.facebookAuth.clientID,
-        clientSecret    : configAuth.facebookAuth.clientSecret,
-        callbackURL     : configAuth.facebookAuth.callbackURL,
+        clientID        : config.facebookAuth.clientID,
+        clientSecret    : config.facebookAuth.clientSecret,
+        callbackURL     : config.facebookAuth.callbackURL,
         enableProof     : true
     },
 
@@ -42,7 +36,7 @@ module.exports = function(passport) {
         process.nextTick(function() {
             // Try to find the user based on its facebook id.
             User.findByFacebookId(profile.id, function(err, user) {
-                // Abort misson on DB or facebook error
+                // Abort misson if DB or facebook error
                 if (err)
                     return done(err, false);
 
@@ -51,9 +45,8 @@ module.exports = function(passport) {
                     return done(null, user);
                 
                 else {
-                    // Create a new user with info from Facebook.
+                    // Otherwise, create a new user with info from Facebook.
                     var newUser = new User(profile.id, token, profile.displayName);
-                    console.log("new user to save:", newUser);
 
                     // Save user to database
                     newUser.saveToDb(function(err, user) {
@@ -66,6 +59,5 @@ module.exports = function(passport) {
                 }
             });
         });
-
     }));
 }

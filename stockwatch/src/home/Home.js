@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FormattedNumber } from 'react-intl';
 import Chart from '../components/highcharts/Chart';
 import FontAwesome from 'react-fontawesome';
+import config from '../config/config'
 import './Home.css';
 
 
@@ -22,7 +23,7 @@ class Home extends Component {
     }
 
     loadChart(callback){
-        return fetch(window.apiUrl + '/ticker',
+        return fetch(config.apiUrl + '/ticker',
             { credentials: 'include' })
           .then((response) => response.json())
           .then((json) => {

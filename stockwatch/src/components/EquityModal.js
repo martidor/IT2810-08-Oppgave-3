@@ -3,6 +3,7 @@ import { Modal, Button, Table } from 'react-bootstrap';
 import { FormattedDate, FormattedTime, FormattedNumber } from 'react-intl';
 import Chart from '../components/highcharts/Chart';
 import moment from 'moment';
+import config from '../config/config'
 import './EquityModal.css';
 
 class EquityModal extends Component{
@@ -31,14 +32,13 @@ class EquityModal extends Component{
     var self = this;
     self.setState({show: newProps.show});
     
-    if (newProps.show){
-      console.log(newProps.equity);
+    if (newProps.show)
       self.loadChart(newProps.equity.id, this.chartLoaded);
-    }
   }
 
   loadChart(equityId, callback){
-    return fetch(window.apiUrl + '/equity/' + equityId)
+    return fetch(config.apiUrl + '/equity/' + equityId,
+      { credentials: 'include' })
       .then((response) => response.json())
       .then((json) => {
         callback(json);

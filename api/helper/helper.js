@@ -11,9 +11,9 @@ class Helper{
 
 	// This method is getting a users equities from the database,
 	// and merge it with information from Oslo Børs.
-	static getUserEquities(userId, callback){
+	static getUserEquities(user, callback){
 		let dbPromise = new Promise(function (resolve, reject) {
-			Database.getEquitiesByUserId(userId, function(userEquities){
+			Database.getEquitiesByUserId(user.id, function(userEquities){
 	    		resolve(userEquities);
 	    	});
     	});
@@ -62,9 +62,9 @@ class Helper{
 		});
 	}
 
-	static getStatsByUserId(userId, callback){
+	static getStatsByUser(user, callback){
 		var promise = new Promise(function(resolve, reject) {
-			Database.getStatsByUserId(userId, function(userStats){
+			Database.getStatsByUserId(user.id, function(userStats){
 				resolve(userStats);
 			});
 		});

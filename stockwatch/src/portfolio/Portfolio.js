@@ -5,6 +5,7 @@ import { FormattedNumber } from 'react-intl';
 import EquityHelper from '../components/EquityHelper';
 import EquityRow from '../components/EquityRow';
 import EquityModal from '../components/EquityModal';
+import config from '../config/config'
 
 class Portfolio extends Component {
   /*
@@ -32,7 +33,8 @@ class Portfolio extends Component {
 
   loadEquities(callback){
     // User id hard coded for now.
-    return fetch(window.apiUrl + '/user/1/equities')
+    return fetch(config.apiUrl + '/user/equities',
+      { credentials: 'include' })
       .then((response) => response.json())
       .then((json) => {
         callback(json);

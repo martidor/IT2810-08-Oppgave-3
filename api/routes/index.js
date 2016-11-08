@@ -3,15 +3,17 @@ var passport	= require('passport');
 var Database 	= require('../database/database');
 var OsloBors	= require('../external-apis/oslobors');
 var Helper		= require('../helper/helper');
+var config		= require('../config/config');
 
-// ROUTES FOR OUR API
+// Routes for our API
 // =============================================================================
 
 // create our router
 var router = express.Router();
 
 
-// middleware to use for all requests
+// Middleware that all our requests will pass through
+// --------------------------------------------------------------------
 router.use(function(req, res, next) {
 	// set headers
 	res.header("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -22,56 +24,65 @@ router.use(function(req, res, next) {
 	next();
 });
 
-// test route to make sure everything is working (accessed at GET /api)
-router.get('/', function(req, res) {
 
+// Optional midddleware for checking if a user is logged in.
+// -------------------------------------------------------------------
+function isLoggedIn(req, res, next) {
+	if (req.isAuthenticated())
+		return next();
+
+	// Send forbidden status and redirect if they are not authenticated
+	else
+		res.redirect(403, config.siteUrl);
+}
+
+
+// Test route to make sure API is working
+// --------------------------------------------------------------------
+router.get('/', function(req, res) {
 	res.json({message: 'API is up and running.'});
 });
 
-// on routes that end in /users
-// ----------------------------------------------------
+
+// Get all users that have their profile visibiltiy set to public
+// --------------------------------------------------------------------
 router.route('/user')
 
-	// create a user (accessed at POST /user)
-	.post(function(req, res) {
-		if (!username)
-			res.json({message: 'Something went wrong'});
-		else {
-			Database.createNewUser(username, function(){
-				res.json({message: 'User created'});
-			});
-		}
-	})
-
-	// get all the users (accessed at GET /api/users)
-	.get(function(req, res) {
-		Database.getAllUsers(function(users){
+	.get(function(req, res) { // TODO: run through helper and create user objects.
+		Database.getPublicUsers(function(users){
 			res.json(users);
 		})
 	});
 
-router.route('/user/:userId/equities')
-    .get(function(req, res) {
-    	let userId = req.params.userId;
-    	Helper.getUserEquities(userId, function(equities){
+
+// Get equities for logged in user
+// -------------------------------------------------------------------
+router.route('/user/equities')
+
+    .get(isLoggedIn, function(req, res) {
+    	let user = req.user;
+    	Helper.getUserEquities(user, function(equities){
     		res.json(equities);
     	});
     });
 
-router.route('/user/:userId/stats')
 
-    .get(function(req, res) {
-    	let userId = req.params.userId;
-    	Helper.getStatsByUserId(userId, function(userStats){
+// Get stats for logged in user
+// -------------------------------------------------------------------
+router.route('/user/stats')
+
+    .get(isLoggedIn, function(req, res) {
+    	let user = req.user;
+    	Helper.getStatsByUser(user, function(userStats){
     		res.json(userStats);
     	});
     });
 
-// on routes that end in /equity
-// ----------------------------------------------------
+
+// Get list of all equities
+// -------------------------------------------------------------------
 router.route('/equity')
 
-	// get all the equities (accessed at GET /api/equity)
 	.get(isLoggedIn, function(req, res) {
 		OsloBors.getEquities(function(equities){
 			eqArray = Helper.convertObjectToArray(equities);
@@ -79,17 +90,20 @@ router.route('/equity')
 		});
 	});
 
+
+// Get historical data for specific equity
+// -------------------------------------------------------------------
 router.route('/equity/:equityId')
 
-	// get all the equities (accessed at GET /api/equity)
 	.get(function(req, res) {
 		OsloBors.getEquityStats(req.params.equityId, function(equityStats){
     		res.json(equityStats);
 		});
 	});
 
-// ticker routes
-// ----------------------------------------------------
+
+// Get current ticker for OSEBX (Oslo børs)
+// -------------------------------------------------------------------
 router.route('/ticker')
 
 	.get(function(req, res) {
@@ -98,15 +112,32 @@ router.route('/ticker')
 		});
 	});
 
-// route middleware to make sure
-function isLoggedIn(req, res, next) {
 
-	// if user is authenticated in the session, carry on
-	if (req.isAuthenticated())
-		return next();
+// Endpoint for checking if user is authenticated
+// -------------------------------------------------------------------
+router.route('/isAuthenticated')
 
-	// if they aren't send forbidden
-	res.sendStatus(403);
-}
+	.get(function(req, res) {
+		if (req.isAuthenticated())
+			res.json({
+				authenticated: true,
+				token: req.user.token.substring(20)
+			})
+		else
+			res.json({
+				authenticated: false,
+			})
+	});
+
+
+// Endpoint for logging out the user that sent the request
+// -------------------------------------------------------------------
+router.get('/logout')
+
+	.get(function(req, res) {
+		req.logOut();
+		res.sendStatus(200);
+	});
+
 
 module.exports = router;
