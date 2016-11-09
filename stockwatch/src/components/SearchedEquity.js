@@ -38,7 +38,7 @@ class SearchedEquity extends Component {
   render() {
     const equity = this.props.equity;
     return (
-      <tr>
+      <tr className="mouse-pointer" onClick={this.props.showModal}>
         <td>{equity.name}</td>
         <td>
           {

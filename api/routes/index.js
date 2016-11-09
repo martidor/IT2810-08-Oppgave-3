@@ -64,6 +64,16 @@ router.route('/user/equities')
     	Helper.getUserEquities(user, function(equities){
     		res.json(equities);
     	});
+    })
+
+    // Save new equity to portfolio
+    .post(isLoggedIn, function(req, res) {
+    	let user = req.user;
+    	let totalPrice = req.body.totalprice;
+    	let stockholding = req.body.stockholding;
+    	let investedDate = req.body.date;
+    	console.log(totalPrice, stockholding, investedDate);
+    	res.json('ok'); // Continue here.
     });
 
 
@@ -93,10 +103,12 @@ router.route('/equity')
 
 // Get historical data for specific equity
 // -------------------------------------------------------------------
-router.route('/equity/:equityId')
+router.route('/equity/:type/:equityId')
 
 	.get(function(req, res) {
-		OsloBors.getEquityStats(req.params.equityId, function(equityStats){
+		var equityId = req.params.equityId;
+		var type = req.params.type;
+		OsloBors.getEquityStats(equityId, type, function(equityStats){
     		res.json(equityStats);
 		});
 	});
@@ -132,7 +144,7 @@ router.route('/isAuthenticated')
 
 // Endpoint for logging out the user that sent the request
 // -------------------------------------------------------------------
-router.get('/logout')
+router.route('/logout')
 
 	.get(function(req, res) {
 		req.logOut();

@@ -20,7 +20,7 @@ var self = module.exports = {
     // Remove token from localstora
     delete localStorage.token;
     // Send a logout request to the server
-    fetch(config.apiUrl + '/logout', { credentials: 'include' });
+    fetch(config.logoutUrl, { credentials: 'include' });
     // Notify listeners that the login state has changed
     self.onChange();
     // Redirect to home page.
@@ -42,7 +42,7 @@ var self = module.exports = {
 
   checkIfLoggedInOnServer(callback){
     // Send a request to the server and check if we are authenticated.
-    fetch(config.apiUrl + '/isAuthenticated',
+    fetch(config.isAuthenticatedUrl,
       { credentials: 'include' })
       .then((response) => response.json())
       .then((json) => {

@@ -33,7 +33,7 @@ class Portfolio extends Component {
 
   loadEquities(callback){
     // User id hard coded for now.
-    return fetch(config.apiUrl + '/user/equities',
+    return fetch(config.userEquitiesUrl,
       { credentials: 'include' })
       .then((response) => response.json())
       .then((json) => {

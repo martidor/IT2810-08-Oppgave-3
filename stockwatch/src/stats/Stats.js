@@ -24,7 +24,7 @@ class Stats extends Component {
 
     loadStats(callback){
 	    // User id hard coded for now.
-	    return fetch(config.apiUrl + '/user/stats',
+	    return fetch(config.userStatsUrl,
 	      { credentials: 'include' })
 	      .then((response) => response.json())
 	      .then((json) => {

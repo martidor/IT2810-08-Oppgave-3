@@ -8,7 +8,7 @@ import './Login.css';
 class Login extends Component{
 
     loginWithFacebook(){
-        window.location.href = config.facebookAuth;
+        window.location.href = config.facebookAuthUrl;
     }
 
     render () {

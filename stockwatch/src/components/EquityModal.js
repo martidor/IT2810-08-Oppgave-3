@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Modal, Button, Table } from 'react-bootstrap';
 import { FormattedDate, FormattedTime, FormattedNumber } from 'react-intl';
+import FormattedDateTime from './FormattedDateTime';
 import Chart from '../components/highcharts/Chart';
 import moment from 'moment';
 import config from '../config/config'
@@ -32,12 +33,14 @@ class EquityModal extends Component{
     var self = this;
     self.setState({show: newProps.show});
     
-    if (newProps.show)
-      self.loadChart(newProps.equity.id, this.chartLoaded);
+    if (newProps.show){
+      let type = newProps.equity.type === "SHARES" ? "SHARES" : "FUNDS";
+      self.loadChart(type, newProps.equity.id, this.chartLoaded);
+    }
   }
 
-  loadChart(equityId, callback){
-    return fetch(config.apiUrl + '/equity/' + equityId,
+  loadChart(type, equityId, callback){
+    return fetch(config.equityUrl + type + '/' + equityId,
       { credentials: 'include' })
       .then((response) => response.json())
       .then((json) => {
@@ -62,22 +65,6 @@ class EquityModal extends Component{
     else if (property > 0)
       return "green";
     else return "";
-  }
-
-  getDateTime(timestamp, type){
-    if (type === "SHARES" && moment(timestamp).isSame(Date.now(), 'day')) {
-      return (
-        <div>
-          <span>kl </span>
-          <FormattedTime
-            value={new Date(timestamp)}
-          />
-        </div>
-      )
-    }
-    return (
-      <FormattedDate value={new Date(timestamp)} />
-    )
   }
 
   hideModal() {
@@ -138,9 +125,7 @@ class EquityModal extends Component{
                   <tr>
                     <td>Oppdatert</td>
                     <td>
-                      {
-                        this.getDateTime(equity.time, equity.type)
-                      }
+                      <FormattedDateTime timestamp={equity.time} type={equity.type} />
                     </td>
                   </tr>
                   <tr>

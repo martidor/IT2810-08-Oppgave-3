@@ -5,6 +5,7 @@ import FontAwesome from 'react-fontawesome';
 import './Search.css';
 import Fuse from 'fuse.js';
 import config from '../config/config'
+import SearchedEquityModal from '../components/SearchedEquityModal';
 
 class Search extends Component {
   /*
@@ -19,17 +20,23 @@ class Search extends Component {
       'equities': [],
       'defaultNumResults': 30,
       'numResults': 30,
-      'loading': true,
+      'equitiesLoaded': false,
     };
 
-    this.getEquities = this.getEquities.bind(this);
     this.search = this.search.bind(this);
-    this.initialize = this.initialize.bind(this);
     this.showTenMoreEquities = this.showTenMoreEquities.bind(this);
     this.registerScrollSpy = this.registerScrollSpy.bind(this);
     this.isScrolledToBottom = this.isScrolledToBottom.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.loadEquities = this.loadEquities.bind(this)
+    this.equitiesLoaded = this.equitiesLoaded.bind(this)
 
-    this.getEquities(this.initialize);
+    this.loadEquities(this.equitiesLoaded);
+  }
+
+  showModal(equity) {
+    // Show the modal and set the modal to display the equity clicked.
+    this.setState({show: true, modalEquity: equity});
   }
 
   registerScrollSpy(){
@@ -37,9 +44,10 @@ class Search extends Component {
   }
 
   isScrolledToBottom(){
+    var offset = 5;
     var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
     var scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
-    var scrolledToBottom = (scrollTop + window.innerHeight) >= scrollHeight;
+    var scrolledToBottom = (scrollTop + window.innerHeight + offset) >= scrollHeight;
 
     if (scrolledToBottom)
       this.showTenMoreEquities();
@@ -49,8 +57,8 @@ class Search extends Component {
     window.removeEventListener('scroll', this.isScrolledToBottom);
   }
 
-  initialize(equities){
-      this.setState({ 'equities': equities, 'loading': false });
+  equitiesLoaded(equities){
+      this.setState({ 'equities': equities, 'equitiesLoaded': true, show: false });
       this.equities = equities;
 
       // Initialize the searcher with search options
@@ -63,8 +71,8 @@ class Search extends Component {
       this.registerScrollSpy();
   }
 
-  getEquities(callback){
-    return fetch(config.apiUrl + '/equity',
+  loadEquities(callback){
+    return fetch(config.equityUrl,
       { credentials: 'include' })
       .then((response) => response.json())
       .then((json) => {
@@ -78,6 +86,7 @@ class Search extends Component {
   showTenMoreEquities(){
       let numResults = this.state.numResults;
       this.setState({
+        show: false,
         numResults: numResults + 10
       });
   }
@@ -97,12 +106,14 @@ class Search extends Component {
       result = this.equities;
 
     this.setState({
+      show: false,
       equities: result,
       numResults: defaultNumResults
     });
   }
 
   render() {
+
     let numResults = this.state.numResults;
     return (
       <div>
@@ -133,21 +144,20 @@ class Search extends Component {
                 </tr>
               </thead>
               <tbody>
-                {
-                  this.state.loading ?
-                    (
-                      <tr>
-                        <td colSpan="5" className="loading"> Laster inn.. <FontAwesome spin name="circle-o-notch" /> </td>
-                      </tr>
-                    )
-                  : this.state.equities.map(function(equity, i) {
+              {
+                this.state.equitiesLoaded ?
+                  this.state.equities.map((equity, i) => {
                     if (i < numResults){
                       return (
-                        <SearchedEquity key={i} equity={equity} />
-                      );
-                    } else return null;
-                  })
-                } 
+                        <SearchedEquity key={i} showModal={() => this.showModal(equity)} equity={equity} />
+                      )
+                    }
+                  }) : (
+                    <tr>
+                      <td colSpan="5" className="loading"> Laster inn.. <FontAwesome spin name="circle-o-notch" /> </td>
+                    </tr>
+                  )
+              }
                 <tr className="no-results">
                   <td colSpan="5">Ingen treff på søket..</td>
                 </tr>
@@ -161,6 +171,7 @@ class Search extends Component {
             }
           </Col>
         </Row>
+        <SearchedEquityModal show={this.state.show} equity={this.state.modalEquity}/>
       </div>
     );
   }

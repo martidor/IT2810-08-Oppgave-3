@@ -28,3 +28,9 @@ body {
 .navbar-default .navbar-toggle:hover{
 	background-color: #ddd;
 }
+
+@media (max-width: 767px){
+	.table{
+		font-size: 0.8em;
+	}
+}
