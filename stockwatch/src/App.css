@@ -37,3 +37,12 @@ footer{
   cursor: default;
   color: #777777;
 }
+#portfolioVisibility{
+  display: inline-block;
+  text-align: center;
+  
+  top: 75px;
+  right: 100px;
+  position: absolute;
+
+}
