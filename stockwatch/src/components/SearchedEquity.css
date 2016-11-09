@@ -10,3 +10,6 @@ th:not(:first-child), td:not(:first-child){
 	color: rgb(204, 0, 0);
 }
 
+.modal-body + .modal-body{
+	border-top: 1px solid #e5e5e5;
+}
