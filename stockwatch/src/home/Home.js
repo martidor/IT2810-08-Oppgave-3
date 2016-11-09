@@ -4,6 +4,7 @@ import FormattedDateTime from '../components/FormattedDateTime';
 import Chart from '../components/highcharts/Chart';
 import FontAwesome from 'react-fontawesome';
 import config from '../config/config'
+import color from '../config/color';
 import './Home.css';
 
 
@@ -48,15 +49,6 @@ class Home extends Component {
         });
     }
 
-    getClassName(property) {
-        // Get the classname based on a property
-        if (property < 0) 
-          return "red";
-        else if (property > 0)
-          return "green";
-        else return "";
-    }
-
 	render() {
 		if (this.state.chartLoaded)
     		return (
@@ -88,7 +80,7 @@ class Home extends Component {
                         </div>
 						<div>
     						<div className="ticker-title">+/- %</div>
-    						<div className={ "ticker-content " + this.getClassName(this.state.percentChanged)}>
+    						<div className={ "ticker-content " + color.getClassName(this.state.percentChanged)}>
     						<FormattedNumber // eslint-disable-next-line
 				              style='percent'
 				              minimumFractionDigits={2}
@@ -99,6 +91,17 @@ class Home extends Component {
 						</div>
     				</div>
     				<Chart container="ticker-chart" chartKey="ticker" data={this.state.chart}/>
+                    <div className="homepage-content">
+                        <p>Hei og velkommen til børsoversikten. På denne siden kan du blant annet: </p>
+                        <ul>
+                            <li>Legge til en egen portefølje med aksjer og fond.</li>
+                            <li>Se statistikk og historikk over din porteføljes verdi og avkastning. </li>
+                            <li>Søke i alle fond og aksjer som er registrert hos Oslo Børs. </li>
+                            <li>Se detaljert info og grafisk historikk for spesifikke fond og aksjer. </li>
+                            <li>Se oversikt over dagens ticker på Oslo Børs.</li>
+                            <li>Se sanntidsinformasjon om aksje- og fondskurser.</li>
+                        </ul>
+                    </div>
     			</div>
 			)
     	else

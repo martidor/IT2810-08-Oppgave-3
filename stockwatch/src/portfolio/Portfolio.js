@@ -5,7 +5,9 @@ import { FormattedNumber } from 'react-intl';
 import EquityHelper from '../components/EquityHelper';
 import EquityRow from '../components/EquityRow';
 import EquityModal from '../components/EquityModal';
-import config from '../config/config'
+import config from '../config/config';
+import Toggle from 'react-toggle';
+import '../components/togglebutton.css';
 
 class Portfolio extends Component {
   /*
@@ -52,8 +54,9 @@ class Portfolio extends Component {
       equity.calculated = new EquityHelper(equity);
 
     this.setState({ 
-      'equitiesLoaded': true,
-      'equities': json
+      equitiesLoaded: true,
+      equities: json,
+      show: false
     });
   }
 
@@ -64,7 +67,6 @@ class Portfolio extends Component {
 
   sortBy(column, calculated){
     let equities = this.state.equities;
-    console.log(equities);
     if (column === this.state.currentSort)
       equities.reverse();
     else if (column === 'name')
@@ -82,7 +84,8 @@ class Portfolio extends Component {
 
     this.setState({
       equities: equities,
-      currentSort: column
+      currentSort: column,
+      show: false
     });
   }
 
@@ -121,6 +124,7 @@ class Portfolio extends Component {
   render() {
     return (
       <Row className="show-grid">
+      <div id="portfolioVisibility"><p>Offentlig portfolio:</p><label><Toggle /></label></div>
         <Col md={12}>
           <Table hover responsive>
             <thead>

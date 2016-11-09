@@ -4,6 +4,7 @@ import { FormattedDate, FormattedNumber } from 'react-intl';
 import FormattedDateTime from './FormattedDateTime';
 import Chart from '../components/highcharts/Chart';
 import config from '../config/config'
+import color from '../config/color';
 import './EquityModal.css';
 
 class EquityModal extends Component{
@@ -55,15 +56,6 @@ class EquityModal extends Component{
       'chartLoaded': true,
       'chart': json
     });
-  }
-
-  getClassName(property) {
-    // Get the classname based on a property
-    if (property < 0) 
-      return "red";
-    else if (property > 0)
-      return "green";
-    else return "";
   }
 
   hideModal() {
@@ -129,7 +121,7 @@ class EquityModal extends Component{
                   </tr>
                   <tr>
                     <td>Siste dag</td>
-                    <td className={this.getClassName(equity.percent)}>
+                    <td className={color.getClassName(equity.percent)}>
                       { 
                         equity.percent ?
                         <FormattedNumber  // eslint-disable-next-line
@@ -154,7 +146,7 @@ class EquityModal extends Component{
                   </tr>
                   <tr>
                     <td>Avkastning %</td>
-                    <td className={this.getClassName(equity.calculated.percentReturn)}>
+                    <td className={color.getClassName(equity.calculated.percentReturn)}>
                       {
                         equity.calculated.percentReturn ?
                         <FormattedNumber  // eslint-disable-next-line
@@ -169,7 +161,7 @@ class EquityModal extends Component{
                   </tr>
                   <tr>
                     <td>Årlig avkastning %</td>
-                    <td className={this.getClassName(equity.calculated.annualPercentReturn)}>
+                    <td className={color.getClassName(equity.calculated.annualPercentReturn)}>
                       {
                         equity.percent ?
                         <FormattedNumber  // eslint-disable-next-line
