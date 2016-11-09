@@ -119,12 +119,14 @@ class SearchedEquityModal extends Component{
                 </tr>
               </tbody>
             </Table>
-            { this.state.chartLoaded ?
+            { this.state.chartLoaded && this.state.chart.length ?
               <Chart container="equity-chart" chartKey="equity" data={this.state.chart}/>
               : ""
             }
-            <AddEquityForm />
-          </Modal.Body>
+            </Modal.Body>
+            <Modal.Body>
+              <AddEquityForm equityId={equity.id}/>
+            </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.hideModal}>Lukk</Button>
           </Modal.Footer>

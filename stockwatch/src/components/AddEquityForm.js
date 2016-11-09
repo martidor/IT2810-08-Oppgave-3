@@ -7,7 +7,7 @@ class AddEquityForm extends Component{
 	render() {
 		return(
 			<Form horizontal method={'post'} action={config.userEquitiesUrl}>
-			<hr />
+				<input name="externalid" type="hidden" value={this.props.equityId} />
 				<FormGroup>
 				  <Col smOffset={2} sm={10}>
 			    	<h4>Legg til i portefølje</h4>
