@@ -18,7 +18,7 @@ class AddEquityForm extends Component{
 			      Beholdning
 			    </Col>
 			    <Col sm={10}>
-			      <FormControl type="number" name="stockholding" placeholder="Beholdning" />
+			      <FormControl type="number" name="stockholding" step="0.001" placeholder="Beholdning" />
 			    </Col>
 			  </FormGroup>
 
@@ -27,7 +27,7 @@ class AddEquityForm extends Component{
 			      Kostpris
 			    </Col>
 			    <Col sm={10}>
-			      <FormControl type="number" name="totalprice" placeholder="Kostpris" />
+			      <FormControl type="number" name="totalprice" step="0.01" placeholder="Kostpris" />
 			    </Col>
 			  </FormGroup>
 

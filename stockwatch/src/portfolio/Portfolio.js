@@ -20,13 +20,15 @@ class Portfolio extends Component {
       show: false,
       modalEquity: {},
       equitiesLoaded: false,
-      equities: []
+      equities: [],
+      currentSort: 'TransactionTimestamp'
     };
 
     // Bind the function to the class instance
     this.showModal = this.showModal.bind(this);
     this.loadEquities = this.loadEquities.bind(this)
     this.equitiesLoaded = this.equitiesLoaded.bind(this)
+    this.sortBy = this.sortBy.bind(this)
 
     this.loadEquities(this.equitiesLoaded);
   }
@@ -58,6 +60,30 @@ class Portfolio extends Component {
   showModal(equity) {
     // Show the modal and set the modal to display the equity clicked.
     this.setState({show: true, modalEquity: equity});
+  }
+
+  sortBy(column, calculated){
+    let equities = this.state.equities;
+    console.log(equities);
+    if (column === this.state.currentSort)
+      equities.reverse();
+    else if (column === 'name')
+      equities.sort(function(a, b){
+        return a.name.localeCompare(b.name);
+      });
+    else if (calculated)
+      equities.sort(function(a, b){
+        return a.calculated[column] < b.calculated[column];
+      })
+    else
+      equities.sort(function(a, b){
+        return a[column] < b[column];
+      })
+
+    this.setState({
+      equities: equities,
+      currentSort: column
+    });
   }
 
   getPortfolioTotals(){
@@ -99,13 +125,27 @@ class Portfolio extends Component {
           <Table hover responsive>
             <thead>
               <tr>
-                <th>Navn</th>
-                <th>Dato inv.</th>
-                <th>Oppdatert</th>
-                <th>Siste dag</th>
-                <th>Avkastning</th>
-                <th>Ann avk. %</th>
-                <th>Total Verdi</th>
+                <th className="sortable" onClick={() => this.sortBy('name', false)}>
+                  Navn <span className="caret"></span>
+                </th>
+                <th className="sortable" onClick={() => this.sortBy('TransactionTimestamp', false)}>
+                  Dato inv. <span className="caret"></span>
+                </th>
+                <th className="sortable" onClick={() => this.sortBy('time', false)}>
+                  Oppdatert <span className="caret"></span>
+                </th>
+                <th className="sortable" onClick={() => this.sortBy('percent', false)}>
+                  Siste dag <span className="caret"></span>
+                </th>
+                <th className="sortable" onClick={() => this.sortBy('return', true)}>
+                  Avkastning <span className="caret"></span>
+                </th>
+                <th className="sortable" onClick={() => this.sortBy('annualPercentReturn', true)}>
+                  Ann avk. % <span className="caret"></span>
+                </th>
+                <th className="sortable" onClick={() => this.sortBy('totalValue', true)}>
+                  Total Verdi <span className="caret"></span>
+                </th>
               </tr>
             </thead>
             <tbody>
