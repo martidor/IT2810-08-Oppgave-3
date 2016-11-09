@@ -4,6 +4,7 @@ import FormattedDateTime from '../components/FormattedDateTime';
 import Chart from '../components/highcharts/Chart';
 import FontAwesome from 'react-fontawesome';
 import config from '../config/config'
+import color from '../config/color';
 import './Home.css';
 
 
@@ -48,15 +49,6 @@ class Home extends Component {
         });
     }
 
-    getClassName(property) {
-        // Get the classname based on a property
-        if (property < 0) 
-          return "red";
-        else if (property > 0)
-          return "green";
-        else return "";
-    }
-
 	render() {
 		if (this.state.chartLoaded)
     		return (
@@ -88,7 +80,7 @@ class Home extends Component {
                         </div>
 						<div>
     						<div className="ticker-title">+/- %</div>
-    						<div className={ "ticker-content " + this.getClassName(this.state.percentChanged)}>
+    						<div className={ "ticker-content " + color.getClassName(this.state.percentChanged)}>
     						<FormattedNumber // eslint-disable-next-line
 				              style='percent'
 				              minimumFractionDigits={2}

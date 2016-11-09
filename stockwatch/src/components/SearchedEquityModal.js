@@ -5,6 +5,7 @@ import FormattedDateTime from './FormattedDateTime';
 import AddEquityForm from './AddEquityForm';
 import Chart from '../components/highcharts/Chart';
 import config from '../config/config';
+import color from '../config/color';
 import './EquityModal.css';
 
 class SearchedEquityModal extends Component{
@@ -58,15 +59,6 @@ class SearchedEquityModal extends Component{
     });
   }
 
-  getClassName(property) {
-    // Get the classname based on a property
-    if (property < 0) 
-      return "red";
-    else if (property > 0)
-      return "green";
-    else return "";
-  }
-
   hideModal() {
     this.setState({show: false, chartLoaded: false});
   }
@@ -104,7 +96,7 @@ class SearchedEquityModal extends Component{
                 </tr>
                 <tr>
                   <td>Siste dag</td>
-                  <td className={this.getClassName(equity.percent)}>
+                  <td className={color.getClassName(equity.percent)}>
                     { 
                       equity.percent ?
                       <FormattedNumber  // eslint-disable-next-line
