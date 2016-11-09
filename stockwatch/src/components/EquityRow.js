@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedDate, FormattedTime, FormattedNumber } from 'react-intl';
+import FormattedDateTime from './FormattedDateTime';
 import moment from 'moment';
 import './EquityRow.css';
 
@@ -44,7 +45,7 @@ class EquityRow extends Component {
           <FormattedDate value={new Date(equity.TransactionTimestamp)} />
         </td>
         <td>
-          { this.getDateTime(equity.time, equity.type) }
+          <FormattedDateTime timestamp={equity.time} type={equity.type} prefix={true} />
         </td>
         <td className={ this.getClassName(equity.percent) }>
           {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedNumber } from 'react-intl';
+import FormattedDateTime from '../components/FormattedDateTime';
 import Chart from '../components/highcharts/Chart';
 import FontAwesome from 'react-fontawesome';
 import config from '../config/config'
@@ -35,12 +36,14 @@ class Home extends Component {
     }
 
     chartLoaded(json){
+        let currentTime = json.ticker[json.ticker.length - 1][0];
     	let currentValue = json.ticker[json.ticker.length - 1][1]
     	let percentChanged = (currentValue / json.yesterday) - 1;
         this.setState({ 
         	'chartLoaded': true,
         	'chart': json,
         	'currentValue': currentValue,
+            'currentTime': currentTime,
         	'percentChanged': percentChanged
         });
     }
@@ -73,6 +76,16 @@ class Home extends Component {
 					            /> 
     						</div>
 						</div>
+                        <div className="hide-on-smartphone">
+                            <div className="ticker-title">Oppdatert</div>
+                            <div className="ticker-content">
+                                <FormattedDateTime
+                                  timestamp={new Date(this.state.currentTime)}
+                                  type="SHARES"
+                                  prefix={false}
+                                /> 
+                            </div>
+                        </div>
 						<div>
     						<div className="ticker-title">+/- %</div>
     						<div className={ "ticker-content " + this.getClassName(this.state.percentChanged)}>

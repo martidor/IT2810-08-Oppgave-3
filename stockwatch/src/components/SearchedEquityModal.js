@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Modal, Button, Table } from 'react-bootstrap';
-import { FormattedDate, FormattedTime, FormattedNumber } from 'react-intl';
+import { FormattedNumber } from 'react-intl';
 import FormattedDateTime from './FormattedDateTime';
 import AddEquityForm from './AddEquityForm';
 import Chart from '../components/highcharts/Chart';
@@ -99,7 +99,7 @@ class SearchedEquityModal extends Component{
                 <tr>
                   <td>Oppdatert</td>
                   <td>
-                  	<FormattedDateTime timestamp={equity.time} type={equity.type} />
+                  	<FormattedDateTime timestamp={equity.time} type={equity.type} prefix={true} />
                   </td>
                 </tr>
                 <tr>

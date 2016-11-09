@@ -151,7 +151,7 @@ class Search extends Component {
                       return (
                         <SearchedEquity key={i} showModal={() => this.showModal(equity)} equity={equity} />
                       )
-                    }
+                    } return null;
                   }) : (
                     <tr>
                       <td colSpan="5" className="loading"> Laster inn.. <FontAwesome spin name="circle-o-notch" /> </td>
