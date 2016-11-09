@@ -9,5 +9,7 @@ module.exports = {
 	userEquitiesUrl    : apiUrl  + '/user/equities',
 	equityUrl          : apiUrl  + '/equity/',
 	tickerUrl          : apiUrl  + '/ticker',
-	userStatsUrl       : apiUrl  + '/user/stats'
+	userStatsUrl       : apiUrl  + '/user/stats',
+	allUsersUrl        : apiUrl  + '/users',
+	userUrl            : apiUrl  + '/user'
 }
