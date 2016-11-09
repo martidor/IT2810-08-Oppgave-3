@@ -43,7 +43,6 @@ class NavigationBar extends Component {
 	}
 	userLoaded(user){
 		this.setState({user : user.name});
-		console.log(user.name);
 	}
 	 loadUser(callback){
 	    return fetch(config.userUrl,
