@@ -71,7 +71,7 @@ class Portfolio extends Component {
 
       return (
         <tr style={{fontWeight: 600}}>
-          <td colSpan="3">Totalt</td>
+          <td colSpan="4">Totalt</td>
           <td>
             <FormattedNumber
               minimumFractionDigits={0}
@@ -100,12 +100,12 @@ class Portfolio extends Component {
             <thead>
               <tr>
                 <th>Navn</th>
+                <th>Dato inv.</th>
                 <th>Oppdatert</th>
                 <th>Siste dag</th>
                 <th>Avkastning</th>
                 <th>Ann avk. %</th>
                 <th>Total Verdi</th>
-                <th>Lagt til (dato/sorter)</th>
               </tr>
             </thead>
             <tbody>

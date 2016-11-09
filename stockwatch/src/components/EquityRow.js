@@ -41,6 +41,9 @@ class EquityRow extends Component {
           { equity.name }
         </td>
         <td>
+          <FormattedDate value={new Date(equity.TransactionTimestamp)} />
+        </td>
+        <td>
           { this.getDateTime(equity.time, equity.type) }
         </td>
         <td className={ this.getClassName(equity.percent) }>
