@@ -1,6 +1,3 @@
-html,body {
-	height: 100%;
-}
 
 body {
   margin-top: 72px;
@@ -32,5 +29,9 @@ body {
 @media (max-width: 767px){
 	.table{
 		font-size: 0.8em;
+	}
+
+	.hide-on-smartphone {
+		display: none;
 	}
 }

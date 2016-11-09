@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { FormattedDate, FormattedTime, FormattedNumber } from 'react-intl';
+import FormattedDateTime from './FormattedDateTime';
 import moment from 'moment';
 import './SearchedEquity.css';
 
@@ -41,9 +42,7 @@ class SearchedEquity extends Component {
       <tr className="mouse-pointer" onClick={this.props.showModal}>
         <td>{equity.name}</td>
         <td>
-          {
-            this.getDateTime(equity.time, equity.type)
-          }
+          <FormattedDateTime timestamp={equity.time} type={equity.type} prefix={true} />
         </td>
         <td className={this.getClassName(equity.percent)}>
           { 

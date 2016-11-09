@@ -5,11 +5,13 @@ import { FormattedDate, FormattedTime } from 'react-intl';
 export default
 class FormattedDateTime extends Component{
 
-	render(timestamp, type){
+	render(){
 	    if (this.props.type === "SHARES" && moment(this.props.timestamp).isSame(Date.now(), 'day')) {
 	      return (
 	        <div>
+	        { this.props.prefix ?
 	          <span>kl </span>
+	        : "" }
 	          <FormattedTime
 	            value={new Date(this.props.timestamp)}
 	          />
