@@ -10,20 +10,6 @@ class EquityRow extends Component {
   It contains info about the equities in a users portfolio.
   */
 
-  getDateTime(timestamp, type){
-    if (type === "SHARES" && moment(timestamp).isSame(Date.now(), 'day')) {
-      return (
-        <div>
-          <span>kl </span>
-          <FormattedTime value={new Date(timestamp)} />
-        </div>
-      )
-    }
-    return (
-      <FormattedDate value={new Date(timestamp)} />
-    )
-  }
-
   getClassName(property) {
     // Get the classname based on a property
     if (property < 0) 

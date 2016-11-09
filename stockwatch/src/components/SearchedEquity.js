@@ -20,22 +20,6 @@ class SearchedEquity extends Component {
     else return "";
   }
 
-  getDateTime(timestamp, type){
-    if (type === "SHARES" && moment(timestamp).isSame(Date.now(), 'day')) {
-      return (
-        <div>
-          <span>kl </span>
-          <FormattedTime
-            value={new Date(timestamp)}
-          />
-        </div>
-      )
-    }
-    return (
-      <FormattedDate value={new Date(timestamp)} />
-    )
-  }
-
   render() {
     const equity = this.props.equity;
     return (
