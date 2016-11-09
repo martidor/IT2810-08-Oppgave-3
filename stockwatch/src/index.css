@@ -39,3 +39,12 @@ body {
 .sortable{
 	cursor: pointer;
 }
+
+.homepage-content {
+	margin: 2em 8px 0 8px;
+	font-size: 1.2em;
+	line-height: 1.5em;
+	border: 1px solid #dedede;
+	background: rgba(0,0,0,0.015);
+	padding: 2em;
+}
