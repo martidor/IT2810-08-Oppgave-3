@@ -73,7 +73,6 @@ var self = module.exports = {
     var index = listeners.indexOf(func);
     if (index > -1){
       listeners.splice(index, 1);
-      console.log("Fant Funksjon!!!!!!!!!!")
     }
   }
 }
