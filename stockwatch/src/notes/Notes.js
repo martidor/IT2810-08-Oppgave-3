@@ -2,26 +2,18 @@ import React, { Component } from 'react';
 
 import {Image} from 'react-bootstrap';
 
-import NoteField from "../components/NoteField";
 import NoteInput from "../components/NoteInput";
 import './Notes.css';
 import auth from '../auth/auth';
 
 export default class Notes extends Component{
-  constructor(){
-    super();
-    this.state = {
-      value: "",
-      showNoteField: false,
-    };
-  }
 
-  updateNotes(notes){
-    this.setState({value: notes});
-  }
 
   toggleNoteField(){
-    this.setState({showNoteField: !this.state.showNoteField});
+    this.setState({
+      showNoteField: !this.state.showNoteField,
+      value: localStorage.notes,
+    });
   }
 
 
@@ -49,8 +41,7 @@ export default class Notes extends Component{
             {this.state.showNoteField ?
               <div id="note_components">
               <h3 id="note_title">Enter a quick note</h3>
-              <NoteField value={this.state.value} />
-              <NoteInput updateNotes={this.updateNotes.bind(this)} />
+              <NoteInput />
             </div>
               :""
             }
