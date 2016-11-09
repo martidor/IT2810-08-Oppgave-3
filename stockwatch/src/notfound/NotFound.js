@@ -7,7 +7,7 @@ class NotFound extends Component {
 
   render() {
     return (
-      <p style={{textAlign: 'center', marginTop: '50px'}}> Vennligst prøv en annen URL, eller ta kontakt med administrator Eirik "The Trump" Fosse. </p>
+      <p style={{textAlign: 'center', marginTop: '50px'}}> Vennligst prøv en annen URL, eller ta kontakt med administrator Eirik "TrumpLover93" Fosse. </p>
     );
   }
 }

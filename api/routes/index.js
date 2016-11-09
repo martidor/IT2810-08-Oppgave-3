@@ -47,12 +47,22 @@ router.get('/', function(req, res) {
 
 // Get all users that have their profile visibiltiy set to public
 // --------------------------------------------------------------------
-router.route('/user')
+router.route('/users')
 
-	.get(function(req, res) { // TODO: run through helper and create user objects.
+	.get(isLoggedIn, function(req, res) { // TODO: run through helper and create user objects.
 		Database.getPublicUsers(function(users){
 			res.json(users);
 		})
+	});
+
+
+// Get current user
+// --------------------------------------------------------------------
+router.route('/user')
+
+	.get(isLoggedIn, function(req, res) { // TODO: run through helper and create user objects.
+		let user = req.user;
+		res.json(user);
 	});
 
 
