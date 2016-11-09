@@ -129,6 +129,20 @@ router.route('/equity/:type/:equityId')
 	});
 
 
+// Delete equity
+// -------------------------------------------------------------------
+router.route('/equity/delete')
+
+	.post(isLoggedIn, function(req, res) {
+		let equityId = req.body.equityid;
+		let userId = req.user.id;
+
+		Database.deleteUserEquity(equityId, userId, function(){
+			res.redirect(config.portfolioUrl);
+		});
+	});
+
+
 // Get current ticker for OSEBX (Oslo børs)
 // -------------------------------------------------------------------
 router.route('/ticker')

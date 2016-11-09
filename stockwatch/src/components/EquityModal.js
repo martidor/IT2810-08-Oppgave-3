@@ -200,7 +200,10 @@ class EquityModal extends Component{
               }
             </Modal.Body>
             <Modal.Footer>
-            <Button className="float-left" onClick={this.hideModal}>Slett fra portefølje</Button>
+              <form className="float-left" action={config.deleteEquityUrl} method="post">
+                <input type="hidden" name="equityid" value={equity.EquityId}/>
+                <Button type="submit" onClick={this.hideModal}>Slett fra portefølje</Button>
+              </form>
               <Button onClick={this.hideModal}>Lukk</Button>
             </Modal.Footer>
           </Modal>

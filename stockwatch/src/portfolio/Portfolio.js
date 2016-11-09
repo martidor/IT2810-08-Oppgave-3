@@ -118,7 +118,7 @@ class Portfolio extends Component {
                   })
                 : (
                     <tr>
-                      <td colSpan="6" className="loading"> Laster inn.. <FontAwesome spin name="circle-o-notch" /> </td>
+                      <td colSpan="7" className="loading"> Laster inn.. <FontAwesome spin name="circle-o-notch" /> </td>
                     </tr>
                   )
               }

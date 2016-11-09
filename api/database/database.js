@@ -81,10 +81,9 @@ class Database{
 
 	static deleteUserEquity(equityId, userId, callback){
 		const db = this.getDatabase();
-		const stmt = db.prepare("UPDATE Equity SET IsSold = 1 WHERE EquityId = ? AND UserId = ?");
-		stmt.run([equityId, userId], function(){
+		const stmt = "UPDATE Equity SET IsSold = 1 WHERE EquityId = ? AND UserId = ?";
+		db.run(stmt, equityId, userId, function(){
 			callback();
-			stmt.finalize();
 			db.close();
 		});
 	}

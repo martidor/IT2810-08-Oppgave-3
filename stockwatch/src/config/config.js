@@ -11,5 +11,6 @@ module.exports = {
 	tickerUrl          : apiUrl  + '/ticker',
 	userStatsUrl       : apiUrl  + '/user/stats',
 	allUsersUrl        : apiUrl  + '/users',
-	userUrl            : apiUrl  + '/user'
+	userUrl            : apiUrl  + '/user',
+	deleteEquityUrl    : apiUrl  + '/equity/delete'
 }
