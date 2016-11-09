@@ -52,8 +52,9 @@ class Portfolio extends Component {
       equity.calculated = new EquityHelper(equity);
 
     this.setState({ 
-      'equitiesLoaded': true,
-      'equities': json
+      equitiesLoaded: true,
+      equities: json,
+      show: false
     });
   }
 
@@ -64,7 +65,6 @@ class Portfolio extends Component {
 
   sortBy(column, calculated){
     let equities = this.state.equities;
-    console.log(equities);
     if (column === this.state.currentSort)
       equities.reverse();
     else if (column === 'name')
@@ -82,7 +82,8 @@ class Portfolio extends Component {
 
     this.setState({
       equities: equities,
-      currentSort: column
+      currentSort: column,
+      show: false
     });
   }
 

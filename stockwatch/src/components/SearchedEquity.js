@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
-import { FormattedDate, FormattedTime, FormattedNumber } from 'react-intl';
+import { FormattedNumber } from 'react-intl';
 import FormattedDateTime from './FormattedDateTime';
-import moment from 'moment';
 import './SearchedEquity.css';
 
 class SearchedEquity extends Component {

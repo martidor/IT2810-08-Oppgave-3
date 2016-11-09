@@ -64,7 +64,7 @@ class Search extends Component {
       // Initialize the searcher with search options
       this.fuse = new Fuse(equities, {
         keys: ['name'],
-        threshold: 0.4,
+        threshold: 0.2,
         shouldSort: true
       });
 

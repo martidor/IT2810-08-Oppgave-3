@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { FormattedDate, FormattedTime, FormattedNumber } from 'react-intl';
+import { FormattedDate, FormattedNumber } from 'react-intl';
 import FormattedDateTime from './FormattedDateTime';
-import moment from 'moment';
 import './EquityRow.css';
 
 class EquityRow extends Component {
