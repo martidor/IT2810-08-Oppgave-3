@@ -32,3 +32,8 @@ footer{
   bottom: 0; 
 }
 
+#loggetinnsom{
+  font-size: 0.8em;
+  cursor: default;
+  color: #777777;
+}

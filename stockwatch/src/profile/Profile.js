@@ -58,6 +58,7 @@ class Profile extends Component {
 				<h3>{this.state.user}</h3>
 
 				<Button	onClick={this.open}>Endre profilinnstillinger</Button>
+				
 				<Button onClick="">Slett profil</Button>
 				<label><Toggle /></label>
 
