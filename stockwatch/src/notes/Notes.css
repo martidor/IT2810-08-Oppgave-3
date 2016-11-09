@@ -1,6 +1,6 @@
 #wrap_notes{
   position: fixed;
-  z-index: 1000000;
+  z-index: 1000;
   width: 300px;
   right: 10px;
 }
