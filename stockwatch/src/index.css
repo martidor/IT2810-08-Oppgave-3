@@ -26,16 +26,6 @@ body {
 	background-color: #ddd;
 }
 
-@media (max-width: 767px){
-	.table{
-		font-size: 0.8em;
-	}
-
-	.hide-on-smartphone {
-		display: none;
-	}
-}
-
 .sortable{
 	cursor: pointer;
 }
@@ -47,4 +37,20 @@ body {
 	border: 1px solid #dedede;
 	background: rgba(0,0,0,0.015);
 	padding: 2em;
+}
+
+@media (max-width: 767px){
+	.table{
+		font-size: 0.8em;
+	}
+
+	.hide-on-smartphone {
+		display: none;
+	}
+
+	.homepage-content {
+		margin: 2em 8px 0 8px;
+		font-size: 1em;
+		padding: 1em;
+	}
 }
