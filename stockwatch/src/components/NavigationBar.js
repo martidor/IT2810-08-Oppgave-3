@@ -10,8 +10,12 @@ class NavigationBar extends Component {
 	It contains links to the different sites.
 	*/
 
+	componentWillUnmount(){
+		auth.removeListener(this.updateAuth.bind(this));
+	}
+
 	componentWillMount(){
-		auth.onChange = this.updateAuth.bind(this);
+		auth.addListener(this.updateAuth.bind(this));
 		this.updateAuth();
 	}
 
@@ -56,7 +60,7 @@ class NavigationBar extends Component {
 		        	</LinkContainer>
 	        	</Nav>
 	        )}
-	      
+
 	    </Navbar.Collapse>
 	  </Navbar>
     );
