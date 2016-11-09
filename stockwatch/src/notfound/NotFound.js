@@ -6,7 +6,7 @@ class NotFound extends Component {
 	*/
 
   render() {
-  	var list = ['"The Trump"', '"TrumpLover93"', '"Trump4Prez"', '"TrumpTheWorld"', '"Trumpster"', '"TrumpPiercer"'];
+  	var list = ['"The Trump"', '"TrumpLover93"', '"Trump4Prez"', '"TrumpTheWorld"', '"Trumpster"', '"TrumpPiercer"', '"TrumpTrumpsHillary"', '"Hillary?!?!MoreLikeHillarious"'];
   	var random = list[Math.floor(Math.random() * list.length)];
 
 
