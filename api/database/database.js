@@ -32,11 +32,13 @@ class Database{
 		})
 	}
 
-	static createNewUser(user, callback){
+	static insertNewUser(user, callback){
 		const db = this.getDatabase();
 		const stmt = db.prepare("INSERT INTO user(FacebookId, Token, Name) VALUES (?,?,?)");
 		stmt.run([user.facebookId, user.token, user.name], function(){
 			callback();
+			stmt.finalize();
+			db.close();
 		});
 	}
 
@@ -63,6 +65,26 @@ class Database{
 		const stmt = "SELECT Timestamp, Invested, Value FROM UserStats Where UserId = ? ORDER BY Timestamp";
 		db.all(stmt, userId, function(err, rows){
 			callback(rows);
+			db.close();
+		});
+	}
+
+	static insertUserEquity(equity, userId, callback){
+		const db = this.getDatabase();
+		const stmt = db.prepare("INSERT INTO Equity(UserId, ExternalEquityId, TotalPrice, TransactionTimestamp, Stockholding) VALUES (?,?,?,?,?)");
+		stmt.run([userId, equity.externalId, equity.totalPrice, equity.timestamp, equity.stockholding], function(){
+			callback();
+			stmt.finalize();
+			db.close();
+		});
+	}
+
+	static deleteUserEquity(equityId, userId, callback){
+		const db = this.getDatabase();
+		const stmt = db.prepare("UPDATE Equity SET IsSold = 1 WHERE EquityId = ? AND UserId = ?");
+		stmt.run([equityId, userId], function(){
+			callback();
+			stmt.finalize();
 			db.close();
 		});
 	}

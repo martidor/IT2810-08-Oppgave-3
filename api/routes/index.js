@@ -4,6 +4,7 @@ var Database 	= require('../database/database');
 var OsloBors	= require('../external-apis/oslobors');
 var Helper		= require('../helper/helper');
 var config		= require('../config/config');
+var Equity      = require('../models/equity');
 
 // Routes for our API
 // =============================================================================
@@ -71,9 +72,13 @@ router.route('/user/equities')
     	let user = req.user;
     	let totalPrice = req.body.totalprice;
     	let stockholding = req.body.stockholding;
-    	let investedDate = req.body.date;
-    	console.log(totalPrice, stockholding, investedDate);
-    	res.json('ok'); // Continue here.
+    	let timestamp = new Date(req.body.date).getTime();
+    	let externalId = req.body.externalid;
+
+    	let equity = new Equity(externalId, totalPrice, timestamp, stockholding);
+    	equity.saveToDb(user.id, function(){
+    		res.redirect(config.portfolioUrl);
+    	});
     });
 
 

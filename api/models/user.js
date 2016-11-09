@@ -11,8 +11,9 @@ class User {
 	}
 
 	saveToDb(callback){
-		Database.createNewUser(this, function(){
-			User.findByFacebookId(this.facebookId, function(err, user){
+		let userToInsert = this;
+		Database.insertNewUser(userToInsert, function(){
+			User.findByFacebookId(userToInsert.facebookId, function(err, user){
 				callback(err, user);
 			})
 		});
