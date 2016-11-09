@@ -10,13 +10,14 @@ class NavigationBar extends Component {
 	This component is a navbar that is rendered on all the pages.
 	It contains links to the different sites.
 	*/
-		constructor(){
+	constructor(){
 		super();
+
 
 		this.state ={showModal: false};
 		this.open = this.open.bind(this);
 		this.close = this.close.bind(this);
-		
+
 	}
 
 	close(){
@@ -25,8 +26,14 @@ class NavigationBar extends Component {
 	open(){
 		this.setState({ showModal: true});
 	}
+
+	componentWillUnmount(){
+		auth.removeListener(this.updateAuth.bind(this));
+	}
+
+
 	componentWillMount(){
-		auth.onChange = this.updateAuth.bind(this);
+		auth.addListener(this.updateAuth.bind(this));
 		this.updateAuth();
 	}
 
@@ -66,24 +73,24 @@ class NavigationBar extends Component {
 	        	</Nav>
 	        ) : (
 	        	<Nav pullRight>
-	        		
+
 	        			<NavItem onClick={this.open}><FontAwesome name="sign-in" /> Logg in</NavItem>
-	        		
+
 			        <Modal show={this.state.showModal} onHide={this.close}>
-					<Modal.Header closeButton>
-						<Modal.Title>Logg inn</Modal.Title>
-					</Modal.Header>
-					<Modal.Body>
-						<Login />
-					</Modal.Body>
-					<Modal.Footer>
-						<Button onClick={this.close}>Lukk</Button>
-					</Modal.Footer>
-				</Modal>
-	        		
+								<Modal.Header closeButton>
+									<Modal.Title>Logg inn</Modal.Title>
+								</Modal.Header>
+								<Modal.Body>
+									<Login />
+								</Modal.Body>
+								<Modal.Footer>
+									<Button onClick={this.close}>Lukk</Button>
+								</Modal.Footer>
+							</Modal>
+
 	        	</Nav>
 	        )}
-	      
+
 	    </Navbar.Collapse>
 	  </Navbar>
     );

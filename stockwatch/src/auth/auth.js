@@ -1,7 +1,8 @@
 import config from '../config/config';
 
+var listeners = [];
 var self = module.exports = {
-  
+
   redirect(nextState, replace, path){
     // Redirect to a path.
     replace({
@@ -15,7 +16,7 @@ var self = module.exports = {
     localStorage.token = token;
   },
 
-  
+
   logout(nextState, replace) {
     // Remove token from localstora
     delete localStorage.token;
@@ -59,5 +60,20 @@ var self = module.exports = {
   },
 
 // Let components listen to this in case we log in or out.
-  onChange(){}
+  onChange(){
+    for (var func of listeners)
+      func();
+  },
+
+  addListener(func){
+    listeners.push(func);
+  },
+
+  removeListener(func){
+    var index = listeners.indexOf(func);
+    if (index > -1){
+      listeners.splice(index, 1);
+      console.log("Fant Funksjon!!!!!!!!!!")
+    }
+  }
 }
