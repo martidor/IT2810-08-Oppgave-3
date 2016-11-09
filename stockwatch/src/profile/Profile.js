@@ -20,7 +20,7 @@ class Profile extends Component {
 		this.state ={showModal: false};
 		this.open = this.open.bind(this);
 		this.close = this.close.bind(this);
-		this.areyousure = this.areyousure.bind(this);
+		
 	}
 
 	close(){
@@ -29,18 +29,15 @@ class Profile extends Component {
 	open(){
 		this.setState({ showModal: true});
 	}
-	areyousure(){
-		
-	}
 
 	render() {
 		
 		
 		return(
 			<div id="profilebody">
-				<h3>getname</h3>
+				<h3>ditt navn</h3>
 				<Button	onClick={this.open}>Endre profilinnstillinger</Button>
-				<Button onClick={this.areyousure}>Slett profil</Button>
+				<Button onClick="">Slett profil</Button>
 
 				<Modal show={this.state.showModal} onHide={this.close}>
 					<Modal.Header closeButton>
@@ -53,8 +50,6 @@ class Profile extends Component {
 						<Button onClick={this.close}>Close</Button>
 					</Modal.Footer>
 				</Modal>
-
-				
 			</div>
 		);
 	}

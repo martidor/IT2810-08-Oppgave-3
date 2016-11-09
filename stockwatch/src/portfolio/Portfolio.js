@@ -105,6 +105,7 @@ class Portfolio extends Component {
                 <th>Avkastning</th>
                 <th>Ann avk. %</th>
                 <th>Total Verdi</th>
+                <th>Lagt til (dato/sorter)</th>
               </tr>
             </thead>
             <tbody>

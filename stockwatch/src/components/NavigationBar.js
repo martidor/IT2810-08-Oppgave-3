@@ -1,15 +1,30 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, Button, Modal} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import auth from '../auth/auth';
+import Login from '../login/Login.js';
 
 class NavigationBar extends Component {
 	/*
 	This component is a navbar that is rendered on all the pages.
 	It contains links to the different sites.
 	*/
+		constructor(){
+		super();
 
+		this.state ={showModal: false};
+		this.open = this.open.bind(this);
+		this.close = this.close.bind(this);
+		
+	}
+
+	close(){
+		this.setState({ showModal: false});
+	}
+	open(){
+		this.setState({ showModal: true});
+	}
 	componentWillMount(){
 		auth.onChange = this.updateAuth.bind(this);
 		this.updateAuth();
@@ -51,9 +66,21 @@ class NavigationBar extends Component {
 	        	</Nav>
 	        ) : (
 	        	<Nav pullRight>
-	        		<LinkContainer to="/logg-inn">
-			        	<NavItem eventKey={5}><FontAwesome name="sign-in" /> Logg inn</NavItem>
-		        	</LinkContainer>
+	        		
+	        			<NavItem onClick={this.open}><FontAwesome name="sign-in" /> Logg in</NavItem>
+	        		
+			        <Modal show={this.state.showModal} onHide={this.close}>
+					<Modal.Header closeButton>
+						<Modal.Title>Logg inn</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+						<Login />
+					</Modal.Body>
+					<Modal.Footer>
+						<Button onClick={this.close}>Lukk</Button>
+					</Modal.Footer>
+				</Modal>
+	        		
 	        	</Nav>
 	        )}
 	      
