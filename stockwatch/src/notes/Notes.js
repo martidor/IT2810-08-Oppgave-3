@@ -7,18 +7,7 @@ import './Notes.css';
 import auth from '../auth/auth';
 
 export default class Notes extends Component{
-  constructor(){
-    super();
-    this.state = {
-      value: "",
-      showNoteField: false,
-    };
-  }
 
-  updateNotes(notes){
-    this.setState({value: notes});
-    localStorage.notes = this.state.value;
-  }
 
   toggleNoteField(){
     this.setState({
@@ -52,7 +41,7 @@ export default class Notes extends Component{
             {this.state.showNoteField ?
               <div id="note_components">
               <h3 id="note_title">Enter a quick note</h3>
-              <NoteInput updateNotes={this.updateNotes.bind(this)} value={this.state.value} />
+              <NoteInput />
             </div>
               :""
             }
