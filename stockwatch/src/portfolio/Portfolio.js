@@ -20,7 +20,8 @@ class Portfolio extends Component {
       show: false,
       modalEquity: {},
       equitiesLoaded: false,
-      equities: []
+      equities: [],
+      currentSort: 'TransactionTimestamp'
     };
 
     // Bind the function to the class instance
@@ -64,7 +65,9 @@ class Portfolio extends Component {
   sortBy(column, calculated){
     let equities = this.state.equities;
     console.log(equities);
-    if (column === 'name')
+    if (column === this.state.currentSort)
+      equities.reverse();
+    else if (column === 'name')
       equities.sort(function(a, b){
         return a.name.localeCompare(b.name);
       });
@@ -77,7 +80,10 @@ class Portfolio extends Component {
         return a[column] < b[column];
       })
 
-    this.setState({equities: equities});
+    this.setState({
+      equities: equities,
+      currentSort: column
+    });
   }
 
   getPortfolioTotals(){
@@ -125,8 +131,12 @@ class Portfolio extends Component {
                 <th className="sortable" onClick={() => this.sortBy('TransactionTimestamp', false)}>
                   Dato inv. <span className="caret"></span>
                 </th>
-                <th>Oppdatert</th>
-                <th>Siste dag</th>
+                <th className="sortable" onClick={() => this.sortBy('time', false)}>
+                  Oppdatert <span className="caret"></span>
+                </th>
+                <th className="sortable" onClick={() => this.sortBy('percent', false)}>
+                  Siste dag <span className="caret"></span>
+                </th>
                 <th className="sortable" onClick={() => this.sortBy('return', true)}>
                   Avkastning <span className="caret"></span>
                 </th>
