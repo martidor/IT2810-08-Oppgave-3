@@ -21,7 +21,7 @@ export default class EquityHelper{
 	    const percentChange = equity.price * equity.Stockholding / equity.TotalPrice;
 	    const msInOneDay = 1000 * 60 * 60 * 24;
 	    const epochNow = (new Date).getTime();
-	    const daysSinceInvest = Math.floor((epochNow - equity.TransactionTimestamp) / msInOneDay);
+	    const daysSinceInvest = (epochNow - equity.TransactionTimestamp) / msInOneDay;
 	    return Math.pow(percentChange, (1/(daysSinceInvest/365.25))) - 1;
 	}
 
