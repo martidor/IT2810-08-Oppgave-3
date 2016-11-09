@@ -91,6 +91,17 @@ class Home extends Component {
 						</div>
     				</div>
     				<Chart container="ticker-chart" chartKey="ticker" data={this.state.chart}/>
+                    <div className="homepage-content">
+                        <p>Hei og velkommen til børsoversikten. På denne siden kan du blant annet: </p>
+                        <ul>
+                            <li>Legge til en egen portefølje med aksjer og fond.</li>
+                            <li>Se statistikk og historikk over din porteføljes verdi og avkastning. </li>
+                            <li>Søke i alle fond og aksjer som er registrert hos Oslo Børs. </li>
+                            <li>Se detaljert info og grafisk historikk for spesifikke fond og aksjer. </li>
+                            <li>Se oversikt over dagens ticker på Oslo Børs.</li>
+                            <li>Se sanntidsinformasjon om aksje- og fondskurser.</li>
+                        </ul>
+                    </div>
     			</div>
 			)
     	else

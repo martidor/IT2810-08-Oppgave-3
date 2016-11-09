@@ -43,15 +43,23 @@ class Stats extends Component {
 	  }
 
 	render() {
-        return (
-        	this.state.statsLoaded ?
+		let statsLoaded = this.state.statsLoaded;
+		if (statsLoaded && this.state.stats.return.length > 1)
+        	return (
         		<div className="charts">
 	            	<Chart container="return-chart" chartKey="return-on-investment" data={this.state.stats.return}/>
 	            	<Chart container="value-chart" chartKey="invested-and-value" data={this.state.stats}/>
             	</div>
-            : 
-            <div className="loading-home"><FontAwesome spin name="circle-o-notch" /> </div>
-    	)
+            )
+        else if (statsLoaded)
+        	return (
+        		<div className="missing-stats">Du har ikke hatt en portefølje lenge nok til å se statistikk.
+        			Kom tilbake når du har hatt en portfølje i mer enn 2 dager.
+    			</div>
+			)
+        else
+            return (<div className="loading-home"><FontAwesome spin name="circle-o-notch" /> </div>)
+            return (<div className="loading-home"><FontAwesome spin name="circle-o-notch" /> </div>)
     }
  }
 

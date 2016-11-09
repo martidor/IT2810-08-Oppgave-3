@@ -10,3 +10,9 @@
 .charts tspan{
 	font-weight: 300;
 }
+
+.missing-stats{
+	text-align: center;
+	margin-top: 50px;
+	font-size: 1.4em;
+}
