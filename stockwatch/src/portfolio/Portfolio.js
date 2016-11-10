@@ -129,7 +129,6 @@ class Portfolio extends Component {
     return (
       <Row className="show-grid">
       <p className="row-info"> Klikk på en rad for mer info </p>
-      <div id="portfolioVisibility"><p>Offentlig portfolio:</p><label><Toggle /></label></div>
         <Col md={12}>
           <Table hover responsive>
             <thead>
@@ -178,6 +177,7 @@ class Portfolio extends Component {
           </Table>
         </Col>
         <EquityModal show={this.state.show} equity={this.state.modalEquity}/>
+        <div id="portfolioVisibility"><p>Offentlig portfolio: style i app.css</p><label><Toggle /></label></div>
       </Row>
     );
   }

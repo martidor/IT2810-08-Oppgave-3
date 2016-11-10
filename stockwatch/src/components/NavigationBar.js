@@ -89,9 +89,6 @@ class NavigationBar extends Component {
 
 			        
 			        <NavItem id="loggetinnsom"> {this.state.user}</NavItem>
-
-		        	
-
 		        	
 		        	
 	        	</Nav>
