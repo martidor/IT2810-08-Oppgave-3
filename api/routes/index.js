@@ -17,7 +17,7 @@ var router = express.Router();
 // --------------------------------------------------------------------
 router.use(function(req, res, next) {
 	// set headers
-	res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+	res.header("Access-Control-Allow-Origin", config.siteUrl);
 	res.header("Access-Control-Allow-Credentials", true);
 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	res.header("Content-Type", "application/json");
@@ -60,7 +60,7 @@ router.route('/users')
 // --------------------------------------------------------------------
 router.route('/user')
 
-	.get(isLoggedIn, function(req, res) { // TODO: run through helper and create user objects.
+	.get(isLoggedIn, function(req, res) {
 		let user = req.user;
 		res.json(user);
 	});

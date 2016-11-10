@@ -32,6 +32,9 @@ class Helper{
 				const apiResult = apiResults[dbResult.ExternalEquityId]
 				for (const attr in apiResult)
 					dbResult[attr] = apiResult[attr];
+				
+				if(typeof dbResult.type === 'undefined')
+					dbResult.type = 'FUNDS';
 			}
 
 			callback(dbResults);

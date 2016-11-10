@@ -5,8 +5,8 @@ import { FormattedNumber } from 'react-intl';
 import EquityHelper from '../components/EquityHelper';
 import EquityRow from '../components/EquityRow';
 import EquityModal from '../components/EquityModal';
+import PortfolioFilter from '../components/PortfolioFilter';
 import config from '../config/config';
-import Toggle from 'react-toggle';
 import '../components/togglebutton.css';
 
 class Portfolio extends Component {
@@ -23,7 +23,8 @@ class Portfolio extends Component {
       modalEquity: {},
       equitiesLoaded: false,
       equities: [],
-      currentSort: 'TransactionTimestamp'
+      currentSort: 'TransactionTimestamp',
+      filter: 'nothing'
     };
 
     // Bind the function to the class instance
@@ -31,6 +32,7 @@ class Portfolio extends Component {
     this.loadEquities = this.loadEquities.bind(this)
     this.equitiesLoaded = this.equitiesLoaded.bind(this)
     this.sortBy = this.sortBy.bind(this)
+    this.filterBy = this.filterBy.bind(this)
 
     this.loadEquities(this.equitiesLoaded);
   }
@@ -89,8 +91,12 @@ class Portfolio extends Component {
     });
   }
 
+  filterBy(filter){
+    this.setState({filter: filter});
+  }
+
   getPortfolioTotals(){
-    if (this.state.equitiesLoaded){
+    if (this.state.equitiesLoaded && this.state.equities.length && this.state.filter === 'nothing'){
       let totalPrice = 0, totalValue = 0;
 
       for (var equity of this.state.equities){
@@ -128,7 +134,8 @@ class Portfolio extends Component {
   render() {
     return (
       <Row className="show-grid">
-      <p className="row-info"> Klikk på en rad for mer info </p>
+      <p className="row-info"> Klikk på en rad for mer info. Du kan også legge til filter ved å klikke på knappene under, eller sortere ved å klikke på kolonnen. </p>
+        <PortfolioFilter filter={this.state.filter} filterBy={this.filterBy} />
         <Col md={12}>
           <Table hover responsive>
             <thead>
@@ -160,9 +167,10 @@ class Portfolio extends Component {
               {
                 this.state.equitiesLoaded ?
                   this.state.equities.map((equity, i) => {
-                    return (
-                      <EquityRow key={i} showModal={() => this.showModal(equity)} equity={equity} />
-                    )
+                    if (this.state.filter === equity.type || this.state.filter === 'nothing')
+                      return (
+                        <EquityRow key={i} showModal={() => this.showModal(equity)} equity={equity} />
+                      ); else return null;
                   })
                 : (
                     <tr>
@@ -173,11 +181,17 @@ class Portfolio extends Component {
               {
                 this.getPortfolioTotals()
               }
+              <tr className="if-no-results">
+                <td colSpan={3}>Ingen rader funnet..</td>
+                <td className="hide-on-650px"></td>
+                <td className="hide-on-580px"></td>
+                <td className="hide-on-500px"></td>
+                <td className="hide-on-410px"></td>
+              </tr>
             </tbody>
           </Table>
         </Col>
         <EquityModal show={this.state.show} equity={this.state.modalEquity}/>
-        <div id="portfolioVisibility"><p>Offentlig portfolio: style i app.css</p><label><Toggle /></label></div>
       </Row>
     );
   }
