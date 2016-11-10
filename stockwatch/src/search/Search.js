@@ -118,6 +118,7 @@ class Search extends Component {
     return (
       <div>
         <Row className="show-grid">
+        <p className="row-info"> Klikk på en rad for mer info </p>
           <Col md={12}>
             <FormGroup
               controlId="formBasicText"
@@ -137,7 +138,7 @@ class Search extends Component {
               <thead>
                 <tr>
                   <th>Navn</th>
-                  <th>Oppdatert</th>
+                  <th className="hide-on-500px">Oppdatert</th>
                   <th>Siste dag</th>
                   <th>Kurs</th>
                   <th></th>
@@ -154,12 +155,14 @@ class Search extends Component {
                     } return null;
                   }) : (
                     <tr>
-                      <td colSpan="5" className="loading"> Laster inn.. <FontAwesome spin name="circle-o-notch" /> </td>
+                      <td colSpan="4" className="loading"> Laster inn.. <FontAwesome spin name="circle-o-notch" /> </td>
+                      <td className="hide-on-500px"></td>
                     </tr>
                   )
               }
                 <tr className="no-results">
-                  <td colSpan="5">Ingen treff på søket..</td>
+                  <td colSpan="4">Ingen treff på søket..</td>
+                  <td className="hide-on-500px"></td>
                 </tr>
               </tbody>
             </Table>

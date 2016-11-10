@@ -59,7 +59,6 @@ class Stats extends Component {
 			)
         else
             return (<div className="loading-home"><FontAwesome spin name="circle-o-notch" /> </div>)
-            return (<div className="loading-home"><FontAwesome spin name="circle-o-notch" /> </div>)
     }
  }
 

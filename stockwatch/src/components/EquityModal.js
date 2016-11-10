@@ -62,6 +62,11 @@ class EquityModal extends Component{
     this.setState({show: false});
   }
 
+  confirmDelete(e){
+    if(! confirm('Er du sikker på at du vil slette raden fra din portefølje?'))
+      e.preventDefault();
+  }
+
   render() {
     const equity = this.props.equity;
     if (equity.hasOwnProperty("calculated")){
@@ -192,9 +197,9 @@ class EquityModal extends Component{
               }
             </Modal.Body>
             <Modal.Footer>
-              <form className="float-left" action={config.deleteEquityUrl} method="post">
+              <form onSubmit={this.confirmDelete} className="float-left" action={config.deleteEquityUrl} method="post">
                 <input type="hidden" name="equityid" value={equity.EquityId}/>
-                <Button type="submit" onClick={this.hideModal}>Slett fra portefølje</Button>
+                <Button type="submit">Slett fra portefølje</Button>
               </form>
               <Button onClick={this.hideModal}>Lukk</Button>
             </Modal.Footer>

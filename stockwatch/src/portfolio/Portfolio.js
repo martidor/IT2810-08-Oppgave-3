@@ -100,15 +100,19 @@ class Portfolio extends Component {
 
       return (
         <tr style={{fontWeight: 600}}>
-          <td colSpan="4">Totalt</td>
-          <td>
+          <td>Totalt</td>
+          <td className="hide-on-580px"></td>
+          <td className="hide-on-650px"></td>
+          <td></td>
+          <td className="hide-on-410px">
             <FormattedNumber
               minimumFractionDigits={0}
               maximumFractionDigits={0}
               value={ (totalValue - totalPrice) }
             /> 
           </td>
-          <td colSpan="2">
+          <td className="hide-on-500px"></td>
+          <td>
             <FormattedNumber
               minimumFractionDigits={0}
               maximumFractionDigits={0}
@@ -124,6 +128,7 @@ class Portfolio extends Component {
   render() {
     return (
       <Row className="show-grid">
+      <p className="row-info"> Klikk på en rad for mer info </p>
       <div id="portfolioVisibility"><p>Offentlig portfolio:</p><label><Toggle /></label></div>
         <Col md={12}>
           <Table hover responsive>
@@ -132,19 +137,19 @@ class Portfolio extends Component {
                 <th className="sortable" onClick={() => this.sortBy('name', false)}>
                   Navn <span className="caret"></span>
                 </th>
-                <th className="sortable" onClick={() => this.sortBy('TransactionTimestamp', false)}>
+                <th className="sortable hide-on-580px" onClick={() => this.sortBy('TransactionTimestamp', false)}>
                   Dato inv. <span className="caret"></span>
                 </th>
-                <th className="sortable" onClick={() => this.sortBy('time', false)}>
+                <th className="sortable hide-on-650px" onClick={() => this.sortBy('time', false)}>
                   Oppdatert <span className="caret"></span>
                 </th>
                 <th className="sortable" onClick={() => this.sortBy('percent', false)}>
                   Siste dag <span className="caret"></span>
                 </th>
-                <th className="sortable" onClick={() => this.sortBy('return', true)}>
+                <th className="sortable hide-on-410px" onClick={() => this.sortBy('return', true)}>
                   Avkastning <span className="caret"></span>
                 </th>
-                <th className="sortable" onClick={() => this.sortBy('annualPercentReturn', true)}>
+                <th className="sortable hide-on-500px" onClick={() => this.sortBy('annualPercentReturn', true)}>
                   Ann avk. % <span className="caret"></span>
                 </th>
                 <th className="sortable" onClick={() => this.sortBy('totalValue', true)}>

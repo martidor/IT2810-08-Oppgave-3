@@ -16,7 +16,7 @@ class SearchedEquity extends Component {
     return (
       <tr className="mouse-pointer" onClick={this.props.showModal}>
         <td>{equity.name}</td>
-        <td>
+        <td className="hide-on-500px">
           <FormattedDateTime timestamp={equity.time} type={equity.type} prefix={true} />
         </td>
         <td className={color.getClassName(equity.percent)}>
@@ -42,7 +42,7 @@ class SearchedEquity extends Component {
             : "-"
            }
          </td>
-        <td><Button bsSize="xsmall">Legg til</Button></td>
+        <td><Button className="add" bsSize="xsmall"></Button></td>
       </tr>
     );
   }

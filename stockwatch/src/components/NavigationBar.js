@@ -62,7 +62,7 @@ class NavigationBar extends Component {
 	    <Navbar.Header>
 	      <Navbar.Brand>
 	      <LinkContainer to="/">
-	      	<a href="/"><FontAwesome name="home" /> Stockwatch</a>
+	      	<a href="/"><FontAwesome name="dollar" />tockwatch</a>
 	      </LinkContainer>
 	      </Navbar.Brand>
 	      <Navbar.Toggle />

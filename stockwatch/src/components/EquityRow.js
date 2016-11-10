@@ -18,10 +18,10 @@ class EquityRow extends Component {
         <td>
           { equity.name }
         </td>
-        <td>
+        <td className="hide-on-580px">
           <FormattedDate value={new Date(equity.TransactionTimestamp)} />
         </td>
-        <td>
+        <td className="hide-on-650px">
           <FormattedDateTime timestamp={equity.time} type={equity.type} prefix={true} />
         </td>
         <td className={ color.getClassName(equity.percent) }>
@@ -36,7 +36,7 @@ class EquityRow extends Component {
             : "-"
           }
         </td>
-        <td>
+        <td className="hide-on-410px">
         {
           equity.price ?
           <FormattedNumber
@@ -47,7 +47,7 @@ class EquityRow extends Component {
           : "-"
          }
         </td>
-        <td className={ color.getClassName(equity.calculated.annualPercentReturn) }>
+        <td className={ color.getClassName(equity.calculated.annualPercentReturn) + " hide-on-500px" }>
           {
             equity.percent ?
             <FormattedNumber  // eslint-disable-next-line
