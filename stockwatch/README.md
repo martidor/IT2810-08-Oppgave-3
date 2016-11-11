@@ -131,7 +131,6 @@ api
 * [React-router-bootstrap](https://github.com/react-bootstrap/react-router-bootstrap) - Integration between React Router and React-Bootstrap.
 * [React-intl](https://github.com/yahoo/react-intl) - Components and an API to format dates, numbers, and strings, including pluralization and handling translations.
 * [Fuse.js](http://fusejs.io/) - Frontend library for searching.
-* [Facebook-login](https://github.com/kennetpostigo/react-facebook-login-component) - Facebook login component.
 * [Highcharts](http://www.highcharts.com/) - Interactive graphs in pure JS.
 * [FontAwesome](http://fontawesome.io/) - Scalable vector icons.
 * [React-textarea-autosize](https://github.com/andreypopp/react-textarea-autosize) - Textarea which automatically resizes as content changes. 

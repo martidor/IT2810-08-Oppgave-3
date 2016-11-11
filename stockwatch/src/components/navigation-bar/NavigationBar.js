@@ -63,7 +63,9 @@ export default class NavigationBar extends Component {
 	    		<Navbar.Header>
 	      			<Navbar.Brand>
 	      				<LinkContainer to="/">
-	      					<a href="/"><FontAwesome name="dollar" />tockwatch <span id="loggetinnsom"> {this.state.userToPrint}</span></a>
+	      					<a href="/">
+	      						<FontAwesome name="dollar" />tockwatch <span id="loggetinnsom"> {this.state.userToPrint}</span>
+      						</a>
 	      				</LinkContainer>
 	      			</Navbar.Brand>
       				<Navbar.Toggle />
@@ -87,14 +89,7 @@ export default class NavigationBar extends Component {
 				      	<LinkContainer to="/logg-ut">
 				        	<NavItem eventKey={4}><FontAwesome name="sign-out" /> Logg ut</NavItem>
 			        	</LinkContainer>
-
-<<<<<<< HEAD
-			        	
-		        	
-=======
-			        	<NavItem id="loggetinnsom"> {this.state.user}</NavItem>
-
->>>>>>> ada8671c3f90d41a2587dc9f1321feea1a491444
+	        		
 	        		</Nav>
 	        	) : (
 	        		<Nav pullRight>
