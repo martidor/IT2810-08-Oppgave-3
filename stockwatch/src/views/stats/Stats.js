@@ -46,6 +46,7 @@ class Stats extends Component {
         		<div className="charts">
 	            	<Chart container="return-chart" chartKey="return-on-investment" data={this.state.stats.return}/>
 	            	<Chart container="value-chart" chartKey="invested-and-value" data={this.state.stats}/>
+	            	<Chart container="return-percent-chart" chartKey="return-percent" data={this.state.stats}/>
             	</div>
             )
         else if (statsLoaded)
