@@ -6,10 +6,10 @@ import PortfolioEquityRow from '../../components/portfolio/PortfolioEquityRow';
 import PortfolioEquityModal from '../../components/portfolio/PortfolioEquityModal';
 import PortfolioFilter from '../../components/portfolio/PortfolioFilter';
 import PortfolioTotal from '../../components/portfolio/PortfolioTotal';
-import config from '../../config/config';
+import config from '../../config/apiConfig';
 import './Portfolio.css';
 
-class Portfolio extends Component {
+export default class Portfolio extends Component {
   /*
   This component shows a list of the users portfolio.
   */
@@ -51,7 +51,7 @@ class Portfolio extends Component {
 
     let extremeReturns = this.getExtremeReturns(json);
 
-    this.setState({ 
+    this.setState({
       equitiesLoaded: true,
       equities: json,
       show: false,
@@ -78,11 +78,11 @@ class Portfolio extends Component {
       });
     else if (calculated)
       equities.sort(function(a, b){
-        return a.calculated[column] < b.calculated[column];
+        return b.calculated[column] - a.calculated[column];
       })
     else
       equities.sort(function(a, b){
-        return a[column] < b[column];
+        return b[column] - a[column];
       })
 
     this.setState({
@@ -106,7 +106,7 @@ class Portfolio extends Component {
   }
 
   isOverReturnValue = (equity) => {
-    return ! this.state.shouldFilterByReturn 
+    return ! this.state.shouldFilterByReturn
         || equity.calculated.return >= this.state.returnFilterValue;
   }
 
@@ -115,21 +115,21 @@ class Portfolio extends Component {
               || (this.state.extremes.max + this.state.extremes.min) / 2;
     this.setState({
       shouldFilterByReturn: bool,
-      returnFilterValue: value
+      returnFilterValue: Math.floor(value)
     });
   }
 
   getExtremeReturns = (equities) => {
     return {
-      max: Math.max.apply(Math, equities.map(function(o){return o.calculated.return+1;})),
+      max: Math.max.apply(Math, equities.map(function(o){return o.calculated.return;})),
       min: Math.min.apply(Math, equities.map(function(o){return o.calculated.return-1;}))
     }
   }
 
   getPortfolioTotal(){
-    if (this.state.equitiesLoaded 
-      && this.state.equities.length 
-      && this.state.typeFilter === 'none' 
+    if (this.state.equitiesLoaded
+      && this.state.equities.length
+      && this.state.typeFilter === 'none'
       && ! this.state.shouldFilterByReturn)
         return (<PortfolioTotal equities={this.state.equities} />)
       return null;
@@ -140,7 +140,7 @@ class Portfolio extends Component {
       <Row className="show-grid">
         <Col md={12}>
           <p className="row-info"> Klikk på en rad for mer info. Du kan også legge til filter ved å klikke på knappene under, eller sortere ved å klikke på kolonnen. </p>
-          <PortfolioFilter 
+          <PortfolioFilter
             toggleFilterByReturn={this.toggleFilterByReturn}
             extremes={this.state.extremes}
             typeFilter={this.state.typeFilter}
@@ -206,5 +206,3 @@ class Portfolio extends Component {
     );
   }
 }
-
-export default Portfolio;

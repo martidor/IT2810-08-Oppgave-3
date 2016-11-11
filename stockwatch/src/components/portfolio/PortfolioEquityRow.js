@@ -3,7 +3,7 @@ import { FormattedDate, FormattedNumber } from 'react-intl';
 import FormattedDateTime from '../format/FormattedDateTime';
 import color from '../../config/color';
 
-class PortfolioEquityRow extends Component {
+export default class PortfolioEquityRow extends Component {
   /*
   This component is a table row showing info about a equity.
   It contains info about the equities in a users portfolio.
@@ -42,7 +42,7 @@ class PortfolioEquityRow extends Component {
             minimumFractionDigits={0}
             maximumFractionDigits={0}
             value={ equity.calculated.return }
-          /> 
+          />
           : "-"
          }
         </td>
@@ -65,7 +65,7 @@ class PortfolioEquityRow extends Component {
               minimumFractionDigits={0}
               maximumFractionDigits={0}
               value={ equity.calculated.totalValue }
-            /> 
+            />
             : "-"
           }
         </td>
@@ -73,5 +73,3 @@ class PortfolioEquityRow extends Component {
     );
   }
 }
-
-export default PortfolioEquityRow;

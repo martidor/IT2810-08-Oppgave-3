@@ -2,13 +2,12 @@ import Highcharts from 'highcharts/highstock.js';
 import ChartOptions from './ChartOptions';
 import React, { Component } from 'react';
 
-export default
-class Chart extends Component {
+export default class Chart extends Component {
     constructor(props) {
         super(props);
         this.chart = undefined;
     }
-  
+
     // When the DOM is ready, create the chart.
     componentDidMount() {
         // Extend Highcharts with modules
@@ -17,7 +16,7 @@ class Chart extends Component {
                 module(Highcharts);
             });
         }
-        
+
         // Get options for the chart to be rendered
         let options = ChartOptions.getOptions(this);
         this.chart = new Highcharts[this.props.type || "Chart"](this.props.container, options);

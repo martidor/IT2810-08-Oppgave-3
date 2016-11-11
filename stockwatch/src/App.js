@@ -4,7 +4,7 @@ import NavigationBar from './components/navigation-bar/NavigationBar';
 import Notes from './components/notes/Notes';
 
 
-class App extends Component {
+export default class App extends Component {
   /*
   This component serves as a wrapper for all the other pages. When the user enters a page,
   the page component will be rendered in the {this.props.children}.
@@ -25,5 +25,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

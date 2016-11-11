@@ -1,4 +1,4 @@
-import config from '../config/config';
+import config from '../config/apiConfig';
 
 var listeners = [];
 var self = module.exports = {

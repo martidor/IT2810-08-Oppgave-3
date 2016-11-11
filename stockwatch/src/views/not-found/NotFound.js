@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
 
-class NotFound extends Component {
+export default class NotFound extends Component {
 	/*
 	This component will show if the user enters a path that does not match any of the routes.
 	*/
@@ -46,5 +46,3 @@ class NotFound extends Component {
     );
   }
 }
-
-export default NotFound;

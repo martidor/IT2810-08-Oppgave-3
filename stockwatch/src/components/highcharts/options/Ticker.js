@@ -55,7 +55,7 @@ export let TickerOptions = {
     xAxis: {
         type: 'datetime',
         showFirstLabel: true,
-        startOnTick: true,
+        startOnTick: false,
         labels: {
             y: 16,
             staggerLines: 1,

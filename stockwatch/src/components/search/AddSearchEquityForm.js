@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Col, FormGroup, FormControl, ControlLabel , Button } from 'react-bootstrap';
-import config from '../../config/config';
+import config from '../../config/apiConfig';
 
-export default
-class AddSearchEquityForm extends Component{
+export default class AddSearchEquityForm extends Component{
 	render() {
 		return(
 			<Form horizontal method={'post'} action={config.userEquitiesUrl}>

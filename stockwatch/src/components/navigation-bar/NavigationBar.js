@@ -4,9 +4,9 @@ import { LinkContainer } from 'react-router-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import LoginModal from '../login/LoginModal';
 import auth from '../../auth/auth';
-import config from '../../config/config'
+import config from '../../config/apiConfig'
 
-class NavigationBar extends Component {
+export default class NavigationBar extends Component {
 	/*
 	This component is a navbar that is rendered on all the pages.
 	It contains links to the different sites.
@@ -88,8 +88,13 @@ class NavigationBar extends Component {
 				        	<NavItem eventKey={4}><FontAwesome name="sign-out" /> Logg ut</NavItem>
 			        	</LinkContainer>
 
+<<<<<<< HEAD
 			        	
 		        	
+=======
+			        	<NavItem id="loggetinnsom"> {this.state.user}</NavItem>
+
+>>>>>>> ada8671c3f90d41a2587dc9f1321feea1a491444
 	        		</Nav>
 	        	) : (
 	        		<Nav pullRight>
@@ -102,5 +107,3 @@ class NavigationBar extends Component {
     	);
   	}
 }
-
-export default NavigationBar;

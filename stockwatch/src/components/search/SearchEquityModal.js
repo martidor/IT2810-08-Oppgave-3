@@ -4,10 +4,10 @@ import { FormattedNumber } from 'react-intl';
 import FormattedDateTime from '../format/FormattedDateTime';
 import AddSearchEquityForm from './AddSearchEquityForm';
 import Chart from '../highcharts/Chart';
-import config from '../../config/config';
+import config from '../../config/apiConfig';
 import color from '../../config/color';
 
-class SearchEquityModal extends Component{
+export default class SearchEquityModal extends Component{
   /*
   This component is showing info about a equity in a modal.
   */
@@ -27,7 +27,7 @@ class SearchEquityModal extends Component{
     // Update the modal when new props arrive.
     var self = this;
     self.setState({show: newProps.show});
-    
+
     if (newProps.show){
       let type = newProps.equity.type === "SHARES" ? "SHARES" : "FUNDS";
       self.loadChart(type, newProps.equity.id, this.chartLoaded);
@@ -45,9 +45,9 @@ class SearchEquityModal extends Component{
         console.error(error);
       });
     }
-    
+
   chartLoaded = (json) => {
-    this.setState({ 
+    this.setState({
       'chartLoaded': true,
       'chart': json
     });
@@ -97,7 +97,7 @@ class SearchEquityModal extends Component{
                 <tr>
                   <td>Siste dag</td>
                   <td className={color.getClassName(equity.percent)}>
-                    { 
+                    {
                       equity.percent ?
                       <FormattedNumber  // eslint-disable-next-line
                         style='percent'
@@ -123,5 +123,3 @@ class SearchEquityModal extends Component{
     );} else return null;
   }
 }
-
-export default SearchEquityModal;

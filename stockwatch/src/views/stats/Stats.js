@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import Chart from '../../components/highcharts/Chart';
-import config from '../../config/config'
+import config from '../../config/apiConfig'
 import './Stats.css';
 
-class Stats extends Component {
+export default class Stats extends Component {
 
 	// eslint-disable-next-line
     constructor(props){
@@ -46,6 +46,7 @@ class Stats extends Component {
         		<div className="charts">
 	            	<Chart container="return-chart" chartKey="return-on-investment" data={this.state.stats.return}/>
 	            	<Chart container="value-chart" chartKey="invested-and-value" data={this.state.stats}/>
+	            	<Chart container="return-percent-chart" chartKey="return-percent" data={this.state.stats}/>
             	</div>
             )
         else if (statsLoaded)
@@ -58,5 +59,3 @@ class Stats extends Component {
             return (<div className="loading-home"><FontAwesome spin name="circle-o-notch" /> </div>)
     }
  }
-
-export default Stats;

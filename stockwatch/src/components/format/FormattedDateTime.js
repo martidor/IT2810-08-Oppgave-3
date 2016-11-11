@@ -2,8 +2,7 @@ import moment from 'moment';
 import React, { Component } from 'react';
 import { FormattedDate, FormattedTime } from 'react-intl';
 
-export default
-class FormattedDateTime extends Component{
+export default class FormattedDateTime extends Component{
 
 	render(){
 	    if (this.props.type === "SHARES" && moment(this.props.timestamp).isSame(Date.now(), 'day')) {
@@ -18,7 +17,7 @@ class FormattedDateTime extends Component{
 	        </div>
 	      )
 	    }
-	    else 
+	    else
 	    	return (
 		      <FormattedDate value={new Date(this.props.timestamp)} />
 		    )

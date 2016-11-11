@@ -3,7 +3,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 
 // Config variables
-var config = require('./config');
+var config = require('./apiConfig');
 
 module.exports = function(passport) {
 

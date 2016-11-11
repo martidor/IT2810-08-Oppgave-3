@@ -5,6 +5,12 @@
   right: 10px;
 }
 
+@media (max-width: 900px){
+  #wrap_notes{
+    display: none;
+  }
+}
+
 #notes_icon{
   top: 14px;
   max-width: 35px;
@@ -28,7 +34,8 @@ textarea{
   background-color: white;
   width: 100%;
   border: 1px solid #ddd;
-  resize: none;
+  resize: vertical;
+  max-height: 200px;
 }
 
 textarea:focus, textarea:active{
