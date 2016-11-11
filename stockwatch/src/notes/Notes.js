@@ -8,43 +8,43 @@ import auth from '../auth/auth';
 
 export default class Notes extends Component{
 
-
-  toggleNoteField(){
+  toggleNoteField = () => {
     this.setState({
       showNoteField: !this.state.showNoteField,
-      value: localStorage.notes,
+      value: localStorage.notes
     });
   }
 
-
   componentWillUnmount(){
-    auth.removeListener(this.updateAuth.bind(this));
+    auth.removeListener(this.updateAuth);
   }
 
   componentWillMount(){
-    auth.addListener(this.updateAuth.bind(this));
+    auth.addListener(this.updateAuth);
     this.updateAuth();
   }
 
-  updateAuth(){
+  updateAuth = () => {
     this.setState({isLoggedIn: auth.isLoggedIn()});
   }
 
   render(){
+    let noteField;
+    if (this.state.showNoteField)
+      noteField = (
+        <div id="note_components">
+          <h3 id="note_title">Enter a quick note</h3>
+          <NoteInput />
+        </div>
+      );
+
     if(this.state.isLoggedIn){
       return(
           <div id="wrap_notes">
             <div id="notes_icon">
-              <Image onClick={this.toggleNoteField.bind(this)} responsive src="notes.png" alt="Notes icon"/>
+              <Image onClick={this.toggleNoteField} responsive src="notes.png" alt="Notes icon"/>
             </div>
-
-            {this.state.showNoteField ?
-              <div id="note_components">
-              <h3 id="note_title">Enter a quick note</h3>
-              <NoteInput />
-            </div>
-              :""
-            }
+            {noteField}
           </div>
       );
     }

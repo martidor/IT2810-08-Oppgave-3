@@ -23,27 +23,23 @@ class Search extends Component {
       'equitiesLoaded': false,
     };
 
-    this.search = this.search.bind(this);
-    this.showTenMoreEquities = this.showTenMoreEquities.bind(this);
-    this.registerScrollSpy = this.registerScrollSpy.bind(this);
-    this.isScrolledToBottom = this.isScrolledToBottom.bind(this);
-    this.showModal = this.showModal.bind(this);
-    this.loadEquities = this.loadEquities.bind(this)
-    this.equitiesLoaded = this.equitiesLoaded.bind(this)
-
     this.loadEquities(this.equitiesLoaded);
   }
 
-  showModal(equity) {
+  showModal = (equity) => {
     // Show the modal and set the modal to display the equity clicked.
     this.setState({show: true, modalEquity: equity});
   }
 
-  registerScrollSpy(){
+  hideModal = () => {
+    this.setState({show: false});
+  }
+
+  registerScrollSpy = () => {
     window.addEventListener("scroll", this.isScrolledToBottom);
   }
 
-  isScrolledToBottom(){
+  isScrolledToBottom = () => {
     var offset = 5;
     var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
     var scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
@@ -57,7 +53,7 @@ class Search extends Component {
     window.removeEventListener('scroll', this.isScrolledToBottom);
   }
 
-  equitiesLoaded(equities){
+  equitiesLoaded = (equities) => {
       this.setState({ 'equities': equities, 'equitiesLoaded': true, show: false });
       this.equities = equities;
 
@@ -71,7 +67,7 @@ class Search extends Component {
       this.registerScrollSpy();
   }
 
-  loadEquities(callback){
+  loadEquities = (callback) => {
     return fetch(config.equityUrl,
       { credentials: 'include' })
       .then((response) => response.json())
@@ -83,7 +79,7 @@ class Search extends Component {
       });
   }
 
-  showTenMoreEquities(){
+  showTenMoreEquities = () => {
       let numResults = this.state.numResults;
       this.setState({
         show: false,
@@ -91,7 +87,7 @@ class Search extends Component {
       });
   }
 
-  search (event) {
+  search = (event) => {
     // Extract the query
     let query = event.target.value;
     // Only show the default number of results
@@ -127,7 +123,7 @@ class Search extends Component {
               <FormControl
                 type="text"
                 placeholder="Søk etter fond/aksje"
-                onChange={this.search.bind(this)}
+                onChange={this.search}
               />
             </FormGroup>
           </Col>
@@ -174,7 +170,7 @@ class Search extends Component {
             }
           </Col>
         </Row>
-        <SearchedEquityModal show={this.state.show} equity={this.state.modalEquity}/>
+        <SearchedEquityModal show={this.state.show} hide={this.hideModal} equity={this.state.modalEquity}/>
       </div>
     );
   }

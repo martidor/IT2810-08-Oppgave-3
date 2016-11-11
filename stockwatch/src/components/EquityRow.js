@@ -38,7 +38,7 @@ class EquityRow extends Component {
         </td>
         <td className="hide-on-410px">
         {
-          equity.price ?
+          equity.calculated.return ?
           <FormattedNumber
             minimumFractionDigits={0}
             maximumFractionDigits={0}
@@ -49,7 +49,7 @@ class EquityRow extends Component {
         </td>
         <td className={ color.getClassName(equity.calculated.annualPercentReturn) + " hide-on-500px" }>
           {
-            equity.percent ?
+            equity.calculated.annualPercentReturn ?
             <FormattedNumber  // eslint-disable-next-line
               style='percent'
               minimumFractionDigits={2}
@@ -61,7 +61,7 @@ class EquityRow extends Component {
         </td>
         <td>
           {
-            equity.price ?
+            equity.calculated.totalValue ?
             <FormattedNumber
               minimumFractionDigits={0}
               maximumFractionDigits={0}

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Table, Row, Col } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
-import { FormattedNumber } from 'react-intl';
 import EquityHelper from '../components/EquityHelper';
 import EquityRow from '../components/EquityRow';
 import EquityModal from '../components/EquityModal';
 import PortfolioFilter from '../components/PortfolioFilter';
+import PortfolioTotal from '../components/PortfolioTotal';
 import config from '../config/config';
-import '../components/togglebutton.css';
+import './Portfolio.css';
 
 class Portfolio extends Component {
   /*
@@ -24,20 +24,14 @@ class Portfolio extends Component {
       equitiesLoaded: false,
       equities: [],
       currentSort: 'TransactionTimestamp',
-      filter: 'nothing'
+      typeFilter: 'none',
+      shouldFilterByReturn: false
     };
-
-    // Bind the function to the class instance
-    this.showModal = this.showModal.bind(this);
-    this.loadEquities = this.loadEquities.bind(this)
-    this.equitiesLoaded = this.equitiesLoaded.bind(this)
-    this.sortBy = this.sortBy.bind(this)
-    this.filterBy = this.filterBy.bind(this)
 
     this.loadEquities(this.equitiesLoaded);
   }
 
-  loadEquities(callback){
+  loadEquities = (callback) => {
     // User id hard coded for now.
     return fetch(config.userEquitiesUrl,
       { credentials: 'include' })
@@ -50,24 +44,31 @@ class Portfolio extends Component {
     });
   }
 
-  equitiesLoaded(json){
+  equitiesLoaded = (json) => {
     // Add object for getting calculated info about the equity
     for (let equity of json)
       equity.calculated = new EquityHelper(equity);
 
+    let extremeReturns = this.getExtremeReturns(json);
+
     this.setState({ 
       equitiesLoaded: true,
       equities: json,
-      show: false
+      show: false,
+      extremes: extremeReturns
     });
   }
 
-  showModal(equity) {
+  showModal = (equity) => {
     // Show the modal and set the modal to display the equity clicked.
     this.setState({show: true, modalEquity: equity});
   }
 
-  sortBy(column, calculated){
+  hideModal = () => {
+    this.setState({show: false});
+  }
+
+  sortBy = (column, calculated) => {
     let equities = this.state.equities;
     if (column === this.state.currentSort)
       equities.reverse();
@@ -91,52 +92,63 @@ class Portfolio extends Component {
     });
   }
 
-  filterBy(filter){
-    this.setState({filter: filter});
+  setTypeFilter = (typeFilter) => {
+    this.setState({typeFilter: typeFilter});
   }
 
-  getPortfolioTotals(){
-    if (this.state.equitiesLoaded && this.state.equities.length && this.state.filter === 'nothing'){
-      let totalPrice = 0, totalValue = 0;
+  isValidType = (equity) => {
+    return this.state.typeFilter === equity.type
+        || this.state.typeFilter === 'none';
+  }
 
-      for (var equity of this.state.equities){
-        totalPrice += equity.TotalPrice;
-        totalValue += equity.price * equity.Stockholding;
-      }
+  setReturnFilterValue = (value) => {
+    this.setState({returnFilterValue: value})
+  }
 
-      return (
-        <tr style={{fontWeight: 600}}>
-          <td>Totalt</td>
-          <td className="hide-on-580px"></td>
-          <td className="hide-on-650px"></td>
-          <td></td>
-          <td className="hide-on-410px">
-            <FormattedNumber
-              minimumFractionDigits={0}
-              maximumFractionDigits={0}
-              value={ (totalValue - totalPrice) }
-            /> 
-          </td>
-          <td className="hide-on-500px"></td>
-          <td>
-            <FormattedNumber
-              minimumFractionDigits={0}
-              maximumFractionDigits={0}
-              value={ totalValue }
-            /> 
-          </td> 
-        </tr>
-      );
+  isOverReturnValue = (equity) => {
+    return ! this.state.shouldFilterByReturn 
+        || equity.calculated.return >= this.state.returnFilterValue;
+  }
+
+  toggleFilterByReturn = (bool) => {
+    let value = this.state.returnFilterValue
+              || (this.state.extremes.max + this.state.extremes.min) / 2;
+    this.setState({
+      shouldFilterByReturn: bool,
+      returnFilterValue: value
+    });
+  }
+
+  getExtremeReturns = (equities) => {
+    return {
+      max: Math.max.apply(Math, equities.map(function(o){return o.calculated.return;})),
+      min: Math.min.apply(Math, equities.map(function(o){return o.calculated.return;}))
     }
-    return null;
+  }
+
+  getPortfolioTotal(){
+    if (this.state.equitiesLoaded 
+      && this.state.equities.length 
+      && this.state.typeFilter === 'none' 
+      && ! this.state.shouldFilterByReturn)
+        return (<PortfolioTotal equities={this.state.equities} />)
+      return null;
   }
 
   render() {
     return (
       <Row className="show-grid">
-      <p className="row-info"> Klikk på en rad for mer info. Du kan også legge til filter ved å klikke på knappene under, eller sortere ved å klikke på kolonnen. </p>
-        <PortfolioFilter filter={this.state.filter} filterBy={this.filterBy} />
         <Col md={12}>
+          <p className="row-info"> Klikk på en rad for mer info. Du kan også legge til filter ved å klikke på knappene under, eller sortere ved å klikke på kolonnen. </p>
+          <PortfolioFilter 
+            toggleFilterByReturn={this.toggleFilterByReturn}
+            extremes={this.state.extremes}
+            typeFilter={this.state.typeFilter}
+            setTypeFilter={this.setTypeFilter}
+            setReturnFilterValue={this.setReturnFilterValue}
+            shouldFilterByReturn={this.state.shouldFilterByReturn}
+            returnFilterValue={this.state.returnFilterValue}
+          />
           <Table hover responsive>
             <thead>
               <tr>
@@ -166,11 +178,11 @@ class Portfolio extends Component {
             <tbody>
               {
                 this.state.equitiesLoaded ?
-                  this.state.equities.map((equity, i) => {
-                    if (this.state.filter === equity.type || this.state.filter === 'nothing')
-                      return (
-                        <EquityRow key={i} showModal={() => this.showModal(equity)} equity={equity} />
-                      ); else return null;
+                  this.state.equities
+                  .filter(this.isValidType)
+                  .filter(this.isOverReturnValue)
+                  .map((equity, i) => {
+                      return (<EquityRow key={i} showModal={() => this.showModal(equity)} equity={equity} />)
                   })
                 : (
                     <tr>
@@ -178,9 +190,7 @@ class Portfolio extends Component {
                     </tr>
                   )
               }
-              {
-                this.getPortfolioTotals()
-              }
+              {this.getPortfolioTotal()}
               <tr className="if-no-results">
                 <td colSpan={3}>Ingen rader funnet..</td>
                 <td className="hide-on-650px"></td>
@@ -191,7 +201,7 @@ class Portfolio extends Component {
             </tbody>
           </Table>
         </Col>
-        <EquityModal show={this.state.show} equity={this.state.modalEquity}/>
+        <EquityModal show={this.state.show} hide={this.hideModal} equity={this.state.modalEquity}/>
       </Row>
     );
   }

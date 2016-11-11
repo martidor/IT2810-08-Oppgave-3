@@ -22,11 +22,6 @@ class SearchedEquityModal extends Component{
       chartLoaded: false,
       chart: []
     };
-
-    // Bind the function to the class instance
-    this.hideModal = this.hideModal.bind(this);
-    this.loadChart = this.loadChart.bind(this)
-    this.chartLoaded = this.chartLoaded.bind(this)
   }
 
   componentWillReceiveProps(newProps){
@@ -40,7 +35,7 @@ class SearchedEquityModal extends Component{
     }
   }
 
-  loadChart(type, equityId, callback){
+  loadChart = (type, equityId, callback) => {
     return fetch(config.equityUrl + type + '/' + equityId,
       { credentials: 'include' })
       .then((response) => response.json())
@@ -52,19 +47,25 @@ class SearchedEquityModal extends Component{
       });
     }
     
-  chartLoaded(json){
+  chartLoaded = (json) => {
     this.setState({ 
       'chartLoaded': true,
       'chart': json
     });
   }
 
-  hideModal() {
-    this.setState({show: false, chartLoaded: false});
+  hideModal = () => {
+    this.props.hide();
+    this.setState({chartLoaded: false});
   }
 
   render() {
+    let chartIfLoaded;
     const equity = this.props.equity;
+
+    if(this.state.chartLoaded && this.state.chart.length)
+      chartIfLoaded = (<Chart container="equity-chart" chartKey="equity" data={this.state.chart}/>);
+
     if (typeof equity !== 'undefined'){
     return (
       <Modal
@@ -111,10 +112,7 @@ class SearchedEquityModal extends Component{
                 </tr>
               </tbody>
             </Table>
-            { this.state.chartLoaded && this.state.chart.length ?
-              <Chart container="equity-chart" chartKey="equity" data={this.state.chart}/>
-              : ""
-            }
+            { chartIfLoaded }
             </Modal.Body>
             <Modal.Body>
               <AddEquityForm equityId={equity.id}/>

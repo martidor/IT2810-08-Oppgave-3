@@ -1,0 +1,39 @@
+
+.filter-wrapper{
+	display: flex;
+	justify-content: center;
+}
+
+.filter-wrapper button{
+	margin: 0 3px;
+}
+
+.if-no-results{
+	display: none;
+}
+
+.if-no-results:first-child:last-child{
+	display: table-row;
+}
+
+.sortable{
+	cursor: pointer;
+}
+
+.range-filter{
+	margin: 10px auto;
+	max-width: 300px;
+	position: relative;
+}
+
+.range-filter input[type="checkbox"]{
+	margin-right: 5px;
+}
+
+.range-filter span{
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 15px;
+	font-weight: 600;
+}

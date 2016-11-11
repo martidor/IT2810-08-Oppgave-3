@@ -26,10 +26,6 @@ body {
 	background-color: #ddd;
 }
 
-.sortable{
-	cursor: pointer;
-}
-
 .homepage-content {
 	margin: 2em 8px 0 8px;
 	font-size: 1.2em;
@@ -52,23 +48,6 @@ button.btn:focus:active,
 button.btn.active,
 button.btn.active:focus{
 	outline: none;
-}
-
-.filter-wrapper{
-	display: flex;
-	justify-content: center;
-}
-
-.filter-wrapper button{
-	margin: 0 3px;
-}
-
-.if-no-results{
-	display: none;
-}
-
-.if-no-results:first-child:last-child{
-	display: table-row;
 }
 
 @media (max-width: 992px){

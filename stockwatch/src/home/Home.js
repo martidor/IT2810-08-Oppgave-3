@@ -18,13 +18,10 @@ class Home extends Component {
 
         this.state = { 'chartLoaded': false, chart: {} }
 
-        this.loadChart = this.loadChart.bind(this)
-        this.chartLoaded = this.chartLoaded.bind(this)
-
         this.loadChart(this.chartLoaded);
     }
 
-    loadChart(callback){
+    loadChart = (callback) => {
         return fetch(config.tickerUrl,
             { credentials: 'include' })
           .then((response) => response.json())
@@ -36,7 +33,7 @@ class Home extends Component {
           });
     }
 
-    chartLoaded(json){
+    chartLoaded = (json) => {
         let currentTime = json.ticker[json.ticker.length - 1][0];
     	let currentValue = json.ticker[json.ticker.length - 1][1]
     	let percentChanged = (currentValue / json.yesterday) - 1;

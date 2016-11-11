@@ -3,6 +3,7 @@ import { Modal, Button, Table } from 'react-bootstrap';
 import { FormattedDate, FormattedNumber } from 'react-intl';
 import FormattedDateTime from './FormattedDateTime';
 import Chart from '../components/highcharts/Chart';
+import DeleteEquity from '../components/DeleteEquity';
 import config from '../config/config'
 import color from '../config/color';
 import './EquityModal.css';
@@ -17,29 +18,19 @@ class EquityModal extends Component{
 
     // Initial state
     this.state = {
-      show: false,
       chartLoaded: false,
       chart: []
     };
-
-    // Bind the function to the class instance
-    this.hideModal = this.hideModal.bind(this);
-    this.loadChart = this.loadChart.bind(this)
-    this.chartLoaded = this.chartLoaded.bind(this)
   }
 
   componentWillReceiveProps(newProps){
-    // Update the modal when new props arrive.
-    var self = this;
-    self.setState({show: newProps.show});
-    
     if (newProps.show){
       let type = newProps.equity.type === "SHARES" ? "SHARES" : "FUNDS";
-      self.loadChart(type, newProps.equity.id, this.chartLoaded);
+      this.loadChart(type, newProps.equity.id, this.chartLoaded);
     }
   }
 
-  loadChart(type, equityId, callback){
+  loadChart = (type, equityId, callback) => {
     return fetch(config.equityUrl + type + '/' + equityId,
       { credentials: 'include' })
       .then((response) => response.json())
@@ -51,29 +42,29 @@ class EquityModal extends Component{
       });
     }
     
-  chartLoaded(json){
+  chartLoaded = (json) => {
     this.setState({ 
       'chartLoaded': true,
       'chart': json
     });
   }
 
-  hideModal() {
-    this.setState({show: false});
-  }
-
-  confirmDelete(e){
-    if(! confirm('Er du sikker på at du vil slette raden fra din portefølje?'))
-      e.preventDefault();
+  hideModal = () => {
+    this.props.hide();
+    this.setState({chartLoaded: false});
   }
 
   render() {
+    let chartIfLoaded;
+    if (this.state.chartLoaded)
+      chartIfLoaded = (<Chart container="equity-chart" chartKey="equity" data={this.state.chart}/>);
+
     const equity = this.props.equity;
     if (equity.hasOwnProperty("calculated")){
       return (
         <Modal
             {...this.props}
-            show={this.state.show}
+            show={this.props.show}
             onHide={this.hideModal}
           >
             <Modal.Header closeButton>
@@ -191,16 +182,10 @@ class EquityModal extends Component{
                   </tr>
                 </tbody>
               </Table>
-              { this.state.chartLoaded ?
-                <Chart container="equity-chart" chartKey="equity" data={this.state.chart}/>
-                : ""
-              }
+              {chartIfLoaded}
             </Modal.Body>
             <Modal.Footer>
-              <form onSubmit={this.confirmDelete} className="float-left" action={config.deleteEquityUrl} method="post">
-                <input type="hidden" name="equityid" value={equity.EquityId}/>
-                <Button type="submit">Slett fra portefølje</Button>
-              </form>
+              <DeleteEquity equity={equity}/>
               <Button onClick={this.hideModal}>Lukk</Button>
             </Modal.Footer>
           </Modal>

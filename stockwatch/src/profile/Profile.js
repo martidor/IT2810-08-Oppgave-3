@@ -20,39 +20,36 @@ class Profile extends Component {
 		super();
 
 		this.state ={showModal: false};
-		this.open = this.open.bind(this);
-		this.close = this.close.bind(this);
 
-		this.loadUser(this.userLoaded.bind(this));
+		this.loadUser(this.userLoaded);
 	}
 
-	close(){
+	close = () => {
 		this.setState({ showModal: false});
 	}
-	open(){
+
+	open = () => {
 		this.setState({ showModal: true});
 	}
 
-	userLoaded(user){
+	userLoaded = (user) =>{
 		this.setState({user : user.name});
-		console.log(user.name);
 	}
 
 	
-	 loadUser(callback){
+	loadUser = (callback) => {
 	    return fetch(config.userUrl,
 	      { credentials: 'include' })
-	      .then((response) => response.json())
-	      .then((json) => {
+      	.then((response) => response.json())
+      	.then((json) => {
 	        callback(json);
-	      })
-	      .catch((error) => {
+      	})
+      	.catch((error) => {
 	        console.error(error);
-	      });
-	  }
+      	});
+  	}
+
 	render() {
-		
-		
 		return(
 			<div id="profilebody">
 				<h3>{this.state.user}</h3>
