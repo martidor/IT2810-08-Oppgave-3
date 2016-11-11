@@ -115,13 +115,13 @@ class Portfolio extends Component {
               || (this.state.extremes.max + this.state.extremes.min) / 2;
     this.setState({
       shouldFilterByReturn: bool,
-      returnFilterValue: value
+      returnFilterValue: Math.floor(value)
     });
   }
 
   getExtremeReturns = (equities) => {
     return {
-      max: Math.max.apply(Math, equities.map(function(o){return o.calculated.return+1;})),
+      max: Math.max.apply(Math, equities.map(function(o){return o.calculated.return;})),
       min: Math.min.apply(Math, equities.map(function(o){return o.calculated.return-1;}))
     }
   }
