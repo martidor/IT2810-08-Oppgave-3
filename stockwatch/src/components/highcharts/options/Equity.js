@@ -12,11 +12,11 @@ export let EquityOptions = {
         formatter: function() {
             var dateFormat = '%A %e. %b %Y';
             var format = '<span style="font-size: 10px">%d</span><br>' +
-                '<span style="color:' + Highcharts.getOptions().colors[0] + '">●</span> %s <b>%n</b><br>';
+                '<span style="color:%c">●</span> %s <b>%n</b><br>';
 
-            var formattedDate = Highcharts.dateFormat(dateFormat, this.x);
-            format = format.replace('%d', formattedDate);
-            format = format.replace('%n', this.points[0].y.toFixed(2));
+            format = format.replace('%c', Highcharts.getOptions().colors[0]);
+            format = format.replace('%d', Highcharts.dateFormat(dateFormat, this.x));
+            format = format.replace('%n', Highcharts.numberFormat(this.points[0].y, 2));
             format = format.replace('%s', "Kurs: ");
 
             return format;

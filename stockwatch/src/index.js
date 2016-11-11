@@ -4,15 +4,15 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { IntlProvider, addLocaleData } from 'react-intl';
 import noLocaleData from 'react-intl/locale-data/no';
 import App from './App';
-import Stats from './stats/Stats';
-import Portfolio from './portfolio/Portfolio';
-import Profile from './profile/Profile';
-import Home from './home/Home'
-import Login from './login/Login'
-import NotFound from './notfound/NotFound'
-import Search from './search/Search';
-import './index.css';
+import Stats from './views/stats/Stats';
+import Portfolio from './views/portfolio/Portfolio';
+import Profile from './views/profile/Profile';
+import Home from './views/home/Home'
+import Login from './views/login/Login'
+import NotFound from './views/not-found/NotFound'
+import Search from './views/search/Search';
 import auth from './auth/auth';
+import './index.css';
 
 addLocaleData(noLocaleData);
 

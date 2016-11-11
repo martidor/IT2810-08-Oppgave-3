@@ -1,0 +1,68 @@
+
+.filter-wrapper{
+	display: flex;
+	justify-content: center;
+}
+
+.filter-wrapper button{
+	margin: 0 3px;
+}
+
+.if-no-results{
+	display: none;
+}
+
+.if-no-results:first-child:last-child{
+	display: table-row;
+}
+
+.sortable{
+	cursor: pointer;
+}
+
+.range-filter{
+	margin: 10px auto;
+	max-width: 300px;
+	position: relative;
+}
+
+.range-filter input[type="checkbox"]{
+	margin-right: 5px;
+}
+
+.range-filter span{
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.modal-dialog {
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s;
+}
+
+.table > .no-border > tr > td{
+	border-top: none;
+}
+
+.float-left {
+	float: left;
+}
+
+th:not(:first-child), td:not(:first-child){
+	text-align: right;
+}
+
+.green {
+	color: rgb(69, 139, 0);
+}
+
+.red {
+	color: rgb(204, 0, 0);
+}
+
+.mouse-pointer {
+	cursor: pointer;
+}

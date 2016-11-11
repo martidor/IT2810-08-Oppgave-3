@@ -60,18 +60,23 @@ export let InvestedAndValueOptions = {
             let color = (this.points[0].y - this.points[1].y) < 0 ? '#d9534f' : '#5cb85c';
 
             var format = '<span style="font-size: 10px">%d</span><br>' +
-                '<span style="color:' + Highcharts.getOptions().colors[0] + '">●</span> %s <b>%n kr</b><br>' +
-                '<span style="color:' + Highcharts.getOptions().colors[1] + '">●</span> %s <b>%n kr</b><br>' +
-                '<span style="color:' + color + '">●</span> %s <b style="color:' + color +'">%n kr</b><br>';
+                '<span style="color:%c">●</span> %s <b>%n kr</b><br>' +
+                '<span style="color:%c">●</span> %s <b>%n kr</b><br>' +
+                '<span style="color:%c">●</span> %s <b style="color:%c">%n kr</b><br>';
 
-            var formattedDate = Highcharts.dateFormat(dateFormat, this.x);
-            format = format.replace('%d', formattedDate);
-            format = format.replace('%n', (this.points[0].y).toFixed(0));
+
+            format = format.replace('%d', Highcharts.dateFormat(dateFormat, this.x));
+            format = format.replace('%c', Highcharts.getOptions().colors[0]);
             format = format.replace('%s', 'Totalverdi:');
-            format = format.replace('%n', (this.points[1].y).toFixed(0));
+            format = format.replace('%n', Highcharts.numberFormat(this.points[0].y, 0));
+            format = format.replace('%c', Highcharts.getOptions().colors[1]);
             format = format.replace('%s', 'Investert:');
-            format = format.replace('%n', (this.points[0].y-this.points[1].y).toFixed(0));
+            format = format.replace('%n', Highcharts.numberFormat(this.points[1].y, 0));
             format = format.replace('%s', 'Avkastning:');
+            format = format.replace('%c', color);
+            format = format.replace('%c', color,);
+            format = format.replace('%n', Highcharts.numberFormat((this.points[0].y-this.points[1].y), 0));
+            
 
             return format;
         },

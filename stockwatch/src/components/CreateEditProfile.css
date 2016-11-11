@@ -1,8 +1,0 @@
-#createprofile, #editprofile{
-	text-align: center;
-}
-#username, #email, #pw, #pw2{
-	display: block;
-	text-align: center;
-	margin:auto;
-}

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Grid } from 'react-bootstrap';
-import './App.css';
-import NavigationBar from './components/NavigationBar';
-import Notes from './notes/Notes';
+import NavigationBar from './components/navigation-bar/NavigationBar';
+import Notes from './components/notes/Notes';
 
 
 class App extends Component {
