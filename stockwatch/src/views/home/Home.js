@@ -8,8 +8,8 @@ import color from '../../config/color';
 import './Home.css';
 
 
-class Home extends Component {
-	/*The Home page Component will be the default page of the site. 
+export default class Home extends Component {
+	/*The Home page Component will be the default page of the site.
     Here we'll show some basic information about equities, and the user can log in.
     Once the user has logged in, the Home page will show some user-relevant information as well.*/
 
@@ -37,7 +37,7 @@ class Home extends Component {
         let currentTime = json.ticker[json.ticker.length - 1][0];
     	let currentValue = json.ticker[json.ticker.length - 1][1]
     	let percentChanged = (currentValue / json.yesterday) - 1;
-        this.setState({ 
+        this.setState({
         	'chartLoaded': true,
         	'chart': json,
         	'currentValue': currentValue,
@@ -62,7 +62,7 @@ class Home extends Component {
 					              minimumFractionDigits={2}
 					              maximumFractionDigits={2}
 					              value={this.state.currentValue}
-					            /> 
+					            />
     						</div>
 						</div>
                         <div className="hide-on-smartphone">
@@ -72,7 +72,7 @@ class Home extends Component {
                                   timestamp={new Date(this.state.currentTime)}
                                   type="SHARES"
                                   prefix={false}
-                                /> 
+                                />
                             </div>
                         </div>
 						<div>
@@ -98,7 +98,7 @@ class Home extends Component {
                             <li>Se oversikt over dagens ticker på Oslo Børs.</li>
                             <li>Se sanntidsinformasjon om aksje- og fondskurser.</li>
                         </ul>
-                    
+
                     </div>
     			</div>
 			)
@@ -106,5 +106,3 @@ class Home extends Component {
     		return (<div className="loading-home"><FontAwesome spin name="circle-o-notch" /> </div>)
     }
  }
-
-export default Home;

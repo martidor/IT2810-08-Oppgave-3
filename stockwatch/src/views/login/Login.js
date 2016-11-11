@@ -4,7 +4,7 @@ import FontAwesome from 'react-fontawesome';
 import config from '../../config/apiConfig';
 import './Login.css';
 
-class Login extends Component{
+export default class Login extends Component{
 
     loginWithFacebook(){
         window.location.href = config.facebookAuthUrl;
@@ -30,5 +30,3 @@ class Login extends Component{
     }
 
 }
-
-export default Login;

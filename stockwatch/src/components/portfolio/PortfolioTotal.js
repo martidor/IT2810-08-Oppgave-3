@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import { FormattedNumber } from 'react-intl';
 
-export default
-class PortfolioTotal extends Component {
+export default class PortfolioTotal extends Component {
 
   render(){
     let totalPrice = 0, totalValue = 0;
@@ -23,7 +22,7 @@ class PortfolioTotal extends Component {
             minimumFractionDigits={0}
             maximumFractionDigits={0}
             value={ (totalValue - totalPrice) }
-          /> 
+          />
         </td>
         <td className="hide-on-500px"></td>
         <td>
@@ -31,8 +30,8 @@ class PortfolioTotal extends Component {
             minimumFractionDigits={0}
             maximumFractionDigits={0}
             value={ totalValue }
-          /> 
-        </td> 
+          />
+        </td>
       </tr>
     );
   }

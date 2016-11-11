@@ -4,7 +4,7 @@ import Chart from '../../components/highcharts/Chart';
 import config from '../../config/apiConfig'
 import './Stats.css';
 
-class Stats extends Component {
+export default class Stats extends Component {
 
 	// eslint-disable-next-line
     constructor(props){
@@ -59,5 +59,3 @@ class Stats extends Component {
             return (<div className="loading-home"><FontAwesome spin name="circle-o-notch" /> </div>)
     }
  }
-
-export default Stats;

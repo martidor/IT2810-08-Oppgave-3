@@ -7,7 +7,7 @@ import SearchEquityModal from '../../components/search/SearchEquityModal';
 import config from '../../config/apiConfig'
 import './Search.css';
 
-class Search extends Component {
+export default class Search extends Component {
   /*
   This component is listing equities, and a search bar. When the user adds input to the
   search bar, the equities will automatically update with results matching the query.
@@ -175,5 +175,3 @@ class Search extends Component {
     );
   }
 }
-
-export default Search;

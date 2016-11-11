@@ -9,7 +9,7 @@ import PortfolioTotal from '../../components/portfolio/PortfolioTotal';
 import config from '../../config/apiConfig';
 import './Portfolio.css';
 
-class Portfolio extends Component {
+export default class Portfolio extends Component {
   /*
   This component shows a list of the users portfolio.
   */
@@ -51,7 +51,7 @@ class Portfolio extends Component {
 
     let extremeReturns = this.getExtremeReturns(json);
 
-    this.setState({ 
+    this.setState({
       equitiesLoaded: true,
       equities: json,
       show: false,
@@ -106,7 +106,7 @@ class Portfolio extends Component {
   }
 
   isOverReturnValue = (equity) => {
-    return ! this.state.shouldFilterByReturn 
+    return ! this.state.shouldFilterByReturn
         || equity.calculated.return >= this.state.returnFilterValue;
   }
 
@@ -127,9 +127,9 @@ class Portfolio extends Component {
   }
 
   getPortfolioTotal(){
-    if (this.state.equitiesLoaded 
-      && this.state.equities.length 
-      && this.state.typeFilter === 'none' 
+    if (this.state.equitiesLoaded
+      && this.state.equities.length
+      && this.state.typeFilter === 'none'
       && ! this.state.shouldFilterByReturn)
         return (<PortfolioTotal equities={this.state.equities} />)
       return null;
@@ -140,7 +140,7 @@ class Portfolio extends Component {
       <Row className="show-grid">
         <Col md={12}>
           <p className="row-info"> Klikk på en rad for mer info. Du kan også legge til filter ved å klikke på knappene under, eller sortere ved å klikke på kolonnen. </p>
-          <PortfolioFilter 
+          <PortfolioFilter
             toggleFilterByReturn={this.toggleFilterByReturn}
             extremes={this.state.extremes}
             typeFilter={this.state.typeFilter}
@@ -206,5 +206,3 @@ class Portfolio extends Component {
     );
   }
 }
-
-export default Portfolio;

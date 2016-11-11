@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import Login from '../../views/login/Login';
 
-export default
-class LoginModal extends Component{
+export default class LoginModal extends Component{
 
 	render(){
 		return(

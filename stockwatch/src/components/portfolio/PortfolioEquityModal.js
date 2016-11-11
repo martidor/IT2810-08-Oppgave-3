@@ -7,7 +7,7 @@ import DeletePortfolioEquity from './DeletePortfolioEquity';
 import config from '../../config/apiConfig'
 import color from '../../config/color';
 
-class PortfolioEquityModal extends Component{
+export default class PortfolioEquityModal extends Component{
   /*
   This component is showing info about a equity in a modal.
   */
@@ -40,9 +40,9 @@ class PortfolioEquityModal extends Component{
         console.error(error);
       });
     }
-    
+
   chartLoaded = (json) => {
-    this.setState({ 
+    this.setState({
       'chartLoaded': true,
       'chart': json
     });
@@ -79,7 +79,7 @@ class PortfolioEquityModal extends Component{
                         minimumFractionDigits={0}
                         maximumFractionDigits={0}
                         value={ equity.TotalPrice }
-                      /> 
+                      />
                     </td>
                   </tr>
                   <tr>
@@ -117,7 +117,7 @@ class PortfolioEquityModal extends Component{
                   <tr>
                     <td>Siste dag</td>
                     <td className={color.getClassName(equity.percent)}>
-                      { 
+                      {
                         equity.percent ?
                         <FormattedNumber  // eslint-disable-next-line
                           style='percent'
@@ -136,7 +136,7 @@ class PortfolioEquityModal extends Component{
                         minimumFractionDigits={0}
                         maximumFractionDigits={0}
                         value={ equity.calculated.return }
-                      /> 
+                      />
                     </td>
                   </tr>
                   <tr>
@@ -176,7 +176,7 @@ class PortfolioEquityModal extends Component{
                         minimumFractionDigits={0}
                         maximumFractionDigits={0}
                         value={ equity.calculated.totalValue }
-                      /> 
+                      />
                     </td>
                   </tr>
                 </tbody>
@@ -192,5 +192,3 @@ class PortfolioEquityModal extends Component{
     } return null;
   }
 }
-
-export default PortfolioEquityModal;

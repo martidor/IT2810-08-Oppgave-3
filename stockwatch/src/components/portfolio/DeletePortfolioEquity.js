@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Button } from 'react-bootstrap';
 import config from '../../config/apiConfig'
 
-class DeletePortfolioEquity extends Component{
+export default class DeletePortfolioEquity extends Component{
   /*
   This component provides possibility to delete an equity.
   */
@@ -21,5 +21,3 @@ class DeletePortfolioEquity extends Component{
     )
   }
 }
-
-export default DeletePortfolioEquity;

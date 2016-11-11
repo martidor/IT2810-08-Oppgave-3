@@ -6,7 +6,7 @@ import LoginModal from '../login/LoginModal';
 import auth from '../../auth/auth';
 import config from '../../config/apiConfig'
 
-class NavigationBar extends Component {
+export default class NavigationBar extends Component {
 	/*
 	This component is a navbar that is rendered on all the pages.
 	It contains links to the different sites.
@@ -88,7 +88,7 @@ class NavigationBar extends Component {
 			        	</LinkContainer>
 
 			        	<NavItem id="loggetinnsom"> {this.state.user}</NavItem>
-		        	
+
 	        		</Nav>
 	        	) : (
 	        		<Nav pullRight>
@@ -101,5 +101,3 @@ class NavigationBar extends Component {
     	);
   	}
 }
-
-export default NavigationBar;

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Button } from 'react-bootstrap';
 import { FormattedNumber } from 'react-intl';
 
-class PortfolioFilter extends Component{
+export default class PortfolioFilter extends Component{
   /*
   This component is showing info filter options
   */
@@ -36,17 +36,17 @@ class PortfolioFilter extends Component{
             minimumFractionDigits={0}
             maximumFractionDigits={0}
             value={ this.props.returnFilterValue }
-          /> 
-          <input min={extremes.min} max={extremes.max} onChange={this.rangeChanged} type="range" /> 
+          />
+          <input min={extremes.min} max={extremes.max} onChange={this.rangeChanged} type="range" />
         </div>
       );
-    
+
     return(
       <div>
         <div className="range-filter">
           <input onClick={this.toggleFilterByReturn} type="checkbox" id="enable-range" />
           <label htmlFor="enable-range">Filtrer på minimum avkastning: </label>
-          {filterByReturn} 
+          {filterByReturn}
         </div>
         <div className="filter-wrapper">
           <Button className={this.classNameIfCurrent('none')} onClick={() => this.props.setTypeFilter('none')}>
@@ -63,5 +63,3 @@ class PortfolioFilter extends Component{
     )
   }
 }
-
-export default PortfolioFilter;
