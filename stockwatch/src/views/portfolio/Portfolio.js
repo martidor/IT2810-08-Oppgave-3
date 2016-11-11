@@ -121,8 +121,8 @@ class Portfolio extends Component {
 
   getExtremeReturns = (equities) => {
     return {
-      max: Math.max.apply(Math, equities.map(function(o){return o.calculated.return;})),
-      min: Math.min.apply(Math, equities.map(function(o){return o.calculated.return;}))
+      max: Math.max.apply(Math, equities.map(function(o){return o.calculated.return+1;})),
+      min: Math.min.apply(Math, equities.map(function(o){return o.calculated.return-1;}))
     }
   }
 

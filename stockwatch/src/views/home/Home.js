@@ -98,6 +98,7 @@ class Home extends Component {
                             <li>Se oversikt over dagens ticker på Oslo Børs.</li>
                             <li>Se sanntidsinformasjon om aksje- og fondskurser.</li>
                         </ul>
+                    
                     </div>
     			</div>
 			)
