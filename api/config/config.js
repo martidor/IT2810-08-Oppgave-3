@@ -7,5 +7,6 @@ module.exports = {
         'callbackURL'   : 'http://localhost:8008/auth/facebook/callback'
     },
     'siteUrl' : siteUrl,
-    'portfolioUrl' : siteUrl + '/portefolje'
+    'portfolioUrl' : siteUrl + '/portefolje',
+    'loginUrl' : siteUrl + '/logg-inn'
 }

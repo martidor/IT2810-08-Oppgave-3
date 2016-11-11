@@ -4,6 +4,7 @@ var authUrl = baseUrl + '/auth';
 
 module.exports = {
 	facebookAuthUrl    : authUrl + '/facebook',
+	testUserAuthUrl    : authUrl + '/test',
 	logoutUrl          : apiUrl  + '/logout',
 	isAuthenticatedUrl : apiUrl  + '/isAuthenticated',
 	userEquitiesUrl    : apiUrl  + '/user/equities',

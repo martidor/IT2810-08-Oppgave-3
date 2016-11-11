@@ -14,7 +14,8 @@ var Cronjob 	= require('./helper/cronjob');
 
 // Configure passport
 require('./config/passport')(passport);
-
+// Setup test user
+require('./config/testuser')(passport);
 
 // Setup cookie and body parser (with json)
 // =============================================================================

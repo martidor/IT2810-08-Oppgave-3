@@ -14,11 +14,16 @@ router.get('/', function(req, res) {
 // Facebook will redirect the user to this URL after authentication. 
 // The user is (not) logged in and redirected based on the response from facebook
 router.get('/facebook/callback',
-  passport.authenticate('facebook', { successRedirect: config.siteUrl + '/',
-                                      failureRedirect: config.siteUrl + '/logg-inn' }));
+  passport.authenticate('facebook', { successRedirect: config.siteUrl,
+                                      failureRedirect: config.loginUrl }));
 
 // Redirect the user to Facebook for authentication.  When complete,
 // Facebook will redirect the user back to /auth/facebook/callback
 router.get('/facebook', passport.authenticate('facebook'));
+
+// Router for testuser
+router.post('/test',
+	passport.authenticate('local', { successRedirect: config.siteUrl,
+                                     failureRedirect: config.loginUrl }));
 
 module.exports = router;
