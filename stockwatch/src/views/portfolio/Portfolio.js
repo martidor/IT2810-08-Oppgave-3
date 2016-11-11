@@ -78,11 +78,11 @@ class Portfolio extends Component {
       });
     else if (calculated)
       equities.sort(function(a, b){
-        return a.calculated[column] < b.calculated[column];
+        return a.calculated[column] - b.calculated[column];
       })
     else
       equities.sort(function(a, b){
-        return a[column] < b[column];
+        return a[column] - b[column];
       })
 
     this.setState({
