@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import Textarea from 'react-textarea-autosize';
 
 export default class NoteInput extends Component{
+
+  // var Textarea = require('react-textarea-autosize');
 
   componentWillMount(){
     this.setState({
@@ -14,14 +17,10 @@ export default class NoteInput extends Component{
     localStorage.note = note;
   }
 
-  textAreaAdjust(o) {
-    o.style.height = "1px";
-    o.style.height = (25+o.scrollHeight)+"px";
-  }
 
   render(){
     return(
-      <textarea onChange={this.handleChange} value={this.state.note} />
+      <Textarea onChange={this.handleChange} value={this.state.note} />
     );
   }
 }

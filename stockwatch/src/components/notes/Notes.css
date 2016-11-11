@@ -28,7 +28,8 @@ textarea{
   background-color: white;
   width: 100%;
   border: 1px solid #ddd;
-  resize: none;
+  resize: vertical;
+  max-height: 200px;
 }
 
 textarea:focus, textarea:active{
