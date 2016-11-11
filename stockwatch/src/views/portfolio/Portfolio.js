@@ -6,7 +6,7 @@ import PortfolioEquityRow from '../../components/portfolio/PortfolioEquityRow';
 import PortfolioEquityModal from '../../components/portfolio/PortfolioEquityModal';
 import PortfolioFilter from '../../components/portfolio/PortfolioFilter';
 import PortfolioTotal from '../../components/portfolio/PortfolioTotal';
-import config from '../../config/config';
+import config from '../../config/apiConfig';
 import './Portfolio.css';
 
 class Portfolio extends Component {

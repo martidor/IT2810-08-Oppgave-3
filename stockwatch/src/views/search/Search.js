@@ -4,7 +4,7 @@ import FontAwesome from 'react-fontawesome';
 import Fuse from 'fuse.js';
 import SearchEquity from '../../components/search/SearchEquity';
 import SearchEquityModal from '../../components/search/SearchEquityModal';
-import config from '../../config/config'
+import config from '../../config/apiConfig'
 import './Search.css';
 
 class Search extends Component {

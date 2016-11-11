@@ -4,7 +4,7 @@ import { FormattedDate, FormattedNumber } from 'react-intl';
 import FormattedDateTime from '../format/FormattedDateTime';
 import Chart from '../highcharts/Chart';
 import DeletePortfolioEquity from './DeletePortfolioEquity';
-import config from '../../config/config'
+import config from '../../config/apiConfig'
 import color from '../../config/color';
 
 class PortfolioEquityModal extends Component{

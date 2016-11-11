@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import Chart from '../../components/highcharts/Chart';
-import config from '../../config/config'
+import config from '../../config/apiConfig'
 import './Stats.css';
 
 class Stats extends Component {

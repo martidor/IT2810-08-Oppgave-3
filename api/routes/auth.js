@@ -1,6 +1,6 @@
 var express 	= require('express');
 var passport = require('passport');
-var config = require('../config/config');
+var config = require('../config/apiConfig');
 
 // Routes for auth
 // =============================================================================
