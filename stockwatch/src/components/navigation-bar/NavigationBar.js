@@ -4,7 +4,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import LoginModal from '../login/LoginModal';
 import auth from '../../auth/auth';
-import config from '../../config/config'
+import config from '../../config/apiConfig'
 
 class NavigationBar extends Component {
 	/*

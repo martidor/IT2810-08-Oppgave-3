@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Button } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
-import config from '../../config/config';
+import config from '../../config/apiConfig';
 import './Login.css';
 
 class Login extends Component{

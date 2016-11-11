@@ -84,4 +84,9 @@ bower_components
 .bower-registry
 .bower-tmp
 
+### Database ###
 api/database/database.db
+
+### Config files ###
+api/config/apiConfig.js
+stockwatch/src/config/apiConfig.js

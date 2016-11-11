@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Button } from 'react-bootstrap';
-import config from '../../config/config'
+import config from '../../config/apiConfig'
 
 class DeletePortfolioEquity extends Component{
   /*

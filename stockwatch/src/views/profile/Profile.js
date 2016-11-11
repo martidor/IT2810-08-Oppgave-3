@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Button, Modal} from 'react-bootstrap';
 import Toggle from 'react-toggle';
 import EditProfile from '../../components/profile/EditProfile.js';
-import config from '../../config/config'
+import config from '../../config/apiConfig'
 import './Profile.css';
 
 /*

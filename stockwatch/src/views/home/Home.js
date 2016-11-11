@@ -3,7 +3,7 @@ import { FormattedNumber } from 'react-intl';
 import FontAwesome from 'react-fontawesome';
 import FormattedDateTime from '../../components/format/FormattedDateTime';
 import Chart from '../../components/highcharts/Chart';
-import config from '../../config/config'
+import config from '../../config/apiConfig'
 import color from '../../config/color';
 import './Home.css';
 

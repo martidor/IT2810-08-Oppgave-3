@@ -3,7 +3,7 @@ var passport	= require('passport');
 var Database 	= require('../database/database');
 var OsloBors	= require('../external-apis/oslobors');
 var Helper		= require('../helper/helper');
-var config		= require('../config/config');
+var config		= require('../config/apiConfig');
 var Equity      = require('../models/equity');
 
 // Routes for our API

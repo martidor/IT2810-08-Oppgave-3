@@ -4,7 +4,7 @@ import { FormattedNumber } from 'react-intl';
 import FormattedDateTime from '../format/FormattedDateTime';
 import AddSearchEquityForm from './AddSearchEquityForm';
 import Chart from '../highcharts/Chart';
-import config from '../../config/config';
+import config from '../../config/apiConfig';
 import color from '../../config/color';
 
 class SearchEquityModal extends Component{
