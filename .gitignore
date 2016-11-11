@@ -83,3 +83,5 @@ bower_components
 .bower-cache
 .bower-registry
 .bower-tmp
+
+api/database/database.db
