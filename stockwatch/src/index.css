@@ -117,14 +117,6 @@ button.btn.active:focus{
 	button.add:after{
 		content: '+';
 	}
-
-	.highcharts-range-selector-buttons{
-		transform: translate(-0px, 5px);
-	}
-
-	.highcharts-range-selector-buttons tspan{
-		display: none;
-	}
 }
 
 @media (max-width: 410px){
@@ -136,7 +128,6 @@ button.btn.active:focus{
 		max-width: 140px;
 	}
 }
-
 
 /* React toggle button */
 .react-toggle {
