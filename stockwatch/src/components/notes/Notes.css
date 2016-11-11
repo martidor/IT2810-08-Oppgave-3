@@ -5,6 +5,12 @@
   right: 10px;
 }
 
+@media (max-width: 900px){
+  #wrap_notes{
+    display: none;
+  }
+}
+
 #notes_icon{
   top: 14px;
   max-width: 35px;

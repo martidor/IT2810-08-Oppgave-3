@@ -1,5 +1,6 @@
 import Highcharts from 'highcharts/highstock.js';
 import { InvestedAndValueOptions } from './options/InvestedAndValue.js';
+import { PercentReturnOnInvestment } from './options/PercentReturnOnInvestment.js';
 import { ReturnOnInvestmentOptions } from './options/ReturnOnInvestment.js';
 import { TickerOptions } from './options/Ticker.js';
 import { EquityOptions } from './options/Equity.js';
@@ -21,6 +22,9 @@ export default class ChartOptions {
                 break;
             case "invested-and-value":
                 options = ChartOptions.investedAndValue(that);
+                break;
+            case "return-percent":
+                options = ChartOptions.percentReturnOnInvestment(that);
                 break;
             default:
                 return null
@@ -52,6 +56,15 @@ export default class ChartOptions {
         return options;
     }
 
+    static percentReturnOnInvestment(that){
+        let invested = that.props.data.invested;
+        let value = that.props.data.value;
+        let percentReturn = ChartOptions.calculatePercentReturn(invested, value);
+        let options = PercentReturnOnInvestment;
+        options.series[0].data = percentReturn;
+        return options;
+    }
+
     static returnOnInvestmentOptions(that) {
         let data = that.props.data;
         let options = ReturnOnInvestmentOptions;
@@ -80,6 +93,17 @@ export default class ChartOptions {
         options.xAxis.max = equity[equity.length - 1][0] + 60000; // Add one minute to get the last point as well
 
         return options;
+    }
+
+    static calculatePercentReturn(invested, value){
+        let percentReturn = [];
+        for (let i = 0; i < invested.length; i++){
+            let inv = invested[i][1];
+            let val = value[i][1];
+            let percRet = (val - inv) / inv * 100;
+            percentReturn.push([invested[i][0], percRet]);
+        }
+        return percentReturn;
     }
 }
 
