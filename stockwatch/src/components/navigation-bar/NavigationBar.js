@@ -42,6 +42,7 @@ class NavigationBar extends Component {
 
 	userLoaded = (user) => {
 		this.setState({user : user.name});
+		this.setState({userToPrint : " | " + user.name});
 	}
 
 	open = () => {
@@ -62,7 +63,7 @@ class NavigationBar extends Component {
 	    		<Navbar.Header>
 	      			<Navbar.Brand>
 	      				<LinkContainer to="/">
-	      					<a href="/"><FontAwesome name="dollar" />tockwatch</a>
+	      					<a href="/"><FontAwesome name="dollar" />tockwatch <span id="loggetinnsom"> {this.state.userToPrint}</span></a>
 	      				</LinkContainer>
 	      			</Navbar.Brand>
       				<Navbar.Toggle />
@@ -70,7 +71,7 @@ class NavigationBar extends Component {
 	    		<Navbar.Collapse>
 	      		{this.state.isLoggedIn ? (
 	      			<Nav pullRight>
-
+	      				
 		      			<LinkContainer to="/sok">
 			        		<NavItem eventKey={1}><FontAwesome name="search" /> Søk</NavItem>
 				        </LinkContainer>
@@ -87,7 +88,7 @@ class NavigationBar extends Component {
 				        	<NavItem eventKey={4}><FontAwesome name="sign-out" /> Logg ut</NavItem>
 			        	</LinkContainer>
 
-			        	<NavItem id="loggetinnsom"> {this.state.user}</NavItem>
+			        	
 		        	
 	        		</Nav>
 	        	) : (

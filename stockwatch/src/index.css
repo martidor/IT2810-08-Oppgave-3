@@ -44,9 +44,10 @@ button.btn.active:focus{
 }
 
 #loggetinnsom{
-  font-size: 0.8em;
+  font-size: 0.7em;
   cursor: default;
   color: #777777;
+
 }
 
 #portfolioVisibility{

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Button} from 'react-bootstrap';
 
 class NotFound extends Component {
 	/*
@@ -38,7 +39,10 @@ class NotFound extends Component {
     const administrator = this.getRandomTeamMember(nickname);
 
     return (
+      <div className="test">
       		<p style={{textAlign: 'center', marginTop: '50px'}}> Vennligst prøv en annen URL, eller ta kontakt med administrator {administrator}. </p>
+          <Button onClick="myFunction">HAHA</Button>
+      </div>
     );
   }
 }
