@@ -43,7 +43,6 @@ button.btn.active:focus{
 
 #logged-in-as{
   font-size: 0.7em;
-  cursor: default;
   color: #777777;
 }
 
