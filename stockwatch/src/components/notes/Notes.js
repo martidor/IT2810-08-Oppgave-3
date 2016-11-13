@@ -13,7 +13,6 @@ export default class Notes extends Component{
   It is rendered on all pages when the user is logged in.
 */
 
-
 //Hides and shows the note field based on whether the user is logged in.
   toggleNoteField = () => {
     this.setState({
