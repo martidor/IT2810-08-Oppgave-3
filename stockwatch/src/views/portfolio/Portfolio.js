@@ -34,12 +34,12 @@ export default class Portfolio extends Component {
   loadEquities = (callback) => {
     return fetch(config.userEquitiesUrl,
       { credentials: 'include' })
-      .then((response) => response.json())
-      .then((json) => {
-        callback(json);
-      })
-      .catch((error) => {
-        console.error(error);
+    .then((response) => response.json())
+    .then((json) => {
+      callback(json);
+    })
+    .catch((error) => {
+      console.error(error);
     });
   }
 
@@ -97,7 +97,7 @@ export default class Portfolio extends Component {
 
   isValidType = (equity) => {
     return this.state.typeFilter === equity.type
-        || this.state.typeFilter === 'none';
+      || this.state.typeFilter === 'none';
   }
 
   setReturnFilterValue = (value) => {
@@ -106,12 +106,12 @@ export default class Portfolio extends Component {
 
   isOverReturnValue = (equity) => {
     return ! this.state.shouldFilterByReturn
-        || equity.calculated.return >= this.state.returnFilterValue;
+      || equity.calculated.return >= this.state.returnFilterValue;
   }
 
   toggleFilterByReturn = (bool) => {
     let value = this.state.returnFilterValue
-              || (this.state.extremes.max + this.state.extremes.min) / 2;
+      || (this.state.extremes.max + this.state.extremes.min) / 2;
     this.setState({
       shouldFilterByReturn: bool,
       returnFilterValue: Math.floor(value)
@@ -131,7 +131,7 @@ export default class Portfolio extends Component {
       && this.state.typeFilter === 'none'
       && ! this.state.shouldFilterByReturn)
         return (<PortfolioTotal equities={this.state.equities} />)
-      return null;
+    return null;
   }
 
   render() {
@@ -181,12 +181,12 @@ export default class Portfolio extends Component {
                   .filter(this.isValidType)
                   .filter(this.isOverReturnValue)
                   .map((equity, i) => {
-                      return (<PortfolioEquityRow key={i} showModal={() => this.showModal(equity)} equity={equity} />)
+                    return (<PortfolioEquityRow key={i} showModal={() => this.showModal(equity)} equity={equity} />)
                   })
                 : (
-                    <tr>
-                      <td colSpan="7" className="loading"> Laster inn.. <FontAwesome spin name="circle-o-notch" /> </td>
-                    </tr>
+                  <tr>
+                    <td colSpan="7" className="loading"> Laster inn.. <FontAwesome spin name="circle-o-notch" /> </td>
+                  </tr>
                   )
               }
               {this.getPortfolioTotal()}
