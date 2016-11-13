@@ -1,7 +1,8 @@
 import config from '../config/apiConfig';
 
-var listeners = [];
-var self = module.exports = {
+let apiWorking = true;
+let listeners = [];
+let self = module.exports = {
 
   redirect(nextState, replace, path){
     // Redirect to a path.
@@ -54,6 +55,7 @@ var self = module.exports = {
         callback();
       })
       .catch((error) => {
+        apiWorking = false;
         delete localStorage.token;
         callback();
       });
@@ -74,5 +76,9 @@ var self = module.exports = {
     if (index > -1){
       listeners.splice(index, 1);
     }
+  },
+
+  apiIsWorking(){
+    return apiWorking;
   }
 }

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Grid } from 'react-bootstrap';
 import NavigationBar from './components/navigation-bar/NavigationBar';
 import Notes from './components/notes/Notes';
+import ApiNotWorking from './views/not-found/ApiNotWorking';
+import auth from './auth/auth';
 
 
 export default class App extends Component {
@@ -11,17 +13,26 @@ export default class App extends Component {
   */
 
   render() {
-    return (
+    if (auth.apiIsWorking())
+      return (
+        <div>
+          <NavigationBar />
+          <Notes />
+          <Grid>
+            <div className="header">
+              <h2> {this.props.children.props.route.name} </h2>
+            </div>
+            {this.props.children}
+          </Grid>
+        </div>
+      );
+    else return (
       <div>
         <NavigationBar />
-        <Notes />
         <Grid>
-          <div className="header">
-            <h2> {this.props.children.props.route.name} </h2>
-          </div>
-          {this.props.children}
+          <ApiNotWorking />
         </Grid>
       </div>
-    );
+    )
   }
 }
