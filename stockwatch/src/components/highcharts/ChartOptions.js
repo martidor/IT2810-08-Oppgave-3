@@ -7,6 +7,11 @@ import { EquityOptions } from './options/Equity.js';
 
 export default class ChartOptions {
 
+    /*
+        This class has responsibility for setting correct options
+        on the different charts the application supports.
+    */
+
     static getOptions(that) {
         let options, key = that.props.chartKey;
 

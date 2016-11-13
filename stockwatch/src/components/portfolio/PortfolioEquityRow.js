@@ -4,6 +4,7 @@ import FormattedDateTime from '../format/FormattedDateTime';
 import color from '../../config/color';
 
 export default class PortfolioEquityRow extends Component {
+  
   /*
   This component is a table row showing info about a equity.
   It contains info about the equities in a users portfolio.

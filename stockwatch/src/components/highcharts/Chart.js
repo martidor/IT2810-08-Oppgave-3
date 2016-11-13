@@ -3,6 +3,11 @@ import ChartOptions from './ChartOptions';
 import React, { Component } from 'react';
 
 export default class Chart extends Component {
+
+    /*
+        This component is a wrapper for different charts (highcharts).
+    */
+    
     constructor(props) {
         super(props);
         this.chart = undefined;

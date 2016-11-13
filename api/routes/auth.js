@@ -1,6 +1,6 @@
 // Routes for auth
 // =============================================================================
-var express 	= require('express');
+var express   = require('express');
 var passport = require('passport');
 var config = require('../config/apiConfig');
 
@@ -9,7 +9,7 @@ var router = express.Router();
 
 // test route to make sure everything is working (accessed at GET /api)
 router.get('/', function(req, res) {
-	res.json({message: 'Auth API is up and running.'});
+  res.json({message: 'Auth API is up and running.'});
 });
 
 // Facebook will redirect the user to this URL after authentication. 
@@ -24,7 +24,7 @@ router.get('/facebook', passport.authenticate('facebook'));
 
 // Router for testuser
 router.post('/test',
-	passport.authenticate('local', { successRedirect: config.siteUrl,
-                                     failureRedirect: config.loginUrl }));
+  passport.authenticate('local', { successRedirect: config.siteUrl,
+                                   failureRedirect: config.loginUrl }));
 
 module.exports = router;

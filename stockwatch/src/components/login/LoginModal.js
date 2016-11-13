@@ -4,19 +4,23 @@ import Login from '../../views/login/Login';
 
 export default class LoginModal extends Component{
 
-	render(){
-		return(
-			<Modal show={this.props.show} onHide={this.props.close}>
-				<Modal.Header closeButton>
-					<Modal.Title>Logg inn</Modal.Title>
-				</Modal.Header>
-				<Modal.Body>
-					<Login />
-				</Modal.Body>
-				<Modal.Footer>
-					<Button onClick={this.close}>Lukk</Button>
-				</Modal.Footer>
-			</Modal>
-		)
-	}
+  /*
+        This component shows a modal with the possibility to log in.
+    */
+
+  render(){
+    return(
+      <Modal show={this.props.show} onHide={this.props.close}>
+        <Modal.Header closeButton>
+          <Modal.Title>Logg inn</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Login />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={this.close}>Lukk</Button>
+        </Modal.Footer>
+      </Modal>
+    )
+  }
 }

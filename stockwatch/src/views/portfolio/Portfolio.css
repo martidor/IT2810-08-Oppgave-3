@@ -1,41 +1,41 @@
 
 .filter-wrapper{
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .filter-wrapper button{
-	margin: 0 3px;
+  margin: 0 3px;
 }
 
 .if-no-results{
-	display: none;
+  display: none;
 }
 
 .if-no-results:first-child:last-child{
-	display: table-row;
+  display: table-row;
 }
 
 .sortable{
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .range-filter{
-	margin: 10px auto;
-	max-width: 300px;
-	position: relative;
+  margin: 10px auto;
+  max-width: 300px;
+  position: relative;
 }
 
 .range-filter input[type="checkbox"]{
-	margin-right: 5px;
+  margin-right: 5px;
 }
 
 .range-filter span{
-	position: absolute;
-	right: 0;
-	top: 0;
-	font-size: 15px;
-	font-weight: 600;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 15px;
+  font-weight: 600;
 }
 
 .modal-dialog {
@@ -44,35 +44,35 @@
 }
 
 .table > .no-border > tr > td{
-	border-top: none;
+  border-top: none;
 }
 
 .float-left {
-	float: left;
+  float: left;
 }
 
 th:not(:first-child), td:not(:first-child){
-	text-align: right;
+  text-align: right;
 }
 
 .green {
-	color: rgb(69, 139, 0);
+  color: rgb(69, 139, 0);
 }
 
 .red {
-	color: rgb(204, 0, 0);
+  color: rgb(204, 0, 0);
 }
 
 .mouse-pointer {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 @media (max-width: 700px){
-	.portfolio-header{
-		letter-spacing: -.7px;
-	}
+  .portfolio-header{
+    letter-spacing: -.7px;
+  }
 
-	.portfolio-header .caret{
-		margin-left: 0;
-	}
+  .portfolio-header .caret{
+    margin-left: 0;
+  }
 }

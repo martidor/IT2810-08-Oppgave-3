@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 export default class NotFound extends Component {
-	/*
-	This component will show if the user enters a path that does not match any of the routes.
-	*/
+  /*
+  This component will show if the user enters a path that does not match any of the routes.
+  */
 
   getRandomNickName(){
     const nicknames = [
@@ -38,7 +38,7 @@ export default class NotFound extends Component {
     const administrator = this.getRandomTeamMember(nickname);
 
     return (
-      		<p style={{textAlign: 'center', marginTop: '50px'}}> Vennligst prøv en annen URL, eller ta kontakt med administrator {administrator}. </p>
+          <p style={{textAlign: 'center', marginTop: '50px'}}> Vennligst prøv en annen URL, eller ta kontakt med administrator {administrator}. </p>
     );
   }
 }

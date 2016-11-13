@@ -7,100 +7,103 @@ import auth from '../../auth/auth';
 import config from '../../config/apiConfig'
 
 export default class NavigationBar extends Component {
-	/*
-	This component is a navbar that is rendered on all the pages.
-	It contains links to the different sites.
-	*/
-	constructor(){
-		super();
-		if (auth.isLoggedIn())
-			this.loadUser(this.userLoaded);
 
-		this.state ={ showModal: false };
-	}
+  /*
+    This component is a navbar that is rendered on all the pages.
+    It contains links to the different sites.
+  */
+  
+  constructor(){
+    super();
+    if (auth.isLoggedIn())
+      this.loadUser(this.userLoaded);
 
-	componentWillMount(){
-		auth.addListener(this.updateAuth.bind(this));
-		this.updateAuth();
-	}
+    this.state ={ showModal: false };
+  }
 
-	componentWillUnmount(){
-		auth.removeListener(this.updateAuth.bind(this));
-	}
+  componentWillMount(){
+    // Add listener to the auth state
+    auth.addListener(this.updateAuth.bind(this));
+    this.updateAuth();
+  }
 
-	loadUser(callback){
-		return fetch(config.userUrl,
-	 		{ credentials: 'include' })
-	 	.then((response) => response.json())
-		.then((json) => {
-			callback(json);
-		})
-		.catch((error) => {
-			console.error(error);
-	  	});
-	}
+  componentWillUnmount(){
+    auth.removeListener(this.updateAuth.bind(this));
+  }
 
-	userLoaded = (user) => {
-		this.setState({user : user.name});
-	}
+  loadUser(callback){
+    return fetch(config.userUrl,
+      { credentials: 'include' })
+    .then((response) => response.json())
+    .then((json) => {
+      callback(json);
+    })
+    .catch((error) => {
+      console.error(error);
+      });
+  }
 
-	open = () => {
-		this.setState({ showModal: true});
-	}
+  userLoaded = (user) => {
+    this.setState({user : user.name});
+  }
 
-	close = () => {
-		this.setState({ showModal: false});
-	}
+  open = () => {
+    this.setState({ showModal: true});
+  }
 
-	updateAuth = () => {
-		this.setState({isLoggedIn: auth.isLoggedIn()});
-	}
+  close = () => {
+    this.setState({ showModal: false});
+  }
 
-	render() {
-		let printedUser;
-		if(this.state.isLoggedIn)
-			printedUser = " | " + this.state.user;
-    	return (
-	  		<Navbar id="NavigationBar" collapseOnSelect fixedTop >
-	    		<Navbar.Header>
-	      			<Navbar.Brand>
-	      				<LinkContainer to="/">
-	      					<a className="stockwatch-brand" href="/">
-	      						<FontAwesome name="dollar" />tockwatch <span id="logged-in-as"> {printedUser}</span>
-      						</a>
-	      				</LinkContainer>
-	      			</Navbar.Brand>
-      				<Navbar.Toggle />
-	    		</Navbar.Header>
-	    		<Navbar.Collapse>
-	      		{this.state.isLoggedIn ? (
-	      			<Nav pullRight>
+  updateAuth = () => {
+    this.setState({isLoggedIn: auth.isLoggedIn()});
+  }
 
-		      			<LinkContainer to="/sok">
-			        		<NavItem eventKey={1}><FontAwesome name="search" /> Søk</NavItem>
-				        </LinkContainer>
+  render() {
+    let printedUser;
+    if(this.state.isLoggedIn)
+      printedUser = " | " + this.state.user;
+      return (
+        <Navbar id="NavigationBar" collapseOnSelect fixedTop >
+          <Navbar.Header>
+              <Navbar.Brand>
+                <LinkContainer to="/">
+                  <a className="stockwatch-brand" href="/">
+                    <FontAwesome name="dollar" />tockwatch <span id="logged-in-as"> {printedUser}</span>
+                  </a>
+                </LinkContainer>
+              </Navbar.Brand>
+              <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            {this.state.isLoggedIn ? (
+              <Nav pullRight>
 
-				        <LinkContainer to="/portefolje">
-				      		<NavItem eventKey={2}><FontAwesome name="list-ul" /> Portefølje</NavItem>
-				      	</LinkContainer>
+                <LinkContainer to="/sok">
+                  <NavItem eventKey={1}><FontAwesome name="search" /> Søk</NavItem>
+                </LinkContainer>
 
-				      	<LinkContainer to="/stats">
-				      		<NavItem eventKey={3}><FontAwesome name="area-chart" /> Statistikk</NavItem>
-				      	</LinkContainer>
+                <LinkContainer to="/portefolje">
+                  <NavItem eventKey={2}><FontAwesome name="list-ul" /> Portefølje</NavItem>
+                </LinkContainer>
 
-				      	<LinkContainer to="/logg-ut">
-				        	<NavItem eventKey={4}><FontAwesome name="sign-out" /> Logg ut</NavItem>
-			        	</LinkContainer>
+                <LinkContainer to="/stats">
+                  <NavItem eventKey={3}><FontAwesome name="area-chart" /> Statistikk</NavItem>
+                </LinkContainer>
 
-	        		</Nav>
-	        	) : (
-	        		<Nav pullRight>
-						<NavItem onClick={this.open}><FontAwesome name="sign-in" /> Logg in</NavItem>
-						<LoginModal close={this.close} show={this.state.showModal}/>
-					</Nav>
-	        	)}
-	    		</Navbar.Collapse>
-	  		</Navbar>
-    	);
-  	}
+                <LinkContainer to="/logg-ut">
+                  <NavItem eventKey={4}><FontAwesome name="sign-out" /> Logg ut</NavItem>
+                </LinkContainer>
+
+              </Nav>
+            ) : (
+              <Nav pullRight>
+            <NavItem onClick={this.open}><FontAwesome name="sign-in" /> Logg in</NavItem>
+            <LoginModal close={this.close} show={this.state.showModal}/>
+          </Nav>
+            )}
+          </Navbar.Collapse>
+        </Navbar>
+      );
+    }
 }

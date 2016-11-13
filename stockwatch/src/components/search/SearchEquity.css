@@ -1,15 +1,15 @@
 th:not(:first-child), td:not(:first-child){
-	text-align: right;
+  text-align: right;
 }
 
 .green {
-	color: rgb(69, 139, 0);
+  color: rgb(69, 139, 0);
 }
 
 .red {
-	color: rgb(204, 0, 0);
+  color: rgb(204, 0, 0);
 }
 
 .modal-body + .modal-body{
-	border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
 }

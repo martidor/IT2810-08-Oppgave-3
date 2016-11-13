@@ -91,7 +91,7 @@ export default class SearchEquityModal extends Component{
                 <tr>
                   <td>Oppdatert</td>
                   <td>
-                  	<FormattedDateTime timestamp={equity.time} type={equity.type} prefix={true} />
+                    <FormattedDateTime timestamp={equity.time} type={equity.type} prefix={true} />
                   </td>
                 </tr>
                 <tr>

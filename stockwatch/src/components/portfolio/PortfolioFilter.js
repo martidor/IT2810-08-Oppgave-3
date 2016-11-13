@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import { FormattedNumber } from 'react-intl';
 
 export default class PortfolioFilter extends Component{
+  
   /*
   This component is showing info filter options
   */

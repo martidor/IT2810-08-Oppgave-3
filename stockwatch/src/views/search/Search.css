@@ -1,21 +1,21 @@
 
 .searchhead{
-	text-align: center;
+  text-align: center;
 }
 
 .no-results{
-	display: none;
+  display: none;
 }
 
 .no-results:first-child:last-child{
-	display: table-row;
+  display: table-row;
 }
 
 .loading {
-	font-size: 1.3em;
+  font-size: 1.3em;
 }
 
 .show-more-results{
-	margin-bottom: 10px;
-	text-align: center;
+  margin-bottom: 10px;
+  text-align: center;
 }

@@ -1,8 +1,8 @@
 import Highcharts from 'highcharts/highstock.js';
 export let EquityOptions = {
-	chart: {
-	    panning: true
-  	},
+  chart: {
+      panning: true
+    },
     tooltip: {
         shared: true,
         useHTML: true,

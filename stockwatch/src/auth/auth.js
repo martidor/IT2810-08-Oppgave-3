@@ -1,3 +1,6 @@
+// This module works as middleware to check an perform authentication
+// towards the API
+// =============================================================================
 import config from '../config/apiConfig';
 
 let apiWorking = true;
@@ -17,7 +20,6 @@ let self = module.exports = {
     localStorage.token = token;
   },
 
-
   logout(nextState, replace) {
     // Remove token from localstora
     delete localStorage.token;
@@ -34,6 +36,8 @@ let self = module.exports = {
     return !!localStorage.token;
   },
 
+  // Method that is ran before routing to a protected page,
+  // will redirect if the user is not logged in
   requireLogin(nextState, replace){
     // Require that we are logged in.
     if (! self.isLoggedIn()) {
@@ -42,6 +46,7 @@ let self = module.exports = {
     }
   },
 
+  // Method to check if the user is logged in
   checkIfLoggedInOnServer(callback){
     // Send a request to the server and check if we are authenticated.
     fetch(config.isAuthenticatedUrl,
@@ -61,16 +66,18 @@ let self = module.exports = {
       });
   },
 
-// Let components listen to this in case we log in or out.
+  // Notify listeners that the auth state has changed
   onChange(){
     for (var func of listeners)
       func();
   },
 
+  // Add a function that will run if the auth state changes.
   addListener(func){
     listeners.push(func);
   },
 
+  // Remove the listener on the auth state
   removeListener(func){
     var index = listeners.indexOf(func);
     if (index > -1){
@@ -78,6 +85,7 @@ let self = module.exports = {
     }
   },
 
+  // Check if the API is up and running
   apiIsWorking(){
     return apiWorking;
   }

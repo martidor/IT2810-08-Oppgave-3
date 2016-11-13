@@ -9,7 +9,7 @@ import './Home.css';
 
 
 export default class Home extends Component {
-	/*The Home page Component will be the default page of the site.
+  /*The Home page Component will be the default page of the site.
     Here we'll show some basic information about equities, and the user can log in.
     Once the user has logged in, the Home page will show some user-relevant information as well.*/
 
@@ -35,36 +35,36 @@ export default class Home extends Component {
 
     chartLoaded = (json) => {
         let currentTime = json.ticker[json.ticker.length - 1][0];
-    	let currentValue = json.ticker[json.ticker.length - 1][1]
-    	let percentChanged = (currentValue / json.yesterday) - 1;
+      let currentValue = json.ticker[json.ticker.length - 1][1]
+      let percentChanged = (currentValue / json.yesterday) - 1;
         this.setState({
-        	'chartLoaded': true,
-        	'chart': json,
-        	'currentValue': currentValue,
+          'chartLoaded': true,
+          'chart': json,
+          'currentValue': currentValue,
             'currentTime': currentTime,
-        	'percentChanged': percentChanged
+          'percentChanged': percentChanged
         });
     }
 
-	render() {
-		if (this.state.chartLoaded)
-    		return (
-    			<div>
-    				<div className="ticker-info">
-    					<div>
-    						<div className="ticker-title">Ticker</div>
-    						<div className="ticker-content">OSEBX</div>
-						</div>
-						<div>
-    						<div className="ticker-title">Siste kurs</div>
-    						<div className="ticker-content">
-    							<FormattedNumber
-					              minimumFractionDigits={2}
-					              maximumFractionDigits={2}
-					              value={this.state.currentValue}
-					            />
-    						</div>
-						</div>
+  render() {
+    if (this.state.chartLoaded)
+        return (
+          <div>
+            <div className="ticker-info">
+              <div>
+                <div className="ticker-title">Ticker</div>
+                <div className="ticker-content">OSEBX</div>
+            </div>
+            <div>
+                <div className="ticker-title">Siste kurs</div>
+                <div className="ticker-content">
+                  <FormattedNumber
+                        minimumFractionDigits={2}
+                        maximumFractionDigits={2}
+                        value={this.state.currentValue}
+                      />
+                </div>
+            </div>
                         <div className="hide-on-smartphone">
                             <div className="ticker-title">Oppdatert</div>
                             <div className="ticker-content">
@@ -75,19 +75,19 @@ export default class Home extends Component {
                                 />
                             </div>
                         </div>
-						<div>
-    						<div className="ticker-title">+/- %</div>
-    						<div className={ "ticker-content " + color.getClassName(this.state.percentChanged)}>
-    						<FormattedNumber // eslint-disable-next-line
-				              style='percent'
-				              minimumFractionDigits={2}
-				              maximumFractionDigits={2}
-				              value={this.state.percentChanged}
-				            />
-    						</div>
-						</div>
-    				</div>
-    				<Chart container="ticker-chart" chartKey="ticker" data={this.state.chart}/>
+            <div>
+                <div className="ticker-title">+/- %</div>
+                <div className={ "ticker-content " + color.getClassName(this.state.percentChanged)}>
+                <FormattedNumber // eslint-disable-next-line
+                      style='percent'
+                      minimumFractionDigits={2}
+                      maximumFractionDigits={2}
+                      value={this.state.percentChanged}
+                    />
+                </div>
+            </div>
+            </div>
+            <Chart container="ticker-chart" chartKey="ticker" data={this.state.chart}/>
                     <div className="homepage-content">
                         <p>Hei og velkommen til børsoversikten. På denne siden kan du blant annet: </p>
                         <ul>
@@ -100,9 +100,9 @@ export default class Home extends Component {
                         </ul>
 
                     </div>
-    			</div>
-			)
-    	else
-    		return (<div className="loading-home"><FontAwesome spin name="circle-o-notch" /> </div>)
+          </div>
+      )
+      else
+        return (<div className="loading-home"><FontAwesome spin name="circle-o-notch" /> </div>)
     }
  }

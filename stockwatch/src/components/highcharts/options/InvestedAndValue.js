@@ -1,8 +1,8 @@
 import Highcharts from 'highcharts/highstock.js';
 export let InvestedAndValueOptions = {
-	chart: {
-	    panning: true
-  	},
+  chart: {
+      panning: true
+    },
     rangeSelector: {
         enabled: true,
         selected: 1

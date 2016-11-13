@@ -4,6 +4,10 @@ import color from '../../config/color';
 
 export default class PortfolioTotal extends Component {
 
+  /*
+    This component calculates and shows summarized totals for all equities.
+  */
+
   render(){
     let totalPrice = 0, 
         totalValue = 0, 

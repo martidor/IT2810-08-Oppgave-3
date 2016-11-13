@@ -8,6 +8,7 @@ import config from '../../config/apiConfig'
 import color from '../../config/color';
 
 export default class PortfolioEquityModal extends Component{
+  
   /*
   This component is showing info about a equity in a modal.
   */

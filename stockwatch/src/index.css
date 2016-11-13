@@ -6,39 +6,39 @@ body {
 }
 
 .header {
-	text-align: center;
+  text-align: center;
 }
 
 .table>tbody>tr>td {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 
 .navbar-default .navbar-toggle:focus{
-	background: none;
+  background: none;
 }
 
 .navbar-default .navbar-toggle{
-	border: none;
+  border: none;
 }
 
 .navbar-default .navbar-toggle:active,
 .navbar-default .navbar-toggle:hover{
-	background-color: #ddd;
+  background-color: #ddd;
 }
 
 .row-info{
-	text-align: center;
+  text-align: center;
 }
 
 button.add:after{
-	content: 'Legg til';
+  content: 'Legg til';
 }
 
 button.btn:focus,
 button.btn:focus:active,
 button.btn.active,
 button.btn.active:focus{
-	outline: none;
+  outline: none;
 }
 
 #logged-in-as{
@@ -65,77 +65,77 @@ button.btn.active:focus{
 }
 
 @media (max-width: 992px){
-	.table{
-		font-size: 0.9em;
-	}
+  .table{
+    font-size: 0.9em;
+  }
 }
 
 @media (max-width: 767px){
-	.col-md-12{
-		padding: 0 10px;
-	}
+  .col-md-12{
+    padding: 0 10px;
+  }
 
-	.table-responsive{
-		border: none;
-	}
+  .table-responsive{
+    border: none;
+  }
 
-	.table{
-		font-size: 0.8em;
-	}
+  .table{
+    font-size: 0.8em;
+  }
 
-	tr.mouse-pointer td:first-child{
-		overflow: hidden;
-		max-width: 175px;
-		text-overflow: ellipsis;
-	}
+  tr.mouse-pointer td:first-child{
+    overflow: hidden;
+    max-width: 175px;
+    text-overflow: ellipsis;
+  }
 
-	.hide-on-smartphone {
-		display: none;
-	}
+  .hide-on-smartphone {
+    display: none;
+  }
 
-	.homepage-content {
-		margin: 2em 8px;
-		font-size: 1em;
-		padding: 1em;
-	}
+  .homepage-content {
+    margin: 2em 8px;
+    font-size: 1em;
+    padding: 1em;
+  }
 }
 
 @media (max-width: 650px){
-	.hide-on-650px{
-		display: none;
-	}
+  .hide-on-650px{
+    display: none;
+  }
 }
 
 @media (max-width: 580px){
-	.hide-on-580px{
-		display: none;
-	}
+  .hide-on-580px{
+    display: none;
+  }
 }
 
 @media (max-width: 500px){
-	.hide-on-500px{
-		display: none;
-	}
+  .hide-on-500px{
+    display: none;
+  }
 
-	.ticker-content {
-		font-size: 21px;
-	}
+  .ticker-content {
+    font-size: 21px;
+  }
 
-	tr.mouse-pointer td:first-child{
-		max-width: 150px;
-	}
+  tr.mouse-pointer td:first-child{
+    max-width: 150px;
+  }
 
-	button.add:after{
-		content: '+';
-	}
+  button.add:after{
+    content: '+';
+  }
 }
 
 @media (max-width: 410px){
-	.hide-on-410px{
-		display: none;
-	}
+  .hide-on-410px{
+    display: none;
+  }
 
-	tr.mouse-pointer td:first-child{
-		max-width: 140px;
-	}
+  tr.mouse-pointer td:first-child{
+    max-width: 140px;
+  }
 }

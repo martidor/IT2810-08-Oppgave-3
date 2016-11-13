@@ -1,18 +1,18 @@
 .charts > div {
-	padding: 20px 0;
+  padding: 20px 0;
 }
 
 .charts > div + div {
-	padding-top: 50px;
-	border-top: 1px solid #e7e7e7;
+  padding-top: 50px;
+  border-top: 1px solid #e7e7e7;
 }
 
 .charts tspan{
-	font-weight: 300;
+  font-weight: 300;
 }
 
 .missing-stats{
-	text-align: center;
-	margin-top: 50px;
-	font-size: 1.4em;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.4em;
 }

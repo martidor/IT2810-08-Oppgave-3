@@ -1,15 +1,15 @@
 // Base setup
 // =============================================================================
-var express		= require('express');
-var app        	= express();
-var port 		= 8008;
-var bodyParser 	= require('body-parser');
+var express   = require('express');
+var app         = express();
+var port    = 8008;
+var bodyParser  = require('body-parser');
 var cookieParse = require('cookie-parser')
-var session 	= require('express-session');
-var passport 	= require('passport');
-var routes 		= require('./routes/index');
-var authRoutes	= require('./routes/auth');
-var Cronjob 	= require('./helper/cronjob');
+var session   = require('express-session');
+var passport  = require('passport');
+var routes    = require('./routes/index');
+var authRoutes  = require('./routes/auth');
+var Cronjob   = require('./helper/cronjob');
 
 // Configure passport
 require('./config/facebook')(passport);

@@ -9,7 +9,7 @@ var User = require('../models/user');
 var config = require('./apiConfig');
 
 module.exports = function(passport) {
-	
+  
     // Passort session setup
     // =============================================================================
     // passport needs ability to serialize and unserialize users out of session

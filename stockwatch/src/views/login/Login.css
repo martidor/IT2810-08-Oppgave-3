@@ -1,24 +1,24 @@
 .login-wrapper{
-	text-align: center;
+  text-align: center;
 }
 
 .login-wrapper button {
-	margin-top: 50px;
-	padding: 10px 20px;
-	font-size: 1.4em;
-	display: flex;
-	align-items: center;
-	margin: 40px auto;
-	line-height: 2em; /* equal to height of facebook icon */
+  margin-top: 50px;
+  padding: 10px 20px;
+  font-size: 1.4em;
+  display: flex;
+  align-items: center;
+  margin: 40px auto;
+  line-height: 2em; /* equal to height of facebook icon */
 }
 
 .login-wrapper button .fa-facebook-square {
-	color: rgb(45, 68, 134);
-	font-size: 2em;
-	margin-right: 10px
+  color: rgb(45, 68, 134);
+  font-size: 2em;
+  margin-right: 10px
 }
 
 .login-wrapper button .fa-user-secret {
-	font-size: 2em;
-	margin-right: 10px
+  font-size: 2em;
+  margin-right: 10px
 }
