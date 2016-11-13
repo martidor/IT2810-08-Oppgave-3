@@ -1,3 +1,6 @@
+// This module has a bad classname, and provides helper methods for different
+// parts of the server. TODO: distribute methods to relevant classes.
+// ===============================================================================
 var fetch 		= require('node-fetch');
 var Promise 	= require('bluebird');
 var Database 	= require('../database/database');
@@ -5,6 +8,7 @@ var OsloBors	= require('../external-apis/oslobors');
 
 class Helper{
 
+	// Convert an object to an array
 	static convertObjectToArray(obj){
 		return Object.keys(obj).map(function (key) { return obj[key]; });
 	}
@@ -65,6 +69,8 @@ class Helper{
 		});
 	}
 
+	// This method is getting user stats from the database,
+	// and spread it into different stats arrays.
 	static getStatsByUser(user, callback){
 		var promise = new Promise(function(resolve, reject) {
 			Database.getStatsByUserId(user.id, function(userStats){
@@ -89,6 +95,8 @@ class Helper{
 		});
 	}
 
+	// This method places equities on a user, based
+	// on which equities the user has.
 	static placeEquitiesOnUsers(dbResults, apiResults){
 		let users = {};
 		for (let dbResult of dbResults) {
@@ -107,6 +115,8 @@ class Helper{
 		return users;
 	}
 
+	// Helper method to calculate user stats, based
+	// on the equities of a user. 
 	static calculateUserStats(users){
 		let stats = [];
 		for (let userKey in users){

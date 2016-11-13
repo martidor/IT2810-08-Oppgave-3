@@ -1,3 +1,5 @@
+// Model to represent a user
+// ===============================================================================
 var Database = require('../database/database');
 
 class User {
@@ -10,6 +12,7 @@ class User {
 		this.visibility = visibility;
 	}
 
+	// Store *this* user in the database.
 	saveToDb(callback){
 		let userToInsert = this;
 		Database.insertNewUser(userToInsert, function(){
@@ -19,6 +22,7 @@ class User {
 		});
 	}
 
+	// Find a user in the database based on the user id.
 	static findById(id, callback){
 		Database.getUserById(id, function(err, user){
 			if (typeof user == 'undefined' || err)
@@ -28,6 +32,7 @@ class User {
 		});
 	}
 
+	// Find a user in the database based on the facebook id.
 	static findByFacebookId(facebookId, callback){
 		Database.getUserByFacebookId(facebookId, function(err, user){
 			if (typeof user == 'undefined' || err)
@@ -36,7 +41,6 @@ class User {
 				callback(err, new User(user.FacebookId, user.Token, user.Name, user.UserId, user.PortfolioVisibility));
 		});
 	}
-
 }
 
 module.exports = User;

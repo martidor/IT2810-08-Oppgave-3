@@ -1,3 +1,5 @@
+// This module is used as a repository that communicates with the database.
+// ===============================================================================
 var sqlite3 = require('sqlite3').verbose();
 
 class Database{
@@ -97,6 +99,5 @@ class Database{
 		db.close();
 	}
 }
-
 
 module.exports = Database;

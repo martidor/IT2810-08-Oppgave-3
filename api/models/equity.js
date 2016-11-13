@@ -1,3 +1,5 @@
+// Model to represent an equity.
+// ===============================================================================
 var Database = require('../database/database');
 
 class Equity {
@@ -9,6 +11,7 @@ class Equity {
 		this.stockholding = stockholding;
 	}
 
+	// Store *this* equity on a user.
 	saveToDb(userId, callback){
 		Database.insertUserEquity(this, userId, function(){
 			callback();

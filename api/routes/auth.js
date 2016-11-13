@@ -1,9 +1,10 @@
+// Routes for auth
+// =============================================================================
 var express 	= require('express');
 var passport = require('passport');
 var config = require('../config/apiConfig');
 
-// Routes for auth
-// =============================================================================
+// Get or initialize the singleton router
 var router = express.Router();
 
 // test route to make sure everything is working (accessed at GET /api)
