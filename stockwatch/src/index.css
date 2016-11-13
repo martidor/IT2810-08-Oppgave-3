@@ -43,12 +43,26 @@ button.btn.active:focus{
 	outline: none;
 }
 
-#loggetinnsom{
+#logged-in-as{
   font-size: 0.7em;
   cursor: default;
   color: #777777;
-
 }
+
+@media (max-width: 500px) {
+  #logged-in-as{
+    font-size: 0.6em;
+  }
+
+  .stockwatch-brand{
+    max-width: 260px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+
 
 #portfolioVisibility{
   padding-left: 20px;
