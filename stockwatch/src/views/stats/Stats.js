@@ -6,6 +6,10 @@ import './Stats.css';
 
 export default class Stats extends Component {
 
+  /*
+    This component is a wrapper for the different stats charts.
+  */
+
   // eslint-disable-next-line
   constructor(props){
     super(props);

@@ -5,8 +5,8 @@ import config from '../../config/apiConfig';
 export default class AddSearchEquityForm extends Component{
 
   /*
-        This component is a wrapper for different charts (highcharts).
-    */
+    This component shows a form for adding an equity to the portfolio.
+  */
 
   render() {
     return(

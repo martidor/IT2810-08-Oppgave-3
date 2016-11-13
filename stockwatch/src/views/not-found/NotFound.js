@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
 export default class NotFound extends Component {
+  
   /*
-  This component will show if the user enters a path that does not match any of the routes.
+    This component will show if the user enters a path that does not match any of the routes.
   */
 
   getRandomNickName(){

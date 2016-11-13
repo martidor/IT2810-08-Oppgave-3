@@ -6,9 +6,10 @@ import color from '../../config/color';
 import './SearchEquity.css';
 
 export default class SearchEquity extends Component {
+  
   /*
-  This component is a table row showing info about a searched equity.
-  It contains info about a equity and is not related to a user.
+    This component is a table row showing info about a searched equity.
+    It contains info about a equity and is not related to a user.
   */
 
   render() {

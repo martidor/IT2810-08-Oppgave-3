@@ -3,6 +3,10 @@ import {Row, Col} from 'react-bootstrap';
 
 export default class ApiNotWorking extends Component {
 
+  /*
+    This component is showing if the API is not responding on requests.
+  */
+
   render() {
     return (
       <Row className="show-grid">

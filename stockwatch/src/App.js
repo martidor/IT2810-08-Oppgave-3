@@ -7,9 +7,10 @@ import auth from './auth/auth';
 
 
 export default class App extends Component {
+  
   /*
-  This component serves as a wrapper for all the other pages. When the user enters a page,
-  the page component will be rendered in the {this.props.children}.
+    This component serves as a wrapper for all the other pages. When the user enters a page,
+    the page component will be rendered in the {this.props.children}.
   */
 
   render() {

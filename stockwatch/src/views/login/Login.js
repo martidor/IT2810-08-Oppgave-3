@@ -6,6 +6,10 @@ import './Login.css';
 
 export default class Login extends Component{
 
+  /*
+    This component shows login possibilities.
+  */
+
   loginWithFacebook(){
     window.location.href = config.facebookAuthUrl;
   }

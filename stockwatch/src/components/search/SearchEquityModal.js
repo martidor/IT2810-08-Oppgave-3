@@ -8,8 +8,9 @@ import config from '../../config/apiConfig';
 import color from '../../config/color';
 
 export default class SearchEquityModal extends Component{
+  
   /*
-  This component is showing info about a equity in a modal.
+    This component is showing info about a equity in a modal.
   */
 
   constructor(props) {

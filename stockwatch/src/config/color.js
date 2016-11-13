@@ -1,4 +1,5 @@
-
+// This module provides methods for getting color values for the design
+// ===============================================================================
 module.exports = {
 
   getClassName(value){

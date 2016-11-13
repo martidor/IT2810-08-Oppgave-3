@@ -1,3 +1,5 @@
+// Options for the chart that shows todays ticker (OSEBX)
+// =============================================================================
 import Highcharts from 'highcharts/highstock.js';
 
 export let TickerOptions = {

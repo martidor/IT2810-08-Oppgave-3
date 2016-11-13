@@ -1,3 +1,5 @@
+// This module configures the URLs used to store and access data on the server
+// ===============================================================================
 var baseUrl = 'http://' + window.location.hostname + ':8008';
 var apiUrl  = baseUrl + '/api';
 var authUrl = baseUrl + '/auth';

@@ -1,3 +1,5 @@
+// This module sets up a cronjob that daily updates stats
+// ===============================================================================
 var CronJob   = require('cron').CronJob;
 var Database  = require('../database/database');
 var Helper    = require('../helper/helper');

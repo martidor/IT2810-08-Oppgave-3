@@ -1,3 +1,5 @@
+// Options for the chart that return on investment in money
+// =============================================================================
 import Highcharts from 'highcharts/highstock.js';
 export let ReturnOnInvestmentOptions = {
   chart: {

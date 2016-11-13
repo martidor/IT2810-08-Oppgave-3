@@ -5,7 +5,8 @@ import { FormattedNumber } from 'react-intl';
 export default class PortfolioFilter extends Component{
   
   /*
-  This component is showing info filter options
+    This component is showing filter options, and provides the possibility
+    to apply filters on equities.
   */
 
   constructor(props){

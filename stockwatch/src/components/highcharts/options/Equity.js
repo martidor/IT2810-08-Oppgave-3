@@ -1,3 +1,5 @@
+// Options for the chart that shows historical data for one equity
+// =============================================================================
 import Highcharts from 'highcharts/highstock.js';
 
 export let EquityOptions = {

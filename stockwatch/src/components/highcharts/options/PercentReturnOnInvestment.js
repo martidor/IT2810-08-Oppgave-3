@@ -1,3 +1,5 @@
+// Options for the chart that shows percent return on overall investment
+// =============================================================================
 import Highcharts from 'highcharts/highstock.js';
 
 export let PercentReturnOnInvestment = {

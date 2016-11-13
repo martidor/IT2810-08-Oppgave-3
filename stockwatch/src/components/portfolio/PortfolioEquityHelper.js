@@ -1,7 +1,7 @@
 export default class PortfolioEquityHelper{
 
   /*
-    This class calculates different values based on the equity.
+    This class calculates accumulated values based on the equity.
   */
 
   /* eslint-disable */

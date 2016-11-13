@@ -10,8 +10,9 @@ import config from '../../config/apiConfig';
 import './Portfolio.css';
 
 export default class Portfolio extends Component {
+  
   /*
-  This component shows a list of the users portfolio.
+    This component shows the users portfolio (a list of equities).
   */
 
   constructor(props) {

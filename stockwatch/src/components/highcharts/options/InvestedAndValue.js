@@ -1,3 +1,5 @@
+// Options for the chart that shows total invested and total value
+// =============================================================================
 import Highcharts from 'highcharts/highstock.js';
 
 export let InvestedAndValueOptions = {
