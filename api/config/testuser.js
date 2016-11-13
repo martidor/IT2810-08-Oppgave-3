@@ -9,18 +9,18 @@ var config = require('./apiConfig');
 
 module.exports = function(passport) {
 
-    passport.use(new LocalStrategy(
-        function(username, password, done) {
-            User.findByFacebookId('6666666666', function(err, user) {
-                // Abort misson on DB error
-                if (err)
-                    return done(err, false);
+  passport.use(new LocalStrategy(
+    function(username, password, done) {
+      User.findByFacebookId('6666666666', function(err, user) {
+        // Abort misson on DB error
+        if (err)
+          return done(err, false);
 
-                if (user)
-                    return done(null, user);
+        if (user)
+          return done(null, user);
 
-                return done(null, null);
-            });
-        }
-    ));
+        return done(null, null);
+      });
+    })
+  );
 }
