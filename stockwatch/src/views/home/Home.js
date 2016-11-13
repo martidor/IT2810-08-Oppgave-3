@@ -33,20 +33,20 @@ export default class Home extends Component {
       .catch((error) => {
         console.error(error);
       });
-    }
+  }
 
-    chartLoaded = (json) => {
-      let currentTime = json.ticker[json.ticker.length - 1][0];
-      let currentValue = json.ticker[json.ticker.length - 1][1]
-      let percentChanged = (currentValue / json.yesterday) - 1;
-      this.setState({
-        'chartLoaded': true,
-        'chart': json,
-        'currentValue': currentValue,
-        'currentTime': currentTime,
-        'percentChanged': percentChanged
-      });
-    }
+  chartLoaded = (json) => {
+    let currentTime = json.ticker[json.ticker.length - 1][0];
+    let currentValue = json.ticker[json.ticker.length - 1][1]
+    let percentChanged = (currentValue / json.yesterday) - 1;
+    this.setState({
+      'chartLoaded': true,
+      'chart': json,
+      'currentValue': currentValue,
+      'currentTime': currentTime,
+      'percentChanged': percentChanged
+    });
+  }
 
   render() {
     if (this.state.chartLoaded)
