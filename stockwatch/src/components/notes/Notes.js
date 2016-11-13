@@ -33,7 +33,7 @@ export default class Notes extends Component{
     if (this.state.showNoteField)
       noteField = (
         <div id="note_components">
-          <h3 id="note_title">Enter a quick note</h3>
+          <h3 id="note_title">Lag en liten notat</h3>
           <NoteInput />
         </div>
       );
