@@ -7,12 +7,14 @@ import config from '../../config/apiConfig'
 import color from '../../config/color';
 import './Home.css';
 
-
 export default class Home extends Component {
-  /*The Home page Component will be the default page of the site.
-    Here we'll show some basic information about equities, and the user can log in.
-    Once the user has logged in, the Home page will show some user-relevant information as well.*/
 
+  /*
+  The Home page Component will be the default page of the site.
+    This displays a large graph of the latest marked activity/benchmark index,
+    along with some additional information about use of the website.
+    */
+    
     constructor(props){
         super(props);
 

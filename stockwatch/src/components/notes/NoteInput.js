@@ -3,20 +3,23 @@ import Textarea from 'react-textarea-autosize';
 
 export default class NoteInput extends Component{
 
-  // var Textarea = require('react-textarea-autosize');
+  /*
+    The text area part of the Notes component.
+  */
 
+  //Sets localStorage to empty string before mounting to avoid undefined errors.
   componentWillMount(){
     this.setState({
       note: localStorage.note || ""
     })
   }
 
+  //When text is written in Textarea it is appended to localStorage in real-time.
   handleChange = (e) => {
     const note = e.target.value;
     this.setState({note: note})
     localStorage.note = note;
   }
-
 
   render(){
     return(
