@@ -22,6 +22,7 @@ class Cronjob{
 		job.start();
 	}
 
+	// Method to initialize the update of all registered users' stats.
 	static updateStats(){
 		Helper.getAllUserEquities(function(users){
 			let userArray = Helper.calculateUserStats(users);

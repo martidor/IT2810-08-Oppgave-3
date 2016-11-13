@@ -1,4 +1,3 @@
-
 // Base setup
 // =============================================================================
 var express		= require('express');
@@ -13,7 +12,7 @@ var authRoutes	= require('./routes/auth');
 var Cronjob 	= require('./helper/cronjob');
 
 // Configure passport
-require('./config/passport')(passport);
+require('./config/facebook')(passport);
 // Setup test user
 require('./config/testuser')(passport);
 

@@ -1,3 +1,5 @@
+// This module is used to communicate with the Oslo Børs api
+// ===============================================================================
 var fetch = require('node-fetch');
 var Promise = require('bluebird');
 
@@ -24,7 +26,7 @@ class OsloBors{
 		return `http://www.oslobors.no/ob/servlets/components/graphdata/(${type})/DAY/${equityId}?points=2000&period=3years`;
 	}
 
-	// Methods to get data from API
+	// Get equity info for all equities (both stocks and funds)
 	static getEquities(callback) {
 		let requestUrls = [OsloBors.stockUrl(), OsloBors.fundUrl()];
 
@@ -38,6 +40,7 @@ class OsloBors{
 		});
 	};
 
+	// Get data for the OSEBX ticker.
 	static getTicker(callback){
 		let requestUrls = [OsloBors.tickerUrl(), OsloBors.yesterdayCloseUrl()];
 
@@ -51,6 +54,7 @@ class OsloBors{
 		});
 	}
 
+	// Get historic data for a specific equity
 	static getEquityStats(equityId, type, callback){
 		let key = (type === 'SHARES') ? 'CLOSE_CA' : 'PRICE';
 		let requestUrl = OsloBors.equityStatsUrl(equityId, key);
@@ -63,7 +67,7 @@ class OsloBors{
 		});
 	}
 
-	// Helper methods
+	// Helper method to extract equity info from the Oslo Børs response.
 	static extractEquities(results){
 		let equities = {};
 		for (let result of results) {
@@ -74,14 +78,13 @@ class OsloBors{
 		return equities;
 	}
 
+	// Helper method to merge todays ticker with the closing value from yesterday.
 	static mergeTickerAndYesterday(results){
 		let json = {};
 		json.ticker = results[0].rows[0].values.series.s1.data;
 		json.yesterday = results[1].rows[0].values.CLOSE_BEGIN_1DAY;
 		return json;
 	}
-
-	
 }
 
 module.exports = OsloBors;
