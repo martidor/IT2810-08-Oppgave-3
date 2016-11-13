@@ -1,14 +1,24 @@
 import React, {Component} from 'react';
 import { FormattedNumber } from 'react-intl';
+import color from '../../config/color';
 
 export default class PortfolioTotal extends Component {
 
   render(){
-    let totalPrice = 0, totalValue = 0;
+    let totalPrice = 0, 
+        totalValue = 0, 
+        totalChangeSinceYesterday = 0,
+        totalValueYesterday = 0;
 
-    for (var equity of this.props.equities){
+    for (const equity of this.props.equities){
+      let equityTotalValue = equity.price * equity.Stockholding,
+          percentChangeSinceYesterday = (equity.percent + 100) / 100,
+          valueYesterday = (equityTotalValue / percentChangeSinceYesterday);
+
       totalPrice += equity.TotalPrice;
-      totalValue += equity.price * equity.Stockholding;
+      totalValue += equityTotalValue;
+      totalValueYesterday += valueYesterday;
+      totalChangeSinceYesterday += equityTotalValue - valueYesterday;
     }
 
     return (
@@ -16,7 +26,14 @@ export default class PortfolioTotal extends Component {
         <td>Totalt</td>
         <td className="hide-on-580px"></td>
         <td className="hide-on-650px"></td>
-        <td></td>
+        <td className={ color.getClassName(totalChangeSinceYesterday) }>
+          <FormattedNumber // eslint-disable-next-line
+            style='percent'
+            minimumFractionDigits={2}
+            maximumFractionDigits={2}
+            value={ totalChangeSinceYesterday / totalValueYesterday }
+          />
+        </td>
         <td className="hide-on-410px">
           <FormattedNumber
             minimumFractionDigits={0}

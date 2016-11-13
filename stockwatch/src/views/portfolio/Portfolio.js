@@ -151,7 +151,7 @@ export default class Portfolio extends Component {
           />
           <Table hover responsive>
             <thead>
-              <tr>
+              <tr className="portfolio-header">
                 <th className="sortable" onClick={() => this.sortBy('name', false)}>
                   Navn <span className="caret"></span>
                 </th>
