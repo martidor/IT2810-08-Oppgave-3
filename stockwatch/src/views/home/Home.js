@@ -9,7 +9,8 @@ import './Home.css';
 
 export default class Home extends Component {
 
-  /*The Home page Component will be the default page of the site.
+  /*
+  The Home page Component will be the default page of the site.
     This displays a large graph of the latest marked activity/benchmark index,
     along with some additional information about use of the website.
     */
