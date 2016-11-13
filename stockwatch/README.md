@@ -8,6 +8,9 @@ Stockwatch is your number one source for keeping track of stock values. Using da
 
 The react application is running at http://it2810-08.idi.ntnu.no.
 
+### Documentation
+Installation guide, the file structure as well as some basic documentation is located on this page. For a more thorough documentation and a description of how the requirements were fulfilled, take a look at `/IT2810_Documentation.pdf`.
+
 ### How to install
 
 Make sure that you are running node v6 or higher, and npm v3 or higher. Some configuration is required in order for the application to run properly. We have two config files and a database that must set up. These are ignored by git, in order to support different configuration on different pages. We have included examples of everything, so it should not be too hard to configure. Start off by cloning the git directory with `git clone`, replace <username> with your own username:
