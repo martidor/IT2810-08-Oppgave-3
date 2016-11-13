@@ -42,7 +42,6 @@ export default class NavigationBar extends Component {
 
 	userLoaded = (user) => {
 		this.setState({user : user.name});
-		this.setState({userToPrint : " | " + user.name});
 	}
 
 	open = () => {
@@ -58,13 +57,16 @@ export default class NavigationBar extends Component {
 	}
 
 	render() {
+		let printedUser;
+		if(this.state.isLoggedIn)
+			printedUser = " | " + this.state.user;
     	return (
 	  		<Navbar id="NavigationBar" collapseOnSelect fixedTop >
 	    		<Navbar.Header>
 	      			<Navbar.Brand>
 	      				<LinkContainer to="/">
 	      					<a href="/">
-	      						<FontAwesome name="dollar" />tockwatch <span id="loggetinnsom"> {this.state.userToPrint}</span>
+	      						<FontAwesome name="dollar" />tockwatch <span id="loggetinnsom"> {printedUser}</span>
       						</a>
 	      				</LinkContainer>
 	      			</Navbar.Brand>
