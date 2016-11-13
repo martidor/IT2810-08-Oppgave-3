@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import config from '../../config/apiConfig'
 
 export default class DeletePortfolioEquity extends Component{
-  
+
   /*
   This component provides possibility to delete an equity.
   */

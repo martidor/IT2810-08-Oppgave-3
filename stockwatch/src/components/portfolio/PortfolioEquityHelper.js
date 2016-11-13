@@ -1,9 +1,8 @@
-
 export default class PortfolioEquityHelper{
 
   /*
-        This class calculates different values based on the equity.
-    */
+    This class calculates different values based on the equity.
+  */
 
   /* eslint-disable */
   constructor(equity){
@@ -22,11 +21,11 @@ export default class PortfolioEquityHelper{
   }
 
   getAnnualPercentReturn(equity){
-      const percentChange = equity.price * equity.Stockholding / equity.TotalPrice;
-      const msInOneDay = 1000 * 60 * 60 * 24;
-      const epochNow = (new Date).getTime();
-      const daysSinceInvest = (epochNow - equity.TransactionTimestamp) / msInOneDay;
-      return Math.pow(percentChange, (1/(daysSinceInvest/365.25))) - 1;
+    const percentChange = equity.price * equity.Stockholding / equity.TotalPrice;
+    const msInOneDay = 1000 * 60 * 60 * 24;
+    const epochNow = (new Date).getTime();
+    const daysSinceInvest = (epochNow - equity.TransactionTimestamp) / msInOneDay;
+    return Math.pow(percentChange, (1/(daysSinceInvest/365.25))) - 1;
   }
 
   getTotalValue(equity){

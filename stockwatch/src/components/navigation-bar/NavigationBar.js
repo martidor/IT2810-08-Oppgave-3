@@ -12,7 +12,7 @@ export default class NavigationBar extends Component {
     This component is a navbar that is rendered on all the pages.
     It contains links to the different sites.
   */
-  
+
   constructor(){
     super();
     if (auth.isLoggedIn())
@@ -40,7 +40,7 @@ export default class NavigationBar extends Component {
     })
     .catch((error) => {
       console.error(error);
-      });
+    });
   }
 
   userLoaded = (user) => {
@@ -66,19 +66,18 @@ export default class NavigationBar extends Component {
       return (
         <Navbar id="NavigationBar" collapseOnSelect fixedTop >
           <Navbar.Header>
-              <Navbar.Brand>
-                <LinkContainer to="/">
-                  <a className="stockwatch-brand" href="/">
-                    <FontAwesome name="dollar" />tockwatch <span id="logged-in-as"> {printedUser}</span>
-                  </a>
-                </LinkContainer>
-              </Navbar.Brand>
-              <Navbar.Toggle />
+            <Navbar.Brand>
+              <LinkContainer to="/">
+                <a className="stockwatch-brand" href="/">
+                  <FontAwesome name="dollar" />tockwatch <span id="logged-in-as"> {printedUser}</span>
+                </a>
+              </LinkContainer>
+            </Navbar.Brand>
+            <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
             {this.state.isLoggedIn ? (
               <Nav pullRight>
-
                 <LinkContainer to="/sok">
                   <NavItem eventKey={1}><FontAwesome name="search" /> Søk</NavItem>
                 </LinkContainer>
@@ -94,16 +93,15 @@ export default class NavigationBar extends Component {
                 <LinkContainer to="/logg-ut">
                   <NavItem eventKey={4}><FontAwesome name="sign-out" /> Logg ut</NavItem>
                 </LinkContainer>
-
               </Nav>
             ) : (
-              <Nav pullRight>
-            <NavItem onClick={this.open}><FontAwesome name="sign-in" /> Logg in</NavItem>
-            <LoginModal close={this.close} show={this.state.showModal}/>
-          </Nav>
+            <Nav pullRight>
+              <NavItem onClick={this.open}><FontAwesome name="sign-in" /> Logg in</NavItem>
+              <LoginModal close={this.close} show={this.state.showModal}/>
+            </Nav>
             )}
           </Navbar.Collapse>
         </Navbar>
       );
-    }
+  }
 }

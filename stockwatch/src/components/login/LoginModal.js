@@ -5,8 +5,8 @@ import Login from '../../views/login/Login';
 export default class LoginModal extends Component{
 
   /*
-        This component shows a modal with the possibility to log in.
-    */
+    This component shows a modal with the possibility to log in.
+  */
 
   render(){
     return(
