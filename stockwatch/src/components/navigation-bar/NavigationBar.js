@@ -65,8 +65,8 @@ export default class NavigationBar extends Component {
 	    		<Navbar.Header>
 	      			<Navbar.Brand>
 	      				<LinkContainer to="/">
-	      					<a href="/">
-	      						<FontAwesome name="dollar" />tockwatch <span id="loggetinnsom"> {printedUser}</span>
+	      					<a className="stockwatch-brand" href="/">
+	      						<FontAwesome name="dollar" />tockwatch <span id="logged-in-as"> {printedUser}</span>
       						</a>
 	      				</LinkContainer>
 	      			</Navbar.Brand>
@@ -75,7 +75,7 @@ export default class NavigationBar extends Component {
 	    		<Navbar.Collapse>
 	      		{this.state.isLoggedIn ? (
 	      			<Nav pullRight>
-	      				
+
 		      			<LinkContainer to="/sok">
 			        		<NavItem eventKey={1}><FontAwesome name="search" /> Søk</NavItem>
 				        </LinkContainer>
@@ -91,7 +91,7 @@ export default class NavigationBar extends Component {
 				      	<LinkContainer to="/logg-ut">
 				        	<NavItem eventKey={4}><FontAwesome name="sign-out" /> Logg ut</NavItem>
 			        	</LinkContainer>
-	        		
+
 	        		</Nav>
 	        	) : (
 	        		<Nav pullRight>
