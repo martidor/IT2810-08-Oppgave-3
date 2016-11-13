@@ -37,15 +37,15 @@ export default class PortfolioEquityRow extends Component {
           }
         </td>
         <td className="hide-on-410px">
-        {
-          equity.calculated.return ?
-          <FormattedNumber
-            minimumFractionDigits={0}
-            maximumFractionDigits={0}
-            value={ equity.calculated.return }
-          />
-          : "-"
-         }
+          {
+            equity.calculated.return ?
+            <FormattedNumber
+              minimumFractionDigits={0}
+              maximumFractionDigits={0}
+              value={ equity.calculated.return }
+            />
+            : "-"
+          }
         </td>
         <td className={ color.getClassName(equity.calculated.annualPercentReturn) + " hide-on-500px" }>
           {

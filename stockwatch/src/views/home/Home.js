@@ -19,20 +19,19 @@ export default class Home extends Component {
     super(props);
 
     this.state = { 'chartLoaded': false, chart: {} }
-
     this.loadChart(this.chartLoaded);
   }
 
   loadChart = (callback) => {
     return fetch(config.tickerUrl,
       { credentials: 'include' })
-      .then((response) => response.json())
-      .then((json) => {
-        callback(json);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    .then((response) => response.json())
+    .then((json) => {
+      callback(json);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   }
 
   chartLoaded = (json) => {

@@ -40,8 +40,8 @@ export default class SearchEquity extends Component {
               value={equity.price}
             />
             : "-"
-           }
-         </td>
+          }
+        </td>
         <td><Button className="add" bsSize="xsmall"></Button></td>
       </tr>
     );

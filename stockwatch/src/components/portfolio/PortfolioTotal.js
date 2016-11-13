@@ -10,14 +10,14 @@ export default class PortfolioTotal extends Component {
 
   render(){
     let totalPrice = 0, 
-        totalValue = 0, 
-        totalChangeSinceYesterday = 0,
-        totalValueYesterday = 0;
+      totalValue = 0, 
+      totalChangeSinceYesterday = 0,
+      totalValueYesterday = 0;
 
     for (const equity of this.props.equities){
       let equityTotalValue = equity.price * equity.Stockholding,
-          percentChangeSinceYesterday = (equity.percent + 100) / 100,
-          valueYesterday = (equityTotalValue / percentChangeSinceYesterday);
+        percentChangeSinceYesterday = (equity.percent + 100) / 100,
+        valueYesterday = (equityTotalValue / percentChangeSinceYesterday);
 
       totalPrice += equity.TotalPrice;
       totalValue += equityTotalValue;

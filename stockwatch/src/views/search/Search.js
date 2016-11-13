@@ -54,37 +54,37 @@ export default class Search extends Component {
   }
 
   equitiesLoaded = (equities) => {
-      this.setState({ 'equities': equities, 'equitiesLoaded': true, show: false });
-      this.equities = equities;
+    this.setState({ 'equities': equities, 'equitiesLoaded': true, show: false });
+    this.equities = equities;
 
-      // Initialize the searcher with search options
-      this.fuse = new Fuse(equities, {
-        keys: ['name'],
-        threshold: 0.2,
-        shouldSort: true
-      });
+    // Initialize the searcher with search options
+    this.fuse = new Fuse(equities, {
+      keys: ['name'],
+      threshold: 0.2,
+      shouldSort: true
+    });
 
-      this.registerScrollSpy();
+    this.registerScrollSpy();
   }
 
   loadEquities = (callback) => {
     return fetch(config.equityUrl,
       { credentials: 'include' })
-      .then((response) => response.json())
-      .then((json) => {
-        callback(json);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    .then((response) => response.json())
+    .then((json) => {
+      callback(json);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   }
 
   showTenMoreEquities = () => {
-      let numResults = this.state.numResults;
-      this.setState({
-        show: false,
-        numResults: numResults + 10
-      });
+    let numResults = this.state.numResults;
+    this.setState({
+      show: false,
+      numResults: numResults + 10
+    });
   }
 
   search = (event) => {
@@ -109,7 +109,6 @@ export default class Search extends Component {
   }
 
   render() {
-
     let numResults = this.state.numResults;
     return (
       <div>
@@ -148,8 +147,9 @@ export default class Search extends Component {
                       return (
                         <SearchEquity key={i} showModal={() => this.showModal(equity)} equity={equity} />
                       )
-                    } return null;
-                  }) : (
+                  } return null;
+                }
+                  ) : (
                     <tr>
                       <td colSpan="4" className="loading"> Laster inn.. <FontAwesome spin name="circle-o-notch" /> </td>
                       <td className="hide-on-500px"></td>

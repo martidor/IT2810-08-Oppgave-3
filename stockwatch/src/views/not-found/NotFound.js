@@ -36,9 +36,8 @@ export default class NotFound extends Component {
   render() {
     const nickname = this.getRandomNickName();
     const administrator = this.getRandomTeamMember(nickname);
-
     return (
-          <p style={{textAlign: 'center', marginTop: '50px'}}> Vennligst prøv en annen URL, eller ta kontakt med administrator {administrator}. </p>
+      <p style={{textAlign: 'center', marginTop: '50px'}}> Vennligst prøv en annen URL, eller ta kontakt med administrator {administrator}. </p>
     );
   }
 }
