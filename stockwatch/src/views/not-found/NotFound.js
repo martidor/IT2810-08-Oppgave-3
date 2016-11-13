@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Button} from 'react-bootstrap';
 
 export default class NotFound extends Component {
 	/*
@@ -16,7 +15,7 @@ export default class NotFound extends Component {
       '"TrumpPiercer"',
       '"TrumpTrumpsHillary"',
       '"Hillary?!?!MoreLikeHillarious"',
-      '"I\'mATrumpstaMotherfucker'
+      '"I\'mATrumpstaMotherfucker"'
     ];
     return nicknames[Math.floor(Math.random() * nicknames.length)];
   }
@@ -39,10 +38,7 @@ export default class NotFound extends Component {
     const administrator = this.getRandomTeamMember(nickname);
 
     return (
-      <div className="test">
       		<p style={{textAlign: 'center', marginTop: '50px'}}> Vennligst prøv en annen URL, eller ta kontakt med administrator {administrator}. </p>
-          <Button onClick="myFunction">HAHA</Button>
-      </div>
     );
   }
 }
