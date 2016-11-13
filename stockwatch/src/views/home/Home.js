@@ -7,10 +7,10 @@ import config from '../../config/apiConfig'
 import color from '../../config/color';
 import './Home.css';
 
-
 export default class Home extends Component {
-	/*The Home page Component will be the default page of the site.
-    This displays a large graph of the latest marked activity/benchmark index, 
+
+  /*The Home page Component will be the default page of the site.
+    This displays a large graph of the latest marked activity/benchmark index,
     along with some additional information about use of the website.
     */
 
@@ -21,7 +21,7 @@ export default class Home extends Component {
 
         this.loadChart(this.chartLoaded);
     }
-    
+
     loadChart = (callback) => {
         return fetch(config.tickerUrl,
             { credentials: 'include' })
