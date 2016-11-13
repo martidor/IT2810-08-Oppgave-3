@@ -1,3 +1,5 @@
+// This module is used to configure the URLs of the page, and Facebook credentials
+// ===============================================================================
 var siteUrl = 'http://localhost:3000';
 var apiUrl = 'http://localhost:8008';
 

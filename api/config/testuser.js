@@ -1,4 +1,6 @@
-// Load facebook strategy for passport
+// This module is used to configure a local login strategy (for test user)
+// ===============================================================================
+
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 

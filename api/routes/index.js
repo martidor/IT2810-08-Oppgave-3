@@ -1,3 +1,5 @@
+// Routes for our API
+// =============================================================================
 var express 	= require('express');
 var passport	= require('passport');
 var Database 	= require('../database/database');
@@ -6,12 +8,8 @@ var Helper		= require('../helper/helper');
 var config		= require('../config/apiConfig');
 var Equity      = require('../models/equity');
 
-// Routes for our API
-// =============================================================================
-
-// create our router
+// Get or initialize the singleton router
 var router = express.Router();
-
 
 // Middleware that all our requests will pass through
 // --------------------------------------------------------------------

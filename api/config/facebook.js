@@ -1,3 +1,6 @@
+// This module is used to initialize Facebook authentication
+// ===============================================================================
+
 // Load facebook strategy for passport
 var FacebookStrategy = require('passport-facebook').Strategy;
 var User = require('../models/user');

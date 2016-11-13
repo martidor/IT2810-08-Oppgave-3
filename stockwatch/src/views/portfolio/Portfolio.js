@@ -32,7 +32,6 @@ export default class Portfolio extends Component {
   }
 
   loadEquities = (callback) => {
-    // User id hard coded for now.
     return fetch(config.userEquitiesUrl,
       { credentials: 'include' })
       .then((response) => response.json())
